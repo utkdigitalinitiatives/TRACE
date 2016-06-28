@@ -1,11 +1,29 @@
-Vagrant.configure("2") do |config|
+VAGRANTFILE_API_VERSION = "2"
+
+$cpus   = ENV.fetch("ISLANDORA_VAGRANT_CPUS", "2")
+$memory = ENV.fetch("ISLANDORA_VAGRANT_MEMORY", "3000")
+$hostname = ENV.fetch("ISLANDORA_VAGRANT_HOSTNAME", "trace")
+$forward = ENV.fetch("ISLANDORA_VAGRANT_FORWARD", "TRUE")
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-
+  config.vm.provider "virtualbox" do |v|
+    v.name = "TRACE Development VM"
+  end
+  
+  unless  $forward.eql? "FALSE"  
+    config.vm.network :forwarded_port, guest: 8080, host: 8080 # Tomcat
+    config.vm.network :forwarded_port, guest: 3306, host: 3306 # MySQL
+    config.vm.network :forwarded_port, guest: 8000, host: 8000 # Apache
+  end
+  
+  config.vm.hostname = $hostname
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/xenial64"
 
+  shared_dir = "/vagrant"
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
@@ -109,4 +127,13 @@ Vagrant.configure("2") do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+  config.vm.provision :shell, path: "./scripts/modules.sh", :args => shared_dir, :privileged => false
+  config.vm.provision :shell, path: "./scripts/libraries.sh", :args => shared_dir, :privileged => false
+  if File.exist?("./scripts/custom.sh") then
+    config.vm.provision :shell, path: "./scripts/custom.sh", :args => shared_dir
+  end
+  config.vm.provision :shell, path: "./scripts/post.sh"
+  
+  config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
+    rsync__exclude: ".git/"
 end
