@@ -1,5 +1,4 @@
 islandora
-islandora_altmetrics
 islandora_bagit
 islandora_batch
 islandora_book_batch
@@ -18,7 +17,6 @@ islandora_openseadragon
 islandora_paged_content
 islandora_pathauto
 islandora_pdfjs
-islandora_premis
 islandora_populator
 islandora_scholar
 islandora_simple_workflow
