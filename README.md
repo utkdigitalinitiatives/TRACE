@@ -3,4 +3,7 @@ Trace is a University of Tennessee digital archive that showcases and preserves 
 
 
 ## Installing ##
-Check out the Wiki link
+
+
+## Notes
+[Check out the Wiki link](https://github.com/utkdigitalinitiatives/TRACE/wiki)
