@@ -37,6 +37,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.vm.provision :shell, path: "./scripts/post.sh"
   
-  config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
-    rsync__exclude: ".git/"
+  if File.exist?("~/Desktop/traceCustomModule") then
+    config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
+        rsync__exclude: ".git/"
+  end
 end
