@@ -24,7 +24,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "islandora/islandora-base"
 
   shared_dir = "/vagrant"
-  
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", $memory]
+    vb.customize ["modifyvm", :id, "--cpus", $cpus]
+  end
+
   config.vm.provision :shell, path: "./scripts/modules.sh", :args => shared_dir, :privileged => false
   config.vm.provision :shell, path: "./scripts/libraries.sh", :args => shared_dir, :privileged => false
   if File.exist?("./scripts/custom.sh") then
