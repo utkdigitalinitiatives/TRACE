@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.hostname = $hostname
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "islandora/islandora-base"
 
   shared_dir = "/vagrant"
   # The url from where the 'config.vm.box' box will be fetched if it
