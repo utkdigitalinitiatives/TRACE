@@ -33,3 +33,6 @@ xmlrpc.php
 /modules
 /profiles
 /themes
+
+# Ignore the .vagrant directory
+.vagrant/
