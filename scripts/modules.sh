@@ -101,3 +101,9 @@ drush eval "variable_set('islandora_ocr_tesseract', '/usr/bin/tesseract')"
 drush eval "variable_set('islandora_batch_java', '/usr/bin/java')"
 drush eval "variable_set('image_toolkit', 'imagemagick')"
 drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
+#
+# add additional modules
+drush dl simple_ldap
+drush -y -u 1 en simple_ldap
+drush -y -u 1 en simple_ldap_user
+
