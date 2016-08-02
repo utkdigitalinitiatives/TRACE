@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing php requirements for LDAP
+echo "Installing php requirements for LDAP"
 sudo apt-get -y install php5-ldap
 
 echo "Installing all Islandora Foundation modules"
