@@ -111,15 +111,15 @@ drush -y -u 1 pm-enable simple_ldap
 drush -y -u 1 pm-enable simple_ldap_user
 # set up ldap options
 # ldap-server
-drush eval "variable_set('simple_ldap_host', 'ldap://ldap.utk.edu')"
-drush eval "variable_set('simple_ldap_port', '636')"
-drush eval "variable_set('simple_ldap_basedn', 'dc=tennessee,dc=edu')"
+#drush eval "variable_set('simple_ldap_host', 'ldap.utk.edu')"
+#drush eval "variable_set('simple_ldap_port', '636')"
+#drush eval "variable_set('simple_ldap_basedn', 'dc=tennessee,dc=edu')"
 # ldap-user
-drush eval "variable_set('simple_ldap_user_basedn', 'dc=tennessee,dc=edu')"
-drush eval "variable_set('simple_ldap_user_scope', 'Subtree Search')"
-drush eval "variable_set('simple_ldap_user_objectclass', 'inetOrgPerson')"
-drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
-drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
+#drush eval "variable_set('simple_ldap_user_basedn', 'dc=tennessee,dc=edu')"
+#drush eval "variable_set('simple_ldap_user_scope', 'Subtree Search')"
+#drush eval "variable_set('simple_ldap_user_objectclass', 'inetOrgPerson')"
+#drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
+#drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
 
 
 
