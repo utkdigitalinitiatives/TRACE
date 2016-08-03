@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#echo "Installing php requirements for LDAP"
-#sudo apt-get -y install php5-ldap
+echo "Installing php requirements for LDAP"
+sudo apt-get -y install php5-ldap
 
 echo "Installing all Islandora Foundation modules"
 
@@ -106,18 +106,18 @@ drush eval "variable_set('image_toolkit', 'imagemagick')"
 drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
 #
 # add additional modules
-#drush dl simple_ldap
-#drush -y -u 1 pm-enable simple_ldap
-#drush -y -u 1 pm-enable simple_ldap_user
+drush dl simple_ldap
+drush -y -u 1 pm-enable simple_ldap
+drush -y -u 1 pm-enable simple_ldap_user
 # set up ldap options
 # ldap-server
-#drush eval "variable_set('simple_ldap_host', 'ldap.utk.edu')"
-#drush eval "variable_set('simple_ldap_port', '636')"
-#drush eval "variable_set('simple_ldap_basedn', 'dc=tennessee,dc=edu')"
+drush eval "variable_set('simple_ldap_host', 'ldaps://ldap.utk.edu')"
+drush eval "variable_set('simple_ldap_port', '636')"
+drush eval "variable_set('simple_ldap_basedn', 'dc=tennessee, dc=edu')"
 # ldap-user
-#drush eval "variable_set('simple_ldap_user_basedn', 'dc=tennessee,dc=edu')"
-#drush eval "variable_set('simple_ldap_user_scope', 'Subtree Search')"
-#drush eval "variable_set('simple_ldap_user_objectclass', 'inetOrgPerson')"
+drush eval "variable_set('simple_ldap_user_basedn', 'dc=tennessee, dc=edu')"
+drush eval "variable_set('simple_ldap_user_scope', 'Subtree Search')"
+drush eval "variable_set('simple_ldap_user_objectclass', 'inetOrgPerson')"
 #drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
 #drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
 
