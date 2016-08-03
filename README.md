@@ -22,4 +22,4 @@ This virtual platform should support
 
 
 ## Notes
-[Check out the Wiki link](https://github.com/utkdigitalinitiatives/TRACE/wiki)
+[Check out the Wiki for instructions and troubleshooting](https://github.com/utkdigitalinitiatives/TRACE/wiki)
