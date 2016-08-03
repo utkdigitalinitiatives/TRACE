@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Installing php requirements for LDAP"
-sudo apt-get -y install php5-ldap
+#echo "Installing php requirements for LDAP"
+#sudo apt-get -y install php5-ldap
 
 echo "Installing all Islandora Foundation modules"
 
@@ -106,9 +106,9 @@ drush eval "variable_set('image_toolkit', 'imagemagick')"
 drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
 #
 # add additional modules
-drush dl simple_ldap
-drush -y -u 1 pm-enable simple_ldap
-drush -y -u 1 pm-enable simple_ldap_user
+#drush dl simple_ldap
+#drush -y -u 1 pm-enable simple_ldap
+#drush -y -u 1 pm-enable simple_ldap_user
 # set up ldap options
 # ldap-server
 #drush eval "variable_set('simple_ldap_host', 'ldap.utk.edu')"
