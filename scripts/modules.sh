@@ -124,6 +124,8 @@ drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
 
 ### create test users
 drush user-create manager --mail="person@example.com" --password="manager"
+#  create role for manager
+drush role-create 'manager-role'
 
 
 
