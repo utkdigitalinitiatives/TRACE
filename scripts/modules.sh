@@ -122,7 +122,8 @@ drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
 #drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
 #drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
 
-
+### create test users
+drush user-create manager --mail="person@example.com" --password="manager"
 
 
 
