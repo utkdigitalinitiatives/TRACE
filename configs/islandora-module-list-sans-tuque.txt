@@ -31,7 +31,6 @@ islandora_solution_pack_image
 islandora_solution_pack_large_image
 islandora_solution_pack_pdf
 islandora_solution_pack_video
-islandora_solution_pack_web_archive
 islandora_usage_stats
 islandora_videojs
 islandora_xacml_editor
