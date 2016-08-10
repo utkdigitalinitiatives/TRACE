@@ -19,7 +19,6 @@ islandora_pdfjs
 islandora_populator
 islandora_scholar
 islandora_simple_workflow
-islandora_solr_facet_pages
 islandora_solr_metadata
 islandora_solr_search
 islandora_solr_views
@@ -27,13 +26,11 @@ islandora_solution_pack_audio
 islandora_solution_pack_book
 islandora_solution_pack_collection
 islandora_solution_pack_compound
-islandora_solution_pack_disk_image
 islandora_solution_pack_entities
 islandora_solution_pack_image
 islandora_solution_pack_large_image
 islandora_solution_pack_pdf
 islandora_solution_pack_video
-islandora_solution_pack_web_archive
 islandora_usage_stats
 islandora_videojs
 islandora_xacml_editor
