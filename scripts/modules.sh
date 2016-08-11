@@ -131,7 +131,25 @@ drush user-create authUser --mail="personB@example.com" --password="authUser"
 
 #  create roles and permissions for manager
 drush role-create 'manager-role'
-drush role-add-perm 'manager-role' "'add fedora datastreams','ingest fedora objects','edit fedora metadata','manage object properties','regenerate datastreams for an object','replace a datastream with new content, preserving version history','view old datastream versions','view fedora repository objects','create child collection','manage collection policy','migrate collection members','access user profiles','administer users'"
+## add islandora module permissions
+drush role-add-perm 'manager-role' 'add fedora datastreams'
+drush role-add-perm 'manager-role' 'ingest fedora objects'
+drush role-add-perm 'manager-role' 'edit fedora metadata'
+drush role-add-perm 'manager-role' 'manage object properties'
+drush role-add-perm 'manager-role' 'regenerate datastreams for an object'
+drush role-add-perm 'manager-role' 'replace a datastream with new content, preserving version history'
+drush role-add-perm 'manager-role' 'view old datastream versions'
+drush role-add-perm 'manager-role' 'view fedora repository objects'
+## add islandora_collection module permissions
+drush role-add-perm 'manager-role' 'create child collection'
+drush role-add-perm 'manager-role' 'manage collection policy'
+drush role-add-perm 'manager-role' 'migrate collection members'
+## add user module permissions
+drush role-add-perm 'manager-role' 'access user profiles'
+drush role-add-perm 'manager-role' 'administer users'
+
+# assign manager-role to manager user
+drush user-add-role 'manager-role' manager
 
 # create roles and permissons for authUser
 drush role-create 'authUser-role'
