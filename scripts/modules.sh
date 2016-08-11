@@ -131,6 +131,7 @@ drush user-create authUser --mail="personB@example.com" --password="authUser"
 
 #  create roles and permissions for manager
 drush role-create 'manager-role'
+drush role-add-perm 'manager-role' "'add fedora datastreams','ingest fedora objects','edit fedora metadata','manage object properties','regenerate datastreams for an object','replace a datastream with new content, preserving version history','view old datastream versions','view fedora repository objects','create child collection','manage collection policy','migrate collection members','access user profiles','administer users'"
 
 # create roles and permissons for authUser
 drush role-create 'authUser-role'
