@@ -6,8 +6,9 @@
 drush -r /var/www/drupal/ user-information manager 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create manager --mail="manager-person@example.com" --password="manager" && echo "Created manager user" || echo "The manager user already exists"
 
 ## check for role and create role, if the role doesn't exist
-#drush role-create 'manager-role'
-### add islandora module permissions
+drush -r /var/www/drupal/ role-list | grep -o 'manager-role' && echo "manager-role exists" || drush -r /var/www/drupal/ role-create 'manager-role'
+
+## add islandora module permissions
 #drush role-add-perm 'manager-role' 'add fedora datastreams'
 #drush role-add-perm 'manager-role' 'ingest fedora objects'
 #drush role-add-perm 'manager-role' 'edit fedora metadata'
