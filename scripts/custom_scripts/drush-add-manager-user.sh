@@ -9,21 +9,34 @@ drush -r /var/www/drupal/ user-information manager 2>&1 | grep '\[error\]' && dr
 drush -r /var/www/drupal/ role-list | grep -o 'manager-role' && echo "manager-role exists" || drush -r /var/www/drupal/ role-create 'manager-role'
 
 ## add islandora module permissions
-#drush role-add-perm 'manager-role' 'add fedora datastreams'
-#drush role-add-perm 'manager-role' 'ingest fedora objects'
-#drush role-add-perm 'manager-role' 'edit fedora metadata'
-#drush role-add-perm 'manager-role' 'manage object properties'
-#drush role-add-perm 'manager-role' 'regenerate datastreams for an object'
-#drush role-add-perm 'manager-role' 'replace a datastream with new content, preserving version history'
-#drush role-add-perm 'manager-role' 'view old datastream versions'
-#drush role-add-perm 'manager-role' 'view fedora repository objects'
-### add islandora_collection module permissions
-#drush role-add-perm 'manager-role' 'create child collection'
-#drush role-add-perm 'manager-role' 'manage collection policy'
-#drush role-add-perm 'manager-role' 'migrate collection members'
-### add user module permissions
-#drush role-add-perm 'manager-role' 'access user profiles'
-#drush role-add-perm 'manager-role' 'administer users'
-#
-## assign manager-role to manager user
-#drush user-add-role 'manager-role' manager
+declare -a MANAGER_PERMS=(
+	"access user profiles" #user
+	"add fedora datastreams" #islandora
+	"administer users" #user
+	"create child collection" #islandora_collection
+	"edit fedora metadata" #islandora
+	"ingest fedora objects" #islandora
+	"manage collection policy" #islandora_collection
+	"manage object properties" #islandora
+	"migrate collection members" #islandora_collection
+	"regenerate derivatives for an object" #islandora
+	"replace a datastream with new content, preserving version history" #islandora
+	"view old datastream versions" #islandora
+	"view fedora repository objects" #islandora
+)
+
+# iterate over the list of permissions and verify that they're added
+drush_manager_role_perm_check() {
+	echo "Verifying manager-role permissions..."
+	for i in "${MANAGER_PERMS[@]}"
+	do
+		drush -r /var/www/drupal/ role-add-perm 'manager-role' "$i"
+	done
+}
+
+drush_manager_role_perm_check
+
+## assign manager-role to manager user; no need for a check as
+## you can assign the same role to the same user as many times
+## as your heart desires. <3
+drush -r /var/www/drupal/ user-add-role 'manager-role' manager
