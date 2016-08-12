@@ -126,10 +126,10 @@ drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
 #drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
 
 ### create test users
-drush user-create authUser --mail="personB@example.com" --password="authUser"
+#drush user-create authUser --mail="personB@example.com" --password="authUser"
 
 
 # create roles and permissons for authUser
-drush role-create 'authUser-role'
+#drush role-create 'authUser-role'
 
 
