@@ -25,7 +25,6 @@ islandora_solr_views
 islandora_solution_pack_audio
 islandora_solution_pack_book
 islandora_solution_pack_collection
-islandora_solution_pack_entities
 islandora_solution_pack_image
 islandora_solution_pack_large_image
 islandora_solution_pack_pdf
