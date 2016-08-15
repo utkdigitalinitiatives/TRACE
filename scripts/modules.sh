@@ -80,7 +80,7 @@ fi
 drush -y -u 1 en php_lib islandora objective_forms
 drush -y -u 1 en islandora_solr islandora_solr_metadata islandora_solr_views
 drush -y -u 1 en islandora_basic_collection islandora_pdf islandora_audio islandora_book
-drush -y -u 1 en islandora_entities islandora_entities_csv_import islandora_basic_image islandora_large_image islandora_video
+drush -y -u 1 en islandora_basic_image islandora_large_image islandora_video
 drush -y -u 1 en islandora_checksum islandora_checksum_checker
 drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs islandora_videojs islandora_jwplayer
 drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update zip_importer islandora_basic_image islandora_bibliography islandora_compound_object islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter doi_importer endnotexml_importer pmid_importer ris_importer
