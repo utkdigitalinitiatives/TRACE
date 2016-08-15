@@ -8,4 +8,23 @@ drush -r /var/www/drupal user-information privUser 2>&1 | grep '\[error\]' && dr
 ## check for and create role, if the role doesn't exist
 drush -r /var/www/drupal/ role-list | grep -o 'privUser-role' && echo "privUser-role exists" || drush -r /var/www/drupal/ role-create 'privUser-role'
 
+## add privUser permissions
+declare -a PRIV_USER_PERMS=(
+	"export islandora bookmarks"
+	"share islandora bookmarks"
+	"use islandora_bookmark"
+)
 
+## iterate over the list of permissions and verify that they're added
+drush_privUser_role_perm_check() {
+	echo "Verifying privUser-role permissions..."
+	for i in "${PRIV_USER_PERMS[@]}"
+	do
+		drush -r /var/www/drupal/ role-add-perm 'privUser-role' "$i"
+	done
+}
+
+drush_privUser_role_perm_check
+
+## assign privUser-role to privUser user
+drush -r /var/www/drupal/ user-add-role 'privUser-role' privUser
