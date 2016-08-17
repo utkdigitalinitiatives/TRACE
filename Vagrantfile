@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = $hostname
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "islandora/islandora-base"
-
+  
   shared_dir = "/vagrant"
 
   config.vm.provider "virtualbox" do |vb|
@@ -30,12 +30,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", $cpus]
   end
 
-  config.vm.provision :shell, path: "./scripts/modules.sh", :args => shared_dir, :privileged => false
-  config.vm.provision :shell, path: "./scripts/libraries.sh", :args => shared_dir, :privileged => false
+  
+  config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", args: shared_dir, privileged: "false"
+  config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh", args: shared_dir, privileged: "false"
   if File.exist?("./scripts/custom.sh") then
-    config.vm.provision :shell, path: "./scripts/custom.sh", :args => shared_dir
+    config.vm.provision "custom", type: "shell", path: "./scripts/custom.sh", args: shared_dir
   end
-  config.vm.provision :shell, path: "./scripts/post.sh"
+  config.vm.provision "post", type: "shell", path: "./scripts/post.sh"
   
   if File.exist?("~/Desktop/traceCustomModule") then
     config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
