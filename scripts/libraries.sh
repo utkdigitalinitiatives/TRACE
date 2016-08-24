@@ -8,6 +8,7 @@ if [ -f "$SHARED_DIR/configs/variables" ]; then
   # shellcheck source=/dev/null
   . "$SHARED_DIR"/configs/variables
 fi
+export DRUPAL_HOME="/var/www/drupal"
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
