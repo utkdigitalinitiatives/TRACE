@@ -32,14 +32,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "variables", type: "shell", path: "./configs/variables", privileged: "true"
-  config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", args: shared_dir, privileged: "false"
-  config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh", args: shared_dir, privileged: "false"
+  #config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", args: shared_dir, privileged: "true"
+  config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh",  privileged: "true"
+  #config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh", args: shared_dir, privileged: "false"
+  config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh",  privileged: "false"
   if File.exist?("./scripts/custom.sh") then
     config.vm.provision "custom", type: "shell", path: "./scripts/custom.sh", args: shared_dir
   end
   config.vm.provision "post", type: "shell", path: "./scripts/post.sh"
  # config.vm.provision "ldap", type: "shell", path: "./scripts/ldap.sh", args: shared_dir, privileged: "false"
-  config.vm.provision "test_users", type: "shell", path: "./scripts/tests/test_users.sh", args: shared_dir, privileged: "false"
+  #config.vm.provision "test_users", type: "shell", path: "./scripts/tests/test_users.sh", args: shared_dir, privileged: "false"
+  config.vm.provision "test_users", type: "shell", path: "./scripts/tests/test_users.sh", privileged: "false"
   
   if File.exist?("~/Desktop/traceCustomModule") then
     config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
