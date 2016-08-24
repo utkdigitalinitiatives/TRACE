@@ -17,7 +17,7 @@ echo "<oai_dc:dc xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai_dc
 <dc:title>trace</dc:title>
 </oai_dc:dc>" > trace.xml
 # set up drupal ingest table
-drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=islandora --content_models=islandora:collectionCModel --type=directory --target=/home/vagrant/tracetestcollection --parent=islandora:islandora
+drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=trace --content_models=islandora:collectionCModel --type=directory --target=/home/vagrant/tracetestcollection --parent=islandora:islandora
 # ingest from table into fedora
 drush -v -u 1 -r /var/www/drupal islandora_batch_ingest --uri=http://localhost
 cd /home/vagrant
