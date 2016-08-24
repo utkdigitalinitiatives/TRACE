@@ -1,11 +1,6 @@
 #!/bin/bash
 SHARED_DIR=$1
 
-if [ -f "$SHARED_DIR/configs/variables" ]; then
-  # shellcheck source=/dev/null
-  . "$SHARED_DIR"/configs/variables
-fi
-
 ## add the simple ldap module
 ## requires that php5-ldap be added to the base box previously.
 cd "$DRUPAL_HOME"/sites/all/modules || exit
