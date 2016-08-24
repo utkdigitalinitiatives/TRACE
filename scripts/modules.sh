@@ -5,6 +5,8 @@ echo "Installing all Islandora Foundation modules"
 
 SHARED_DIR=$1
 
+export DRUPAL_HOME="/var/www/drupal"
+
 if [ -f "$SHARED_DIR/configs/variables" ]; then
   # shellcheck source=/dev/null
   . "$SHARED_DIR"/configs/variables
