@@ -82,6 +82,7 @@ drush -y -u 1 en islandora_binary_object
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # Set variables for Islandora modules
+echo " Set variables for Islandora modules"
 drush eval "variable_set('islandora_audio_viewers', array('name' => array('none' => 'none', 'islandora_videojs' => 'islandora_videojs'), 'default' => 'islandora_videojs'))"
 drush eval "variable_set('islandora_fits_executable_path', '$FITS_HOME/fits-$FITS_VERSION/fits.sh')"
 drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
