@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # this file sets the following system-wide variables for the VM
 
@@ -29,7 +29,8 @@ check_etc_environment() {
 		fi
 	done
 	echo "(re)sourcing /etc/environment"
-	sudo -s && source /etc/environment && exit
+	sudo su -c "source /etc/environment"
 }
 
 check_etc_environment
+echo "all done"
