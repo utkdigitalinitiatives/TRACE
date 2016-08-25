@@ -2,31 +2,34 @@
 
 # this file sets the following system-wide variables for the VM
 
-echo "setting HOME_DIR"
-echo HOME_DIR="/home/vagrant" >> /etc/environment
+# setting an array of environmental variables
+declare -a ENV_VARIABLES=(
+	"HOME_DIR=/home/vagrant"
+	"SHARED_DIR=/vagrant"
+	"DOWNLOAD_DIR=/downloads"
+	"DJATOKA_HOME=/usr/local/djatoka"
+	"FEDORA_HOME=/usr/local/fedora"
+	"FFMPEG_VERSION=1.1.4"
+	"FITS_HOME=/usr/local/fits"
+	"FITS_VERSION=0.10.1"
+	"SOLR_HOME=4.2.0"
+	"SOLR_VERSION=/usr/local/solr"
+	"DRUPAL_HOME=/var/www/drupal"
+)
 
-# Shared comes from shell provisioner in VagrantFile
-echo "setting DOWNLOAD_DIR"
-echo DOWNLOAD_DIR="$SHARED_DIR/downloads" >> /etc/environment
+check_etc_environment() {
+	echo "Checking /etc/environment values"
+	for i in "${ENV_VARIABLES[@]}"
+	do
+		if grep -F -x -q "$i" /etc/environment; then
+			echo "$i is okay"
+		else
+			echo "$i is missing"
+			echo "$i" >> /etc/environment
+		fi
+	done
+	echo "(re)sourcing /etc/environment"
+	sudo -s && source /etc/environment && exit
+}
 
-echo "setting DJATOKA_HOME"
-echo DJATOKA_HOME="/usr/local/djatoka" >> /etc/environment
-
-echo "setting FEDORA_HOME"
-echo FEDORA_HOME="/usr/local/fedora" >> /etc/environment
-
-echo "setting FFMPEG_VERSION"
-echo FFMPEG_VERSION=1.1.4 >> /etc/environment
-
-echo "setting FITS_HOME and FITS_VERSION"
-echo FITS_HOME="/usr/local/fits" >> /etc/environment
-echo FITS_VERSION=0.10.1 >> /etc/environment
-
-echo "setting SOLR_HOME and SOLR_VERSION"
-echo SOLR_HOME="/usr/local/solr" >> /etc/environment
-echo SOLR_VERSION=4.2.0 >> /etc/environment
-
-echo "setting DRUPAL_HOME"
-echo DRUPAL_HOME="/var/www/drupal" >> /etc/environment
-
-source /etc/environment
+check_etc_environment
