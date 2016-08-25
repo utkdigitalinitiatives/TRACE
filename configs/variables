@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # this file sets the following system-wide variables for the VM
 
@@ -32,5 +32,7 @@ check_etc_environment() {
 	sudo su -c "source /etc/environment"
 }
 
-check_etc_environment
+echo "cat-ing /etc/environment"
+#check_etc_environment
+cat /etc/environment
 echo "all done"
