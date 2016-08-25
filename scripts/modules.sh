@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo "Installing all Islandora Foundation modules"
 
 # Permissions and ownership
