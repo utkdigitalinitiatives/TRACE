@@ -3,9 +3,8 @@
 
 echo "Installing all Islandora Foundation modules"
 
-SHARED_DIR=$1
-
 # Permissions and ownership
+echo "Setting permissions and ownership for Drupal directories"
 sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/libraries
 sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/modules
 sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/default/files
@@ -14,6 +13,7 @@ sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/modules
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/default/files
 
 # Clone all Islandora Foundation modules
+echo "Cloning Islandora modules"
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 while read -r LINE; do
   git clone https://github.com/Islandora/"$LINE"
