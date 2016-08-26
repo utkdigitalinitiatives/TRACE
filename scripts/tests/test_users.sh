@@ -8,7 +8,7 @@ echo "ingesting sample content"
 sudo rm -f trace_objects_drush.zip
 sudo rm -f /home/vagrant/trace_objects_drush/*
 wget https://github.com/utkdigitalinitiatives/Islandora_manual/raw/master/modules/tests/test_files/trace_objects_drush.zip
-sudo rm-f rmdir trace_objects_drush
+sudo rm -f rmdir trace_objects_drush
 unzip trace_objects_drush.zip
 
 # before collections are available, ingest into pdf sample collection in islandora
