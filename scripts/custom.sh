@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SHARED_DIR=$1
-
 # run all shell scripts in scripts/custom_scripts/
 for SCRIPT in ${SHARED_DIR}/scripts/custom_scripts/*.sh
 do
