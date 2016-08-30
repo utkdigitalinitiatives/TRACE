@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.vm.provision "post", type: "shell", path: "./scripts/post.sh"
   #config.vm.provision "ldap", type: "shell", path: "./scripts/ldap.sh", args: shared_dir, privileged: "false"
-  config.vm.provision "test_users", type: "shell", path: "./scripts/tests/test_users.sh", privileged: "false"
+  config.vm.provision :shell, path: "./scripts/tests/test_users.sh", :args => shared_dir, :privileged => false
   
   if File.exist?("~/Desktop/traceCustomModule") then
     config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
