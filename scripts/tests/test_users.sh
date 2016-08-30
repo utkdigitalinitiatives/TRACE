@@ -17,3 +17,15 @@ if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
 fi
 # start user tests
 echo "Testing default users of roles"
+# url of an obj: http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+#
+#test curl of obj with authUser
+curl -o libraries_3.pdf -u authUser:authUser http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+if [ -f ./libraries_3.pdf ]; then
+  echo "authuser can download content"
+  rm -f ./libraries_3.pdf
+fi
+if [! -f /home/vagrant/user-curl.sh ]; then
+  cp /vagrant/scripts/tests/user-curl.sh /home/vagrant/
+fi
+ echo "Run the user-curl.sh for the current state of users."
