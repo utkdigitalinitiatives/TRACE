@@ -2,19 +2,26 @@
 #
 echo "Checking for sample content"
 # checking if sample content exists
+if [ -f "./scholar_thesis_pdf_dc.zip" ]; then
+  echo "Deleting previous data file."
+  rm -f ./scholar_thesis_pdf_dc.zip
+fi
 
 # ingest sample content
-echo "ingesting sample content"
-sudo rm -f trace_objects_drush.zip
-sudo rm -f /home/vagrant/trace_objects_drush/*
+echo "downloading sample content"
 wget https://github.com/utkdigitalinitiatives/Islandora_manual/raw/master/modules/tests/test_files/scholar_thesis_pdf_dc.zip
-sudo rm -f rmdir trace_objects_drush
-unzip trace_objects_drush.zip
+if [ -d "scholar_thesis_pdf_dc"]; then
+  echo "Deleteing previous data files and directory"
+  rm -f /home/vagrant/scholar_thesis_pdf_dc/*
+  rmdir ./scholar_thesis_pdf_dc
+fi
+echo "Unzipping sample files"
+unzip scholar_thesis_pdf_dc.zip
 
-# before collections are available, ingest into pdf sample collection in islandora
+# ingest into islandora:libraries sample collection in islandora
 cd /home/vagrant
-# set up ingest of pdf objects into test collection
-#drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=libraries --content_models=islandora:ir_thesis --type=directory --target=/home/vagrant/trace_objects_drush --parent=islandora:libraries
+# set up ingest of ir:thesis objects into test collection
+#drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=libraries --content_models=islandora:ir_thesisCModel --type=directory --target=/home/vagrant/scholar_thesis_pdf_dc --parent=islandora:libraries
 # ingest from table into fedora
 #drush -v -u 1 -r /var/www/drupal islandora_batch_ingest --uri=http://localhost
 

@@ -31,9 +31,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", $cpus]
   end
 
-  config.vm.provision "variables", type: "shell", path: "./configs/variables", privileged: "true"
-  config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", privileged: "false"
-  config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh",  privileged: "false"
+  #config.vm.provision "variables", type: "shell", path: "./configs/variables", privileged: "true"
+  #config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", privileged: "false"
+  #config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh",  privileged: "false"
+  config.vm.provision :shell, path: "./scripts/modules.sh", :args => shared_dir, :privileged => false
+  config.vm.provision :shell, path: "./scripts/libraries.sh", :args => shared_dir, :privileged => false
+
   if File.exist?("./scripts/custom.sh") then
     config.vm.provision "custom", type: "shell", path: "./scripts/custom.sh"
   end
