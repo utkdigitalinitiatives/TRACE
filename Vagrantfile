@@ -32,8 +32,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "variables", type: "shell", path: "./configs/variables", privileged: "true"
-  config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", privileged: "true"
-  config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh",  privileged: "true"
+  config.vm.provision "modules", type: "shell", path: "./scripts/modules.sh", privileged: "false"
+  config.vm.provision "libraries", type: "shell", path: "./scripts/libraries.sh",  privileged: "false"
   if File.exist?("./scripts/custom.sh") then
     config.vm.provision "custom", type: "shell", path: "./scripts/custom.sh"
   end
