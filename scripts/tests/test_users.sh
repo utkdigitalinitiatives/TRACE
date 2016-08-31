@@ -10,8 +10,8 @@ if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
   unzip scholar_thesis_pdf_dc.zip
   # ingest into islandora:libraries sample collection in islandora
   cd /home/vagrant
-  # set up ingest of ir:thesis objects into test collection
-  drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=libraries --content_models=islandora:sp_pdf --type=directory --target=/home/vagrant/scholar_thesis_pdf_dc --parent=islandora:libraries
+  # set up ingest of ir:thesis objects into gradthes collection
+  drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=gradthes --content_models=ir:thesisCModel --type=directory --target=/home/vagrant/scholar_thesis_pdf_dc --parent=islandora:gradthes
   # ingest from table into fedora
   drush -v -u 1 -r /var/www/drupal islandora_batch_ingest --uri=http://localhost
 fi
@@ -29,3 +29,19 @@ if [! -f /home/vagrant/user-curl.sh ]; then
   cp /vagrant/scripts/tests/user-curl.sh /home/vagrant/
 fi
  echo -e "\nRun the user-curl.sh for the current state of users."
+echo -e "\n***** Testing authUser: "
+curl -s -o libraries_3.pdf -u authUser:authUser http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+if [ -f ./libraries_3.pdf ]; then
+  echo "authuser can download content"
+  rm -f ./libraries_3.pdf
+else
+  echo "authUser cannot download content"
+fi
+echo -e "\n***** Testing manager: "
+curl -s -o libraries_3.pdf -u manager:manager http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+if [ -f ./libraries_3.pdf ]; then
+  echo "manager can download content"
+  rm -f ./libraries_3.pdf
+else
+  echo "manager cannot download content"
+fi
