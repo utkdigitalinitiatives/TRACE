@@ -63,5 +63,8 @@ if [ -f ./libraries_3.pdf ]; then
 else
   echo -e "Fail: manager can download content\n" >> ./testing.log
 fi
+if [ -f /home/vagrant/usertest.sh ]; then
+  rm -f /home/vagrant/usertest.sh
+fi
 cp ./usertest.sh /home/vagrant/usertest.sh
 echo -e "Run the usertest.sh for the current state of users\n"
