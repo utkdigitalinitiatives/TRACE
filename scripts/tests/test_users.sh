@@ -9,7 +9,7 @@ echo -e "====Initilize log for pass/fail testing===\n" > ./testing.log
 if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
   # ingest sample content
   echo -e "downloading sample content.....\n"
-  wget https://github.com/utkdigitalinitiatives/Islandora_manual/raw/master/modules/tests/test_files/scholar_thesis_pdf_dc.zip
+  wget -q https://github.com/utkdigitalinitiatives/Islandora_manual/raw/master/modules/tests/test_files/scholar_thesis_pdf_dc.zip
   # download pass/fail
   if [ -f "./scholar_thesis_pdf_dc.zip" ]; then
     echo -e "Pass: Download of scholar_thesis_pdf_dc.zip\n" >> ./testing.log
@@ -63,7 +63,5 @@ if [ -f ./libraries_3.pdf ]; then
 else
   echo -e "Fail: manager can download content\n" >> ./testing.log
 fi
-if [! -f /home/vagrant/user-curl.sh ]; then
-  sudo  cp /vagrant/scripts/tests/usertest.sh /home/vagrant/
-fi
- echo -e "Run the usertest.sh for the current state of users\n"
+sudo  cp /vagrant/scripts/tests/usertest.sh /home/vagrant/usertest.sh
+echo -e "Run the usertest.sh for the current state of users\n"
