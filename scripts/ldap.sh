@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-SHARED_DIR=$1
 
 ## add the simple ldap module
 ## requires that php5-ldap be added to the base box previously.
@@ -26,5 +25,3 @@ drush eval "variable_set('simple_ldap_user_objectclass', 'inetorgperson')"
 drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
 drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
 #drush eval "variable_set('simple_ldap_user_source', 'ldap')"
-
-
