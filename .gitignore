@@ -1,6 +1,10 @@
 # Ignore configuration files that may contain sensitive information.
 sites/*/*settings*.php
 
+# Ignore log file and scripting file copied from elsewhere
+./testing.log
+./usertest.sh
+
 # Ignore paths that contain generated content.
 files/
 sites/*/files
