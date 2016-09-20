@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "drush enable theme"
 sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/themes

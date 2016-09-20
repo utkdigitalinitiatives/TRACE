@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # adds all of the pieces of the authUser user: user, role, and permissions
 

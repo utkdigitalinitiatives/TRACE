@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # adds all of the pieces of the privilegedUser user: user, role, and permissions
 
