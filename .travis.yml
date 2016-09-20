@@ -1,24 +1,44 @@
 language: bash
+
 sudo: required
+
 os:
   - linux
+
+addons:
+  apt:
+    sources:
+    - debian-sid
+    packages:
+    - shellcheck
+
 before_install:
   - echo "Before Install scripts Start"
-  - sudo apt-get update -qq
+  - echo $NODE_ENV
+
 install:
   - echo "Install scripts Starting"
   - ./build/install.sh
+
 script:
   - echo "shell commands Starting"
-  - ./build/build.sh
+  - bash -c 'shopt -s globstar; shellcheck **/*.{sh,bash}'
+  # - ./build/build.sh
+
 after_success:
   - echo "PASSED!"
+
 after_failure:
   - echo "FAILURE IS ALWAYS AN OPTION"
+
 after_script:
   - echo "more shell commands here"
+
 notifications:
   email: false
+
 env:
   - NODE_ENV=production
   - NODE_ENV=staging
+matrix:
+  fast_finish: true

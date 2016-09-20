@@ -1,4 +1,4 @@
-# TRACE
+# TRACE [![Build Status](https://travis-ci.org/utkdigitalinitiatives/TRACE.svg?branch=Sprint-%234)](https://travis-ci.org/utkdigitalinitiatives/TRACE)
 Trace is a University of Tennessee digital archive that showcases and preserves published and unpublished works by faculty, departments, programs, research ...
 
 What is the Institutional Repository Project?
@@ -23,3 +23,8 @@ This virtual platform should support
 
 ## Notes
 [Check out the Wiki for instructions and troubleshooting](https://github.com/utkdigitalinitiatives/TRACE/wiki)
+
+## Travis Lint Failure
+Install: https://github.com/koalaman/shellcheck
+
+`shellcheck yourscript`
