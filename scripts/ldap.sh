@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 SHARED_DIR=$1
 
 ## add the simple ldap module

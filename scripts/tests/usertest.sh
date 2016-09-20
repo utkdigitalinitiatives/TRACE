@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # start user tests
 echo -e "Testing default users of roles\n"

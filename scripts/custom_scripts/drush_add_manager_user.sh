@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # adds all of the pieces of the manager user: user, role, and permissions
 
