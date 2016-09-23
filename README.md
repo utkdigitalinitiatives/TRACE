@@ -69,30 +69,55 @@ This will open a run window. Type __cmd__ and click OK<br/>
 
 
 ## Daily Use
-__To Start__<br/>
-Open Terminal
+### To Start<br/>
+Open Terminal<br/>
+OSX
 ```bash
-cd ~/desktop/islandora_vagrant
+cd ~/desktop/TRACE
 vagrant up
 ```
 
-__To Stop when done using TRACE__<br/>
-Open Terminal
+Windows
+```bash
+cd %UserProfile%\Desktop\TRACE
+vagrant up
+```
+
+
+### To Stop when done using TRACE<br/>
+Open Terminal<br/>
+OSX
 ```bash
 cd ~/desktop/islandora_vagrant
 vagrant halt
 ```
 
+Windows
+```bash
+cd %UserProfile%\Desktop\TRACE
+vagrant halt
+```
 
-__Oops. Messed up Islandora?__ <br/>
+
+### Oops. Messed up?
 Just reset/delete everything in TRACE<br/>
-Open Terminal
+Open Terminal<br/>
+OSX
 ```bash
 cd ~/desktop/islandora_vagrant
 vagrant halt
 vagrant destroy
 vagrant up
 ```
+
+Windows
+```bash
+cd %UserProfile%\Desktop\TRACE
+vagrant halt
+vagrant destroy
+vagrant up
+```
+
 
 ## Open browser: [http://localhost:8000](http://localhost:8000)
 
@@ -111,6 +136,10 @@ Faculty login:
 Collection Manager login:
   - username: admin
   - password: islandora
+
+
+---
+# Developer Notes
 
 ## Notes
 [Check out the Wiki for instructions and troubleshooting](https://github.com/utkdigitalinitiatives/TRACE/wiki)
