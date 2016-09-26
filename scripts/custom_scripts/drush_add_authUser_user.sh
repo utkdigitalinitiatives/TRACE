@@ -29,5 +29,3 @@ drush_authUser_role_perm_check
 
 ## assign authUser-role to authUser user
 drush -r /var/www/drupal/ user-add-role 'authUser-role' authUser
-## add basic perms to anonymous user
-drush -r /var/www/drupal/ role-add-perm 'anonymous user'  "view fedora repository objects" #islandora
