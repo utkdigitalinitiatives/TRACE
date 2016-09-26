@@ -121,22 +121,31 @@ vagrant up
 
 ## Open browser: [http://localhost:8000](http://localhost:8000)
 
-root Admin login:
+No login: simulates general anonymous user
+
+Authenticated login - any netid login, can submit,
+ but it is held in workflow. If it is a ETD, it follows ETD forms and workflows.
+
+  - username: authUser
+  - password: authUser
+
+Priviliedged User login - a netid login that can submit outside of
+ the workflow, like faculty.
+
+  - username: privUser
+  - password: privUser
+
+Advisor login - same as privUser, but can see moderated submissions.
+  - username: advisor
+  - password: advisor
+
+Site Manager login - can assign users to roles, can approve submissions.
+  - username: manager
+  - password: manager
+
+root Admin login: - for maintaining system, has all permissions.
   - username: admin
   - password: islandora
-
-Student login
-  - username: admin
-  - password: islandora
-
-Faculty login:
-  - username: admin
-  - password: islandora
-
-Collection Manager login:
-  - username: admin
-  - password: islandora
-
 
 ---
 # Developer Notes
