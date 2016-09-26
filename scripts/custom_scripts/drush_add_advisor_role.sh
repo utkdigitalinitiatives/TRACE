@@ -7,8 +7,9 @@ drush -r /var/www/drupal/ role-list | grep -o 'advisor-role' && echo "advisor-ro
 
 ## add advisor-role permissions
 declare -a ADVISOR_PERMS=(
-	"view old datastream versions"
 	"view fedora repository objects"
+	"add fedora datastreams" #islandora
+	"view old datastream versions"
 )
 
 ## iterate over the list of permissions and verify that they're added
