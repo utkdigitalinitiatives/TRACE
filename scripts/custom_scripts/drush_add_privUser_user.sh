@@ -10,6 +10,7 @@ drush -r /var/www/drupal/ role-list | grep -o 'privUser-role' && echo "privUser-
 
 ## add privUser permissions
 declare -a PRIV_USER_PERMS=(
+	"view fedora repository objects" #islandora
 	"export islandora bookmarks"
 	"share islandora bookmarks"
 	"use islandora_bookmark"

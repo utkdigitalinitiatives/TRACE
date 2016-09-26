@@ -10,6 +10,7 @@ drush -r /var/www/drupal/ role-list | grep -o 'authUser-role' && echo "authUser-
 
 ## add authUser permissions
 declare -a AUTH_USER_PERMS=(
+  "view fedora repository objects" #islandora
 	"add fedora datastreams" #islandora
 	"ingest fedora objects" #islandora
 	"replace a datastream with new content, preserving version history" #islandora
