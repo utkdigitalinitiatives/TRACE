@@ -23,6 +23,8 @@ declare -a MANAGER_PERMS=(
 	"replace a datastream with new content, preserving version history" #islandora
 	"view old datastream versions" #islandora
 	"view fedora repository objects" #islandora
+<------>"search islandora solr"
+	"manage inactive objects"
 )
 
 # iterate over the list of permissions and verify that they're added

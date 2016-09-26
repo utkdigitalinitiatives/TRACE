@@ -10,6 +10,8 @@ declare -a ADVISOR_PERMS=(
 	"view fedora repository objects"
 	"add fedora datastreams" #islandora
 	"view old datastream versions"
+	"search content"
+	"search islandora solr"
 )
 
 ## iterate over the list of permissions and verify that they're added
