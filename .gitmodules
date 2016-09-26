@@ -1,3 +1,1 @@
-[submodule "build"]
-	path = build
-	url = https://github.com/utkdigitalinitiatives/shell-ci-build.git
+
