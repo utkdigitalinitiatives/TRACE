@@ -14,7 +14,10 @@ declare -a AUTH_USER_PERMS=(
 	"add fedora datastreams" #islandora
 	"ingest fedora objects" #islandora
 	"replace a datastream with new content, preserving version history" #islandora
-<------>"search islandora solr"
+	"search islandora solr"
+	"export islandora bookmarks"
+	"share islandora bookmarks"
+	"use islandora_bookmark"
 )
 
 # iterate over the list of permissions and verify that they're added

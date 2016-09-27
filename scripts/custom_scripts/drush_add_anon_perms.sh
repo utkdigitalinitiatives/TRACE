@@ -7,7 +7,7 @@
 declare -a ANON_PERMS=(
     "view fedora repository objects"
     "search content"
-<------>"search islandora solr"
+    "search islandora solr"
 )
 
 ## iterate over the list of permissions and verify that they're added
