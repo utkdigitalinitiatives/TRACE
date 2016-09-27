@@ -10,12 +10,13 @@ drush -r /var/www/drupal/ role-list | grep -o 'manager-role' && echo "manager-ro
 
 ## add islandora module permissions
 declare -a MANAGER_PERMS=(
+	"access toolbar"
 	"access user profiles" #user
+	"ingest fedora objects" #islandora
 	"add fedora datastreams" #islandora
 	"administer users" #user
 	"create child collection" #islandora_collection
 	"edit fedora metadata" #islandora
-	"ingest fedora objects" #islandora
 	"manage collection policy" #islandora_collection
 	"manage object properties" #islandora
 	"migrate collection members" #islandora_collection
