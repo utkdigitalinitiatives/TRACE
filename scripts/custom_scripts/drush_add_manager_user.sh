@@ -24,10 +24,12 @@ declare -a MANAGER_PERMS=(
 	"view old datastream versions" #islandora
 	"view fedora repository objects" #islandora
 	"search islandora solr"
+	"bypass inactive object state"
 	"manage inactive objects"
 	"export islandora bookmarks"
 	"share islandora bookmarks"
 	"use islandora_bookmark"
+	"can embargo any object"
 )
 
 # iterate over the list of permissions and verify that they're added

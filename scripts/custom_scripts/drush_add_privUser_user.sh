@@ -17,6 +17,7 @@ declare -a PRIV_USER_PERMS=(
 	"share islandora bookmarks"
 	"use islandora_bookmark"
 	"search islandora solr"
+	"can embargo owned objects"
 )
 
 ## iterate over the list of permissions and verify that they're added
