@@ -16,7 +16,7 @@ before_install:
   - echo "Before Install scripts Start\n NODE ENV:"
   - echo $NODE_ENV
   - echo "Decrypting Environmentals"
-  openssl aes-256-cbc -K $encrypted_1c676f2c50bd_key -iv $encrypted_1c676f2c50bd_iv -in TRACE.enc -out TRACE -d
+  - openssl aes-256-cbc -K $encrypted_1c676f2c50bd_key -iv $encrypted_1c676f2c50bd_iv -in TRACE.enc -out TRACE -d
 
 install:
   - echo "Install scripts Starting"
