@@ -19,6 +19,7 @@ declare -a PRIV_USER_PERMS=(
 	"use islandora_bookmark"
 	"search islandora solr"
 	"can embargo owned objects"
+	"bypass inactive object state"
 )
 
 ## iterate over the list of permissions and verify that they're added
