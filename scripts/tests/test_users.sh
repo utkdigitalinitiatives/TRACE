@@ -22,15 +22,15 @@ if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
   # ingest into islandora:libraries sample collection in islandora
   cd /home/vagrant
   # set up ingest of ir:thesis objects into gradthes collection
-  drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=gradthes --content_models=ir:thesisCModel --type=directory --target=/home/vagrant/alt_170 --parent=islandora:gradthes
+  drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=gradthes --content_models=ir:thesisCModel --type=directory --target=/home/vagrant/170 --parent=islandora:gradthes
   # ingest from table into fedora
   drush -v -u 1 -r /var/www/drupal islandora_batch_ingest --uri=http://localhost
 fi
 # test if ingest was successful
-curl -s -o libraries_3.pdf http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
-if [ -f ./libraries_1.pdf ]; then
+#curl -s -o libraries_3.pdf http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+if [ -f ./170.pdf ]; then
   echo -e "Pass: ingest of sample data\n" >> ./testing.log
-  rm -f ./libraries_1.pdf
+  rm -f ./170.pdf
 else
   echo -e "Fail: ingest of sample data\n" >> ./testing.log
 fi
@@ -41,26 +41,26 @@ echo -e "Logging to /home/vagrant/testing.log\n"
 # url of an obj: http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
 #
 #test anonymous
-curl -s -o libraries_3.pdf  http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
-if [ -f ./libraries_3.pdf ]; then
+curl -s -o 170.pdf  http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/gradthes%253A1
+if [ -f ./170.pdf ]; then
   echo -e "Pass: anonymous can download content\n" >> ./testing.log
-  rm -f ./libraries_3.pdf
+  rm -f ./170.pdf
 else
   echo -e "Fail: anonymous can download content\n" >> ./testing.log
 fi
 #test authuser
-curl -s -o libraries_3.pdf -u authUser:authUser http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
-if [ -f ./libraries_3.pdf ]; then
+curl -s -o 170.pdf -u authUser:authUser http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A1
+if [ -f ./170.pdf ]; then
   echo -e "Pass: authuser can download content\n" >> ./testing.log
-  rm -f ./libraries_3.pdf
+  rm -f ./170.pdf
 else
   echo -e "Fail: authUser can download content\n" >> ./testing.log
 fi
 # test manager
-curl -s -o libraries_3.pdf -u manager:manager http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
-if [ -f ./libraries_3.pdf ]; then
+curl -s -o 170.pdf -u manager:manager http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/gradthes%253A1
+if [ -f ./170.pdf ]; then
   echo -e "Pass: manager can download content\n" >> ./testing.log
-  rm -f ./libraries_3.pdf
+  rm -f ./170.pdf
 else
   echo -e "Fail: manager can download content\n" >> ./testing.log
 fi
