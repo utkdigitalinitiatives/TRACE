@@ -2,11 +2,6 @@
 
 # this file sets the following system-wide variables for the VM
 
-# first set timezone so the clock will be correct
-sudo rm -f /etc/timezone
-sudo echo -e "US/Eastern\n" > /etc/timezone
-# then set time from ntp server
-sudo ntpdate ntp.utk.edu
 # setting an array of environmental variables
 declare -a ENV_VARIABLES=(
 	"HOME_DIR=/home/vagrant"
