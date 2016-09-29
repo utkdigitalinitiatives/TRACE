@@ -3,8 +3,9 @@
 # this file sets the following system-wide variables for the VM
 
 # set timezone
-sudo timedatectl set-timezone America/New_York
-date
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+
 # setting an array of environmental variables
 declare -a ENV_VARIABLES=(
 	"HOME_DIR=/home/vagrant"
