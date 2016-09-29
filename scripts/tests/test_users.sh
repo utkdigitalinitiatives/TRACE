@@ -27,7 +27,7 @@ if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
   drush -v -u 1 -r /var/www/drupal islandora_batch_ingest --uri=http://localhost
 fi
 # test if ingest was successful
-#curl -s -o libraries_3.pdf http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+curl -s -o libraries_3.pdf http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/gradthes%253A1
 if [ -f ./170.pdf ]; then
   echo -e "Pass: ingest of sample data\n" >> ./testing.log
   rm -f ./170.pdf
@@ -38,7 +38,7 @@ fi
 # start user tests
 echo -e "\nTesting default users of roles\n"
 echo -e "Logging to /home/vagrant/testing.log\n"
-# url of an obj: http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A3
+# url of an obj: http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/gradthes%253A1
 #
 #test anonymous
 curl -s -o 170.pdf  http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/gradthes%253A1
@@ -49,7 +49,7 @@ else
   echo -e "Fail: anonymous can download content\n" >> ./testing.log
 fi
 #test authuser
-curl -s -o 170.pdf -u authUser:authUser http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/libraries%253A1
+curl -s -o 170.pdf -u authUser:authUser http://localhost:8000/islandora/object/libraries%3A3/datastream/OBJ/view#overlay-context=islandora/object/gradthes%253A1
 if [ -f ./170.pdf ]; then
   echo -e "Pass: authuser can download content\n" >> ./testing.log
   rm -f ./170.pdf
