@@ -7,3 +7,5 @@ cd "$DRUPAL_HOME"/sites/all/themes || exit
 git clone https://github.com/utkdigitalinitiatives/UTKdrupal
 drush -y -u 1 en pm-enable UTKdrupal
 drush -y -u 1 en vset theme_default UTKdrupal
+#uncomment below to set as default
+drush eval "variable_set('theme_default', 'UTKdrupal')"
