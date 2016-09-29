@@ -32,7 +32,10 @@ declare -a MANAGER_PERMS=(
 	"manage inactive objects"
 	"can embargo any object"
 	"access user profiles" #user
+	"administer users"
 	"access toolbar"
+	"view islandora usage stats reports"
+	"view islandora usage stats collection overview stats"
 )
 
 # iterate over the list of permissions and verify that they're added
