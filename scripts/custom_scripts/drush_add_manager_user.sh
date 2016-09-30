@@ -28,12 +28,14 @@ declare -a MANAGER_PERMS=(
 	"manage object properties" #islandora
 	"migrate collection members" #islandora_collection
 	"regenerate derivatives for an object" #islandora
-	"bypass inactive object state"
-	"manage inactive objects"
+	"bypass inactive object state" #simple_workflow
+	"manage inactive objects"  #simple_workflow
 	"can embargo any object"
 	"access user profiles" #user
-	"administer users"
+	"administer users"  #user
 	"access toolbar"
+	"view the administration theme"
+	"access administration pages" #system
 	"view islandora usage stats reports"
 	"view islandora usage stats collection overview stats"
 )

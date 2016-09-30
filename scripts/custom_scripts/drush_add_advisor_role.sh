@@ -10,13 +10,10 @@ declare -a ADVISOR_PERMS=(
 	"view fedora repository objects"
 	"search islandora solr"
 	"ingest fedora objects"
-	"add fedora datastreams" #islandora
-	"view old datastream versions"
 	"use islandora_bookmark"
 	"share islandora bookmarks"
 	"export islandora bookmarks"
 	"can embargo owned objects"
-	"bypass inactive object state"
 )
 
 ## iterate over the list of permissions and verify that they're added

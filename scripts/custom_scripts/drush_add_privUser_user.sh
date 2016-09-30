@@ -11,7 +11,6 @@ drush -r /var/www/drupal/ role-list | grep -o 'privUser-role' && echo "privUser-
 ## add privUser permissions
 declare -a PRIV_USER_PERMS=(
 	"view fedora repository objects" #islandora
-	"view old datastream versions" #islandora
 	"add fedora datastreams" #islandora
 	"ingest fedora objects" #islandora
 	"export islandora bookmarks"
@@ -19,7 +18,6 @@ declare -a PRIV_USER_PERMS=(
 	"use islandora_bookmark"
 	"search islandora solr"
 	"can embargo owned objects"
-	"bypass inactive object state"
 )
 
 ## iterate over the list of permissions and verify that they're added
