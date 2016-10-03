@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # adds all of the pieces of the manager user: user, role, and permissions
 
@@ -10,19 +10,34 @@ drush -r /var/www/drupal/ role-list | grep -o 'manager-role' && echo "manager-ro
 
 ## add islandora module permissions
 declare -a MANAGER_PERMS=(
-	"access user profiles" #user
+	"view fedora repository objects" #islandora
+	"search islandora solr"
+	"ingest fedora objects" #islandora
 	"add fedora datastreams" #islandora
+	"replace a datastream with new content, preserving version history" #islandora
+	"view old datastream versions" #islandora
+	"revert to old datastream"
+	"use islandora_bookmark"
+	"share islandora bookmarks"
+	"export islandora bookmarks"
+	"edit fedora metadata" #islandora
+	"view technical metadata"
 	"administer users" #user
 	"create child collection" #islandora_collection
-	"edit fedora metadata" #islandora
-	"ingest fedora objects" #islandora
 	"manage collection policy" #islandora_collection
 	"manage object properties" #islandora
 	"migrate collection members" #islandora_collection
 	"regenerate derivatives for an object" #islandora
-	"replace a datastream with new content, preserving version history" #islandora
-	"view old datastream versions" #islandora
-	"view fedora repository objects" #islandora
+	"bypass inactive object state" #simple_workflow
+	"manage inactive objects"  #simple_workflow
+	"can embargo any object"
+	"access user profiles" #user
+	"administer users"  #user
+	"access toolbar"
+	"view the administration theme"
+	"access administration pages" #system
+	"view islandora usage stats reports"
+	"view islandora usage stats collection overview stats"
 )
 
 # iterate over the list of permissions and verify that they're added

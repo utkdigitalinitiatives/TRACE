@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # adds all of the pieces of the privilegedUser user: user, role, and permissions
 
@@ -10,9 +10,14 @@ drush -r /var/www/drupal/ role-list | grep -o 'privUser-role' && echo "privUser-
 
 ## add privUser permissions
 declare -a PRIV_USER_PERMS=(
+	"view fedora repository objects" #islandora
+	"add fedora datastreams" #islandora
+	"ingest fedora objects" #islandora
 	"export islandora bookmarks"
 	"share islandora bookmarks"
 	"use islandora_bookmark"
+	"search islandora solr"
+	"can embargo owned objects"
 )
 
 ## iterate over the list of permissions and verify that they're added

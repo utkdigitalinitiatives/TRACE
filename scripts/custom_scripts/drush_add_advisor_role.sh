@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # adds an advisor-role and appropriate permissions
 
@@ -7,8 +7,13 @@ drush -r /var/www/drupal/ role-list | grep -o 'advisor-role' && echo "advisor-ro
 
 ## add advisor-role permissions
 declare -a ADVISOR_PERMS=(
-	"view old datastream versions"
 	"view fedora repository objects"
+	"search islandora solr"
+	"ingest fedora objects"
+	"use islandora_bookmark"
+	"share islandora bookmarks"
+	"export islandora bookmarks"
+	"can embargo owned objects"
 )
 
 ## iterate over the list of permissions and verify that they're added

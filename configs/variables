@@ -1,6 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # this file sets the following system-wide variables for the VM
+
+# set timezone
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
 
 # setting an array of environmental variables
 declare -a ENV_VARIABLES=(
