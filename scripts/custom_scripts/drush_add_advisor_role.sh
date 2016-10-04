@@ -3,6 +3,7 @@
 # adds an advisor-role and appropriate permissions
 
 ## check for and create the role if it does not exist
+# shellcheck disable=SC2015
 drush -r /var/www/drupal/ role-list | grep -o 'advisor-role' && echo "advisor-role exists" || drush -r /var/www/drupal/ role-create 'advisor-role'
 
 ## add advisor-role permissions

@@ -6,6 +6,7 @@
 drush -r /var/www/drupal/ user-information authUser 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create authUser --mail="authenticated-person@example.com" --password="authUser" && echo "Created authUser user" || echo "The authUser account already exists"
 
 ## check for and create role, if the role doesn't exist
+# shellcheck disable=SC2015
 drush -r /var/www/drupal/ role-list | grep -o 'authUser-role' && echo "authUser-role exists" || drush -r /var/www/drupal/ role-create 'authUser-role'
 
 ## add authUser permissions

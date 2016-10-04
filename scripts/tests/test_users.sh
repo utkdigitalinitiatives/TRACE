@@ -3,7 +3,7 @@
 echo "Checking for sample content"
 # create testing log
 touch /home/vagrant/testing.log
-cd /home/vagrant
+cd /home/vagrant || exit
 echo -e "====Initilize log for pass/fail testing===\n" > ./testing.log
 # checking if sample content exists
 if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
@@ -20,7 +20,7 @@ if [ ! -f "./scholar_thesis_pdf_dc.zip" ]; then
   echo "Unzipping sample files"
   unzip alt_170.zip
   # ingest into islandora:libraries sample collection in islandora
-  cd /home/vagrant
+  cd /home/vagrant || exit
   # set up ingest of ir:thesis objects into gradthes collection
   drush -v -u 1 -r /var/www/drupal ibsp --uri=http://localhost --namespace=gradthes --content_models=ir:thesisCModel --type=directory --target=/home/vagrant/170 --parent=islandora:gradthes
   # ingest from table into fedora
