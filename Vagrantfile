@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "custom", type: "shell", path: "./scripts/custom.sh"
   end
   config.vm.provision "post", type: "shell", path: "./scripts/post.sh"
-  #config.vm.provision :shell, path: "./scripts/ldap.sh", :args => shared_dir, :privileged => false
+  config.vm.provision :shell, path: "./scripts/ldap.sh", :args => shared_dir, :privileged => false
   config.vm.provision :shell, path: "./scripts/tests/test_users.sh", :args => shared_dir, :privileged => false
 
   if File.exist?("~/Desktop/traceCustomModule") then

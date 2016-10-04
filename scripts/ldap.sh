@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# set timezone
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
 
 ## add the simple ldap module
 ## requires that php5-ldap be added to the base box previously.
@@ -22,6 +25,6 @@ drush eval "variable_set('simple_ldap_user_scope', 'sub')"
 drush eval "variable_set('simple_ldap_user_filter', '')"
 drush eval "variable_set('simple_ldap_user_objectclass', 'inetuser')"
 drush eval "variable_set('simple_ldap_user_objectclass', 'inetorgperson')"
-drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
-drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
+#drush eval "variable_set('simple_ldap_user_attribute_name', 'uid')"
+#drush eval "variable_set('simple_ldap_user_attribute_mail', 'mail')"
 #drush eval "variable_set('simple_ldap_user_source', 'ldap')"
