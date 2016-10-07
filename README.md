@@ -150,6 +150,37 @@ root Admin login: - for maintaining system, has all permissions.
 ---
 # Developer Notes
 
+PhpMyAdmin was added to allow database work during development
+
+phpmyadmin login:
+  - username: root
+  - password: islandora
+
+MySQL:
+  - username: root
+  - password: islandora
+
+Tomcat Manager:
+  - username: islandora
+  - password: islandora
+
+Fedora:
+  - username: fedoraAdmin
+  - password: fedoraAdmin
+
+GSearch:
+  - username: fgsAdmin
+  - password: fgsAdmin
+
+ssh, scp, rsync:
+  - username: vagrant
+  - password: vagrant
+  - Examples
+    - `ssh -p 2222 vagrant@localhost` or `vagrant ssh`
+    - `scp -P 2222 somefile.txt vagrant@localhost:/destination/path`
+    - `rsync --rsh='ssh -p2222' -av somedir vagrant@localhost:/tmp`
+
+
 ## Notes
 [Check out the Wiki for instructions and troubleshooting](https://github.com/utkdigitalinitiatives/TRACE/wiki)
 
