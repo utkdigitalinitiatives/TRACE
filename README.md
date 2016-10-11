@@ -67,6 +67,13 @@ Hold Windows Key and type r<br/>
 This will open a run window. Type __cmd__ and click OK<br/>
 ![alt text](http://poweronapp.com/help/xp-run-cmd.png)
 
+### Download it to the desktop
+Windows
+```bash
+cd %UserProfile%\Desktop\
+git clone https://github.com/utkdigitalinitiatives/TRACE/
+vagrant up
+```
 
 ## Daily Use
 ### To Start<br/>
@@ -82,7 +89,6 @@ Windows
 cd %UserProfile%\Desktop\TRACE
 vagrant up
 ```
-
 
 ### To Stop when done using TRACE<br/>
 Open Terminal<br/>
@@ -113,7 +119,6 @@ vagrant up
 Windows
 ```bash
 cd %UserProfile%\Desktop\TRACE
-vagrant halt
 vagrant destroy
 vagrant up
 ```
