@@ -11,6 +11,7 @@ before_install:
 install:
 - echo "Install scripts Starting"
 - sudo apt-get -y install shellcheck
+- shellcheck --version
 script:
 - echo "shell commands Starting"
 - bash -c 'shopt -s globstar; shellcheck **/*.{sh,bash}'
