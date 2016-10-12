@@ -30,4 +30,3 @@ curl -vv -u "fedoraAdmin:fedoraAdmin" -X PUT "http://localhost:8080/fedora/objec
 
 echo "CModel Labels have been revised."
 
-exit
