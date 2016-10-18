@@ -100,6 +100,7 @@ drush eval "variable_set('islandora_book_page_viewers', array('name' => array('n
 drush eval "variable_set('islandora_large_image_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"
 drush eval "variable_set('islandora_use_kakadu', TRUE)"
 drush eval "variable_set('islandora_pdf_create_fulltext', 1)"
+drush eval "variable_set('islandora_pdf_create_pdfa', 1)"
 drush eval "variable_set('islandora_checksum_enable_checksum', TRUE)"
 drush eval "variable_set('islandora_checksum_checksum_type', 'SHA-1')"
 drush eval "variable_set('islandora_ocr_tesseract', '/usr/bin/tesseract')"
