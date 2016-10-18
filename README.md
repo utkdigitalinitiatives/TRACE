@@ -134,17 +134,19 @@ Authenticated login - any netid login, can submit,
   - username: authUser
   - password: authUser
 
-Priviliedged User login - a netid login that can submit outside of
+  - username: userA
+  - password: userA
+
+  - username: userB
+  - password: userB
+
+Priviledged User login - a netid login that can submit outside of
  the workflow, like faculty.
 
   - username: privUser
   - password: privUser
 
-Advisor login - same as privUser, but can see moderated submissions.
-  - username: advisor
-  - password: advisor
-
-Site Manager login - can assign users to roles, can approve submissions.
+Manager login - can assign users to roles, can approve submissions.
   - username: manager
   - password: manager
 
