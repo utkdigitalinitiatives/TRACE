@@ -7,8 +7,8 @@
 ## check for and create the user, if the user doesn't exist
 drush -r /var/www/drupal/ user-information authUser 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create authUser --mail="authenticated-person@example.com" --password="authUser" && echo "Created authUser user" || echo "The authUser account already exists"
 
-drush -r /var/www/drupal/ user-information userA 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create userA --mail="authenticated-person@example.com" --password="userA" && echo "Created userA user" || echo "The userA account already exists"
-drush -r /var/www/drupal/ user-information userB 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create userB --mail="authenticated-person@example.com" --password="userB" && echo "Created userB user" || echo "The userB account already exists"
+drush -r /var/www/drupal/ user-information userA 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create userA --mail="authenticated-userA@example.com" --password="userA" && echo "Created userA user" || echo "The userA account already exists"
+drush -r /var/www/drupal/ user-information userB 2>&1 | grep '\[error\]' && drush -r /var/www/drupal/ user-create userB --mail="authenticated-userB@example.com" --password="userB" && echo "Created userB user" || echo "The userB account already exists"
 
 ## check for and create role, if the role doesn't exist
 # shellcheck disable=SC2015
