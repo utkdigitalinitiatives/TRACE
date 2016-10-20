@@ -14,3 +14,6 @@ drush -y -u 1 en pm-enable UTKdrupal
 drush -y -u 1 en vset theme_default UTKdrupal
 # uncomment below to set as default
 drush eval "variable_set('theme_default', 'UTKdrupal')"
+
+# Change Site name to TRACE
+drush variable-set site_name "TRACE"
