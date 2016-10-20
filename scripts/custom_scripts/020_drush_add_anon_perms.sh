@@ -6,7 +6,7 @@
 ## add anonymous permissions
 declare -a ANON_PERMS=(
     "view fedora repository objects"
-    "search content"
+    #"search content"
     "search islandora solr"
 )
 
