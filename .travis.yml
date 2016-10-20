@@ -11,6 +11,8 @@ before_install:
 install:
 - echo "Install scripts Starting"
 - sudo apt-get -y install shellcheck
+- sudo apt-get -y update shellcheck
+- sudo apt-get -y upgrade shellcheck
 - shellcheck --version
 script:
 - echo "shell commands Starting"
