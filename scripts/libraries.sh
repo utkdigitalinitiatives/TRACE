@@ -5,7 +5,6 @@ echo "Installing all Islandora Foundation module's required libraries"
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 sudo drush cache-clear drush
-sudo drush -v videojs-plugin
 sudo drush -v pdfjs-plugin
 sudo drush -v iabookreader-plugin
 sudo drush -v colorbox-plugin
