@@ -37,6 +37,4 @@ drush sql-query <<SQL_UPDATE_USER_MENU_REGION
 update block set region = 'sidebar_first' where module = 'system' and delta = 'user-menu' and theme = 'UTKdrupal';
 SQL_UPDATE_USER_MENU_REGION
 
-drush block-enable user-menu
-drush block-enable menu-default-navigation
-drush block-disable powered-by
+drush block-disable --module=system --delta=powered-by
