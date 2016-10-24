@@ -67,6 +67,13 @@ Hold Windows Key and type r<br/>
 This will open a run window. Type __cmd__ and click OK<br/>
 ![alt text](http://poweronapp.com/help/xp-run-cmd.png)
 
+### Download it to the desktop
+Windows
+```bash
+cd %UserProfile%\Desktop\
+git clone https://github.com/utkdigitalinitiatives/TRACE/
+vagrant up
+```
 
 ## Daily Use
 ### To Start<br/>
@@ -82,7 +89,6 @@ Windows
 cd %UserProfile%\Desktop\TRACE
 vagrant up
 ```
-
 
 ### To Stop when done using TRACE<br/>
 Open Terminal<br/>
@@ -113,7 +119,6 @@ vagrant up
 Windows
 ```bash
 cd %UserProfile%\Desktop\TRACE
-vagrant halt
 vagrant destroy
 vagrant up
 ```
@@ -129,17 +134,19 @@ Authenticated login - any netid login, can submit,
   - username: authUser
   - password: authUser
 
-Priviliedged User login - a netid login that can submit outside of
+  - username: userA
+  - password: userA
+
+  - username: userB
+  - password: userB
+
+Priviledged User login - a netid login that can submit outside of
  the workflow, like faculty.
 
   - username: privUser
   - password: privUser
 
-Advisor login - same as privUser, but can see moderated submissions.
-  - username: advisor
-  - password: advisor
-
-Site Manager login - can assign users to roles, can approve submissions.
+Manager login - can assign users to roles, can approve submissions.
   - username: manager
   - password: manager
 
@@ -149,6 +156,37 @@ root Admin login: - for maintaining system, has all permissions.
 
 ---
 # Developer Notes
+
+PhpMyAdmin was added to allow database work during development
+
+phpmyadmin login:
+  - username: root
+  - password: islandora
+
+MySQL:
+  - username: root
+  - password: islandora
+
+Tomcat Manager:
+  - username: islandora
+  - password: islandora
+
+Fedora:
+  - username: fedoraAdmin
+  - password: fedoraAdmin
+
+GSearch:
+  - username: fgsAdmin
+  - password: fgsAdmin
+
+ssh, scp, rsync:
+  - username: vagrant
+  - password: vagrant
+  - Examples
+    - `ssh -p 2222 vagrant@localhost` or `vagrant ssh`
+    - `scp -P 2222 somefile.txt vagrant@localhost:/destination/path`
+    - `rsync --rsh='ssh -p2222' -av somedir vagrant@localhost:/tmp`
+
 
 ## Notes
 [Check out the Wiki for instructions and troubleshooting](https://github.com/utkdigitalinitiatives/TRACE/wiki)
