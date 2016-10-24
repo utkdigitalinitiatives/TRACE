@@ -12,7 +12,10 @@ from role where name like 'administrator';
 SQL_INSERT_BLOCK_ROLE_ADMIN_NAVIGATION
 
 #Create simpler user navigation menu for any other authenticated user
+#if drush extras does not exist then 
 drush dl drush_extras
+#confirm if drush exists
+drush en -y drush_extras
 drush menu-create menu-default-navigation "Navigation" "The Default Navigation for authenticated Users"
 drush add-menu-item menu-default-navigation "Trace Collections" "islandora"
 drush add-menu-item menu-default-navigation "My Bookmarks" islandora-bookmark
@@ -34,4 +37,4 @@ drush sql-query <<SQL_UPDATE_USER_MENU_REGION
 update block set region = 'sidebar_first' where module = 'system' and delta = 'user-menu' and theme = 'UTKdrupal';
 SQL_UPDATE_USER_MENU_REGION
 
-
+drush block-disable powered-by
