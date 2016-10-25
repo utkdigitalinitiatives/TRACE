@@ -5,36 +5,29 @@
 #The role Id should be queried from the role table for the name 'administrator'
 cd "$DRUPAL_HOME"
 
-drush sql-query <<SQL_INSERT_BLOCK_ROLE_ADMIN_NAVIGATION
-insert into block_role (rid, module, delta)
-select rid, 'system', 'navigation'
-from role where name like 'administrator';
-SQL_INSERT_BLOCK_ROLE_ADMIN_NAVIGATION
+drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'navigation' from role where name like 'administrator'"
 
 #Create simpler user navigation menu for any other authenticated user
 #if drush extras does not exist then 
-drush dl drush_extras
+if [ ! -d $HOME/.drush/drush_extras ]; then
+  drush dl drush_extras
+fi
+
+drush sql-query "update menu_custom set title='Admin Navigation' where menu_name like 'navigation'"
+
 #confirm if drush exists
-drush en -y drush_extras
-drush menu-create menu-default-navigation "Navigation" "The Default Navigation for authenticated Users"
-drush add-menu-item menu-default-navigation "Trace Collections" "islandora"
-drush add-menu-item menu-default-navigation "My Bookmarks" islandora-bookmark
+if drush menu-create menu-default-navigation --title="Navigation" --description="The Default Navigation for authenticated Users"; then
+	drush add-menu-item menu-default-navigation --title="Trace Collections" --path="islandora"
+	drush add-menu-item menu-default-navigation --title="My Bookmarks" --path="islandora-bookmark"
+fi
 
-drush sql-query <<SQL_INSERT_BLOCK_ROLE
-insert into block_role (rid, module, delta)
-select rid, 'menu', 'menu-default-navigation'
-from role where name in ( 'authUser-role', 'manager-role', 'privUser-role');
-SQL_INSERT_BLOCK_ROLE
+drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-default-navigation' from role where name in ( 'authUser-role', 'manager-role', 'privUser-role')"
 
-drush sql-query <<SQL_UPPDATE_DEFAULT_MENU_REGION
-update block set region = 'sidebar_first' where module = 'menu' and delta = 'menu-default-navigation' and theme = 'UTKdrupal';
-SQL_UPPDATE_DEFAULT_MENU_REGION
-
+drush block-configure --theme=UTKdrupal --module=menu --delta=menu-default-navigation --region=sidebar_first
+drush block-configure --theme=bartik --module=menu --delta=menu-default-navigation --region=sidebar_first
 #The user menu does not show up in any content area .
 #update the block table such that any table row with a module and delta of 'system', 'user-menu' such that the region is 'content'
 
-drush sql-query <<SQL_UPDATE_USER_MENU_REGION
-update block set region = 'sidebar_first' where module = 'system' and delta = 'user-menu' and theme = 'UTKdrupal';
-SQL_UPDATE_USER_MENU_REGION
-
+drush block-configure --theme=UTKdrupal --module=system --delta=user-menu --region=sidebar_first
+drush block-configure --theme=bartik --module=system --delta=user-menu --region=sidebar_first
 drush block-disable --module=system --delta=powered-by
