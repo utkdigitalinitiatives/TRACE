@@ -49,4 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
         rsync__exclude: ".git/"
   end
+  if File.exist?("~/daily.sh") then
+    config.vm.provision :shell, path: "./scripts/settings_php_replace_and_set.sh", :args => shared_dir, :privileged => false
+  end
 end
