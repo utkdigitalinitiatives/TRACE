@@ -50,6 +50,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         rsync__exclude: ".git/"
   end
   if File.exist?("~/daily.sh") then
-    config.vm.provision :shell, path: "./scripts/settings_php_replace_and_set.sh", :args => shared_dir, :privileged => false
+    config.vm.provision :shell, path: "./scripts/settings_php_replace_and_set.sh", :args => shared_dir, :privileged => true
   end
 end
