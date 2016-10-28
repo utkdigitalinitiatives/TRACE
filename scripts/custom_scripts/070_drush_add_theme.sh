@@ -6,18 +6,26 @@ sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/themes
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/themes
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
-# Clone UTKdrupal Theme and set permissions UTKdrupal
+# Clone UTKdrupal Theme
 git clone https://github.com/utkdigitalinitiatives/UTKdrupal
+cd "$DRUPAL_HOME"/sites/all/themes/UTKdrupal || exit
 git fetch
 git branch -r
 git checkout -b october origin/october
 git pull
+cd "$DRUPAL_HOME"/sites/all/themes || exit
+
+# Set permissions UTKdrupal
 sudo chown -hR vagrant:www-data UTKdrupal
+
 # Enable UTKdrupal and set as default
-drush -y -u 1 en pm-enable UTKdrupal
-drush -y -u 1 en vset theme_default UTKdrupal
+drush -y en UTKdrupal
+drush -y vset theme_default UTKdrupal
 # uncomment below to set as default
 drush eval "variable_set('theme_default', 'UTKdrupal')"
+
+# Disable Unneeded Themes
+drush -y dis bartik
 
 # Change Site name to TRACE
 drush variable-set site_name "TRACE"
