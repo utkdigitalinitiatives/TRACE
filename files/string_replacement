@@ -9,5 +9,5 @@
  */
 $conf['locale_custom_strings_en'][''] = array(
    'Islandora Repository'      => 'Collections',
-   '@count min' => '@count minutes',
+   'Would you like to include a PDF document for this citation?' => 'Submit Your Thesis',
  );
