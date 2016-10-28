@@ -24,6 +24,12 @@ drush -y vset theme_default UTKdrupal
 # uncomment below to set as default
 drush eval "variable_set('theme_default', 'UTKdrupal')"
 
+# Admin Theme Adminimal https://www.drupal.org/project/adminimal_theme
+# drush dl adminimal
+# drush -y en adminimal
+# drush vset admin_theme adminimal
+# drush -y dis seven
+
 # Disable Unneeded Themes
 drush -y dis bartik
 
