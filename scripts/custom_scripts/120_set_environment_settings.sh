@@ -4,7 +4,7 @@
 sudo chmod 777 /var/www/drupal/sites/default/settings.php
 
 # Sets string replacement
-sudo cat /vagrant/files/string_replacement >> /var/www/drupal/sites/default/settings.php
+sudo bash -c 'cat /vagrant/files/string_replacement >> /var/www/drupal/sites/default/settings.php'
 
 # Change permissions back
 sudo chmod 555 /var/www/drupal/sites/default/settings.php
