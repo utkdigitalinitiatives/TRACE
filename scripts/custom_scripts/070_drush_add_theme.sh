@@ -29,24 +29,24 @@ cd "$DRUPAL_HOME"/sites/all/modules/ || exit
 drush dl adminimal_theme adminimal_admin_menu module_filter
 drush en -y adminimal_admin_menu module_filter
 
-drush variable-set admin_theme adminimal
-drush variable-set admin_menu_margin_top 0
-drush variable-set adminimal_admin_menu_render "hidden"
+drush -y vset admin_theme adminimal
+drush -y vset admin_menu_margin_top 0
+drush -y vset adminimal_admin_menu_render "hidden"
 
 # drush dis -y comment contextual dashboard overlay
 
-drush pm-disable -y bartik seven
+drush dis -y bartik seven
 # drush -y en adminimal
-# drush vset admin_theme adminimal
+# drush -y vset admin_theme adminimal
 # drush -y dis seven
 
 # Disable Unneeded Themes
 drush -y dis bartik
 
 # Change Site name to TRACE
-drush variable-set site_name "TRACE"
+drush -y vset site_name "TRACE"
 
-drush vset theme_debug 1
+drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
 sudo apt-get -y update
