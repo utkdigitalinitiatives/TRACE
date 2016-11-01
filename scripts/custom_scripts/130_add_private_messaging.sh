@@ -19,4 +19,4 @@ drush block-configure --module=privatemsg --delta=privatemsg-menu --region=sideb
 
 # Clean Up
 sudo updatedb
-druch cc all
+drush cc all
