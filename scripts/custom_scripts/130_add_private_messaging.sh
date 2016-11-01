@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This adds Private Messaging to TRACE
 # Installs Privatemsg (https://www.drupal.org/project/privatemsg)
 # & Real Name (https://www.drupal.org/project/realname)
@@ -18,4 +19,4 @@ drush block-configure --module=privatemsg --delta=privatemsg-menu --region=sideb
 
 # Clean Up
 sudo updatedb
-druch cc all
+drush cc all
