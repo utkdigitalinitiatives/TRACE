@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This adds Private Messaging to TRACE
 # Installs Privatemsg (https://www.drupal.org/project/privatemsg)
 # & Real Name (https://www.drupal.org/project/realname)
