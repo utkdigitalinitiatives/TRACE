@@ -24,8 +24,7 @@ drush sql-query "insert into block_role (rid, module, delta) select rid, 'system
 #Change the display name of 'Islandora Repository' to 'Trace Collections'
 drush sql-query "update menu_router set title = 'Trace Collections' where path= 'islandora'"
 
-
-#if drush extras does not exist then 
+#if drush extras does not exist then
 if [ ! -d $HOME/.drush/drush_extras ]; then
   drush dl drush_extras
 fi
@@ -38,9 +37,7 @@ if drush menu-create menu-trace-navigation --title="Trace Navigation" --descript
 	drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-trace-navigation'"
 	# do not show this link to administrators since it is duplicate information and is messy
 	drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-trace-navigation' from role where name in ( 'anonymous user', 'authUser-role', 'manager-role', 'privUser-role')"
-#	
 fi
-
 
 #update the block table such that any table row with a module and delta of 'system', 'user-menu' such that the region is 'content'
 
