@@ -15,7 +15,3 @@ drush -y en pm_block_user pm_email_notify privatemsg_filter privatemsg_limits pr
 
 # Set block to be viewable by only authenticated users
 drush block-configure --module=privatemsg --delta=privatemsg-menu --region=sidebar_second
-
-# Clean Up
-sudo updatedb
-drush cc all
