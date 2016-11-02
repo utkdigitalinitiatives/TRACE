@@ -8,6 +8,7 @@ drush block-configure --theme="UTKdrupal" --module="islandora_solr" --delta="sim
 # do not display the block title because it looks messy
 drush sql-query "update block set title='<none>' where module = 'islandora_solr' and delta = 'simple' and theme = 'UTKdrupal'"
 
+drush block-configure --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 #get rid of the powered by block
 drush block-disable --module=system --delta=powered-by
 drush block-disable --module=search --delta=form
