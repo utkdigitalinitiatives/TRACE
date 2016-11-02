@@ -14,7 +14,6 @@ drush -y en pm_block_user pm_email_notify privatemsg_filter privatemsg_limits pr
 # Set to "Secondary sidebar" blocks
 
 # Set block to be viewable by only authenticated users
-drush dl drush_extras
 drush block-configure --module=privatemsg --delta=privatemsg-menu --region=sidebar_second
 
 # Clean Up
