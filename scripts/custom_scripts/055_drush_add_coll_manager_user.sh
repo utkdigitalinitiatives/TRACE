@@ -22,6 +22,7 @@ declare -a COLL_MANAGER_PERMS=(
 	"bypass inactive object state" #simple_workflow
 	"manage inactive objects"  #simple_workflow
 	"can embargo owned objects"
+	"can embargo any object"
 	"access user profiles" #user
 	"access toolbar"
 	"view the administration theme"
