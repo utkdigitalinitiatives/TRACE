@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "TRACE"
 
 	config.vm.box_url = "http://dlwork.lib.utk.edu/vboxes/u14plus.json"
-
+	config.vm.box_version = "0.1.2"
   shared_dir = "/vagrant"
 
   config.vm.provider "virtualbox" do |vb|
