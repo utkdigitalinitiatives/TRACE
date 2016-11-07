@@ -30,18 +30,6 @@ drush -y vset uservoice_script_cache_time '0'
 drush -y vset uservoice_sso_key 'd1bb433dd8ce0f30b5f1202fb6eafc62'
 drush -y vset uservoice_subdomain 'utklibrary'
 drush -y vset uservoice_webhooks: 0
-drush -y vset uservoice_widget_pages 'admin
-admin/*
-batch'
-drush -y vset uservoice_widget_roles: array (
-  1 => '1',
-  2 => '2',
-  3 => '3',
-  4 => '4',
-  5 => '5',
-  6 => '6',
-  7 => '7',
-)
 drush -y vset uservoice_widget_type 'new'
 drush -y vset uservoice_widget_visibility_pages '0'
 drush -y vset uservoice_widget_visibility_roles '0'
