@@ -16,11 +16,12 @@ drush sql-query "update menu_custom set title = 'Admin Navigation' where menu_na
 
 #Change the display name of 'Islandora Repository' to 'Trace Collections'
 drush sql-query "update menu_links set link_title='Collections' where menu_name = 'navigation' and link_path = 'islandora' and link_title = 'Islandora Repository'"
+
 #Add the Submit link into the 'User Menu'
 drush sql-query "insert into menu_links (menu_name, link_title, link_path, weight) select ('user-menu', 'Submit', 'http://localhost:8000/islandora/object/utk.ir%3Atd#overlay=islandora/object/utk.ir%253Atd/manage/overview/ingest','9')"
 
 #The user-menu should only be shown to logged in users, but not administrator (or authenticated)
-drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'user-menu' from role where name in ( 'authUser-role', 'manager-role', 'privUser-role')"
+drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'user-menu' from role where name NOT IN ( 'administrator')"
 
 #Change the display name of 'Islandora Repository' to 'Trace Collections'
 drush sql-query "update menu_router set title = 'Collections' where path= 'islandora'"
@@ -37,6 +38,15 @@ if drush menu-create menu-trace-navigation --title="Trace Navigation" --descript
 	# do not display the block title because it looks messy
 	drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-trace-navigation'"
 	# do not show this link to administrators since it is duplicate information and is messy
-	drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-trace-navigation' from role where name in ( 'anonymous user', 'authUser-role', 'manager-role', 'privUser-role')"
+	drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-trace-navigation' from role where name NOT IN ( 'administrator')"
 fi
 
+#add in a manager menu with a link to the approve-inactive-objects list
+if drush menu-create menu-manager-navigation --title="Manager Navigation" --description="Manager Links"; then
+	drush add-menu-item menu-manager-navigation "Items Waiting for Approval" "admin/islandora/tools/simple_workflow/list"
+	drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-manager-navigation" --region="sidebar_first"
+	# do not display the block title because it looks messy
+	drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-manager-navigation'"
+	# do not show this link to administrators since it is duplicate information and is messy
+	drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-manager-navigation' from role where name LIKE '%manager%'"
+fi
