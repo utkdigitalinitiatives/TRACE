@@ -38,3 +38,4 @@ xmlrpc.php
 
 # Ignore the .vagrant directory
 .vagrant/
+*.key
