@@ -26,7 +26,7 @@ if [ ! -d $HOME/.drush/drush_extras ]; then
 fi
 
 #Add the Submit link into the 'User Menu'
-drush add-menu-item --weight='9' user-menu 'Submit' 'islandora/object/utk.ir%3Atd#overlay=islandora/object/utk.ir%253Atd/manage/overview/ingest'
+drush add-menu-item --weight='9' user-menu 'Submit' 'islandora/object/utk.ir:td/manage/overview/ingest'
 
 #add in a manager menu with a link to the approve-inactive-objects list
 if drush menu-create menu-manager-navigation --title="Manager Navigation" --description="Manager Links"; then
