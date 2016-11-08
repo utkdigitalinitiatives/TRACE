@@ -53,7 +53,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # This is to check if a file exist (only found on the staging server) and runs script
   # Add alias vagrant='ENV='\''local'\'' vagrant'  to staging server
 	if ENV['ENV'] == 'staging'
-    config.vm.provision :shell, path: "./scripts/settings_php_replace_and_set.sh", :args => shared_dir, :privileged => true
+    config.vm.provision :shell, path: "./scripts/staging_env.sh", :args => shared_dir, :privileged => true
   end
 
 end
