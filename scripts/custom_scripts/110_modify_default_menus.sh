@@ -42,8 +42,8 @@ if drush menu-create menu-trace-navigation --title="Trace Navigation" --descript
 fi
 
 #add in a manager menu with a link to the approve-inactive-objects list
-if drush menu-create menu-manager-navigation --title="Manager Navigation" --description="Navigation to the Manager Approval list"; then
-	drush add-menu-item menu-manager-navigation "Items Waiting for Approval" islandora/tools/simple_workflow/list
+if drush menu-create menu-manager-navigation --title="Manager Navigation" --description="Manager Links"; then
+	drush add-menu-item menu-manager-navigation "Items Waiting for Approval" "admin/islandora/tools/simple_workflow/list"
 	drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-manager-navigation" --region="sidebar_first"
 	# do not display the block title because it looks messy
 	drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-manager-navigation'"
