@@ -39,9 +39,6 @@ drush -y vset adminimal_admin_menu_render "hidden"
 drush -y dis bartik
 drush -y dis seven
 
-# Change Site name to TRACE
-drush -y vset site_name "TRACE"
-
 drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
