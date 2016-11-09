@@ -1,4 +1,4 @@
-"root","utk","ir","Collections","The top-level collection of the UTK TRACE IR","mixed material","islandora:collectionCModel","mixed material","page",
+"root","utk","ir","Trace Collections","The top-level collection of the UTK TRACE IR","mixed material","islandora:collectionCModel","mixed material","page",
 "utk:ir","utk.ir","td","Graduate Theses and Dissertations","A Test Object representing a collection of theses and dissertations from the Graduate School","text","ir:thesisCModel","mixed material","page",
 "utk:ir","utk.ir","supug","Supervised Undergraduate Student Research and Creative Work","A collection of  publications by Supervised Undergraduate Student Research and Creative Work","mixed material","islandora:collectionCModel,islandora:binaryObjectCModel,islandora:sp_pdf,islandora:sp_basic_image","page",
 "utk.ir:supug","utk.ir","csp","College Scholars Program","A Test Object representing a collection of  publications by the College Scholars Program","text","islandora:sp_pdf","mixed material","page",
