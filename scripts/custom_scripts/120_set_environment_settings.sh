@@ -11,8 +11,10 @@ sudo chmod 555 /var/www/drupal/sites/default/settings.php
 
 cd /var/www/drupal || exit
 
-drush vset site_mail dlcontact@utk.edu
+drush -y vset site_mail dlcontact@utk.edu
 php -r "print json_encode(array('dlcontact@utk.edu'));" | drush vset --format=json update_notify_emails -
-drush vset site_default_country US
-drush vset site_frontpage 'home'
-drush vset date_default_timezone 'America/New_York'
+drush -y vset site_default_country US
+drush -y vset site_frontpage 'home'
+drush -y vset date_default_timezone 'America/New_York'
+drush -y vset site_slogan "Tennessee Research and Creative Exchange"
+drush -y vset site_name "TRACE"
