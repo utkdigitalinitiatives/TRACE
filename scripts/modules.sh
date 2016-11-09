@@ -34,6 +34,12 @@ cd "$DRUPAL_HOME"/sites/all/modules/islandora_ingest_collections || exit
 git config core.filemode false
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
+# clone the Digital initiatives module to create nested collections
+git clone https://github.com/robert-patrick-waltz/islandora_nested_collections.git
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_nested_collections || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
 # Clone Tuque, BagItPHP, and Cite-Proc
 cd "$DRUPAL_HOME"/sites/all || exit
 if [ ! -d libraries ]; then
@@ -84,7 +90,7 @@ drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs islando
 drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update zip_importer islandora_basic_image islandora_bibliography islandora_compound_object islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter doi_importer endnotexml_importer pmid_importer ris_importer
 drush -y -u 1 en islandora_fits islandora_ocr islandora_oai islandora_simple_workflow islandora_xacml_api islandora_xacml_editor islandora_xmlsitemap colorbox islandora_internet_archive_bookreader islandora_bagit islandora_batch_report islandora_usage_stats islandora_populator
 drush -y -u 1 en islandora_binary_object
-drush -y -u 1 en islandora_ingest_collections
+drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
