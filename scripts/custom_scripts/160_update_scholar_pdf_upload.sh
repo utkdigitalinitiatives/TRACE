@@ -5,9 +5,13 @@ echo "Checking for an islandora_scholar repository"
 
 cd "$HOME_DIR" || exit
 
+# Committing this with CoB/islandora_scholar as a temporary starting point, until
+# changes are incorporated into utkdigitalinitiatives
 if [ ! -d "$HOME_DIR"/islandora_scholar ]; then
-	echo "Cloning utkdigitalinitiatives/islandora_scholar"
-	git clone https://github.com/utkdigitalinitiatives/islandora_scholar
+	#echo "Cloning utkdigitalinitiatives/islandora_scholar"
+	echo "Cloning CanOfBees/islandora_scholar"
+	#git clone https://github.com/utkdigitalinitiatives/islandora_scholar
+	git clone https://github.com/CanOfBees/islandora_scholar
 	chown -hR vagrant:vagrant islandora_scholar
 else
 	cd islandora_scholar || exit
