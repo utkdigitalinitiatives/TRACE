@@ -53,7 +53,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Add alias vagrant='ENV='\''local'\'' vagrant'  to staging server
 	if ENV['ENV'] == 'staging'
     config.vm.provision :shell, path: "./scripts/staging_env.sh", :args => shared_dir, :privileged => true
-		config.vm.network "forwarded_port", guest: 443, host: 443, auto_correct: true
+		config.vm.network "forwarded_port", guest: 443, host: 8443, auto_correct: true
   end
 
 end
