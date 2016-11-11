@@ -5,3 +5,11 @@
  */
 
 $base_url = 'http://dlhost1.lib.utk.edu';
+$cookie_domain = 'dlhost1.lib.utk.edu';
+
+/**
+ * $conf['https'] = TRUE;
+ * $cookie_domain = 'dlhost1.lib.utk.edu';
+ * $conf['maintenance_theme'] = 'adminimal';
+ * $conf['theme_debug'] = TRUE;
+ */
