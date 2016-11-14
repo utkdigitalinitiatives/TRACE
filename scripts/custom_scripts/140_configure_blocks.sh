@@ -23,8 +23,8 @@ drush sql-query "insert into block_role (rid, module, delta) select rid, 'system
 
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'privatemsg', 'privatemsg-menu' from role where name = 'authenticated user'"
 
-drush block-configure --weight=4 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
-drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
+drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
+drush block-configure --weight=4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
 
 #get rid of the powered by block
 drush block-disable --module=system --delta=powered-by
