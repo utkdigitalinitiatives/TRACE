@@ -5,7 +5,7 @@
 for SCRIPT in /vagrant/scripts/custom_scripts/*.sh
 do
  if [ -f "$SCRIPT" ]; then
-  echo "Running custom scripts"
+  echo "Running custom script $SCRIPT"
   # shellcheck source=/dev/null
   source "$SCRIPT"
  fi
