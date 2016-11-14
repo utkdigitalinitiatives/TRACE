@@ -40,6 +40,16 @@ if drush menu-create menu-manager-navigation --title="Manager Navigation" --desc
 	drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-manager-navigation' from role where name LIKE '%manager%'"
 fi
 
+#add in a manager menu with a link to the approve-inactive-objects list
+if drush menu-create menu-default-login --title="Trace Login" --description="The default login link for TRACE"; then
+	drush add-menu-item menu-default-login 'Login' "user/login"
+	drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=2
+	# do not display the block title because it looks messy
+	drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-default-login'"
+	# do not show this link to administrators since it is duplicate information and is messy
+	drush sql-query "insert into block_role (rid, module, delta) select rid, 'menu', 'menu-default-login' from role where name LIKE '%anonymous%'"
+fi
+
 # add in a new menu that will show links for navigation at the top of the left bar
 if drush menu-create trace-navigation --title="Trace Navigation" --description="Trace Links"; then
 	drush  php-script "/vagrant/scripts/custom_scripts/create_pages.php"
