@@ -5,7 +5,6 @@
  */
 
 $base_url = 'http://dlhost1.lib.utk.edu';
-$cookie_domain = 'dlhost1.lib.utk.edu';
 
 /**
  * $conf['https'] = TRUE;
