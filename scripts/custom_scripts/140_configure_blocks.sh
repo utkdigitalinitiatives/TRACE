@@ -6,7 +6,7 @@ drush sql-query "update block set title='<none>' where module = 'system' and del
 drush sql-query "update block set title='<none>' where module = 'system' and delta = 'user-menu'"
 drush sql-query "update block set title='<none>' where module = 'user' and delta = 'login'"
 drush sql-query "update block set title='<none>' where module = 'privatemsg' and delta = 'privatemsg-menu'"
-
+drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'trace-navigation'"
 
 #limit to administators who can see the 'Admin Menu'
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'navigation' from role where name = 'administrator'"
@@ -23,7 +23,9 @@ drush sql-query "insert into block_role (rid, module, delta) select rid, 'system
 
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'privatemsg', 'privatemsg-menu' from role where name = 'authenticated user'"
 
-drush block-configure --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
+drush block-configure --weight=4 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
+drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
+
 #get rid of the powered by block
 drush block-disable --module=system --delta=powered-by
 drush block-disable --module=search --delta=form
