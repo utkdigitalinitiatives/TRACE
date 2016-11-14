@@ -16,16 +16,22 @@ echo "Set settings.php Script Ran" >> ../time.log
 sudo bash -c 'cat /vagrant/files/change_base_url >> /var/www/drupal/sites/default/settings.php'
 
 # Activate the SSL Module
-sudo a2enmod ssl
-sudo service apache2 restart
+# sudo a2enmod ssl
+# sudo service apache2 restart
 
-sudo mkdir /etc/apache2/ssl
-cp /vagrant/dlhost1.key /etc/apache2/ssl/dlhost1.key
+# sudo mkdir /etc/apache2/ssl
+# cp /vagrant/dlhost1.key /etc/apache2/ssl/dlhost1.key
 
 # Configure Apache to Use SSL
-yes | cp /vagrant/files/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+# yes | cp /vagrant/files/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+
+# Required Patch
+# cd /vagrant || exit
+# curl -O https://www.drupal.org/files/issues/drupal7-fix-simpletest-https-471970-140-7.x.patch
+# git apply -v /vagrant/drupal7-fix-simpletest-https-471970-140-7.x.patch
+
 
 # Activate the SSL Virtual Host
-cd /etc/apache2/sites-available/ || exit
-sudo a2ensite default-ssl.conf
-sudo service apache2 restart
+# cd /etc/apache2/sites-available/ || exit
+# sudo a2ensite default-ssl.conf
+# sudo service apache2 restart
