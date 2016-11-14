@@ -45,3 +45,6 @@ drush -y dl devel
 sudo apt-get -y update
 sudo apt-get -y install subversion
 drush -y en devel
+
+# Change Login
+# betterlogin
