@@ -27,5 +27,5 @@ yes | cp /vagrant/files/default-ssl.conf /etc/apache2/sites-available/default-ss
 
 # Activate the SSL Virtual Host
 cd /etc/apache2/sites-available/ || exit
-sudo a2ensite default-ssl.conf
+# sudo a2ensite default-ssl.conf
 sudo service apache2 restart
