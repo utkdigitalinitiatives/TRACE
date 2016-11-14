@@ -29,7 +29,7 @@ drush block-configure --weight=4 --theme="UTKdrupal" --module="menu" --delta="tr
 #get rid of the powered by block
 drush block-disable --module=system --delta=powered-by
 drush block-disable --module=search --delta=form
-
+drush block-disable --module=user --delta=login
 #drush php-script example --script-path=${SHARED_DIR}/path/to/scripts
 
 # bootstrap themes and block enough to succesfully build and submit block
