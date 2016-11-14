@@ -22,6 +22,7 @@ drush sql-query "update menu_links set menu_name = 'user-menu' where menu_name='
 #if drush extras does not exist then
 if [ ! -d $HOME/.drush/drush_extras ]; then
   drush dl drush_extras
+  drush -y -u 1 en drush_extras
 fi
 
 #Add the Submit link into the 'User Menu'
