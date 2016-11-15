@@ -8,15 +8,13 @@ cd "$HOME_DIR" || exit
 # Committing this with CoB/islandora_scholar as a temporary starting point, until
 # changes are incorporated into utkdigitalinitiatives
 if [ ! -d "$HOME_DIR"/islandora_scholar ]; then
-	#echo "Cloning utkdigitalinitiatives/islandora_scholar"
-	echo "Cloning CanOfBees/islandora_scholar"
-	#git clone https://github.com/utkdigitalinitiatives/islandora_scholar
-	git clone https://github.com/CanOfBees/islandora_scholar
+	echo "Cloning utkdigitalinitiatives/islandora_scholar"
+	git clone https://github.com/utkdigitalinitiatives/islandora_scholar
 	chown -hR vagrant:vagrant islandora_scholar
 else
 	cd islandora_scholar || exit
 	echo "Updating the islandora_scholar repository"
-	git pull origin master
+	git pull origin 7.x
 fi
 
 # update the pdf_upload.form.inc
@@ -25,6 +23,11 @@ sudo cp "$HOME_DIR"/islandora_scholar/includes/pdf_upload.form.inc /var/www/drup
 
 echo "Changing ownership of the pdf_upload.form"
 sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/includes
+
+# Address Php Strict Warning Message with Google MetaTags
+echo "Grabbing Code to Address Islandora Google Meta Tags Strict Warning Message"
+sudo cp "$HOME_DIR"/islandora_scholar/modules/islandora_google_scholar/islandora_google_scholar.module /var/www/drupal/sites/all/modules/islandora_scholar/modules/islandora_google_scholar/
+sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/modules/islandora_google_scholar/
 
 # This script clones and and replaces the islandora_binary object
 echo "Checking for an islandora binary object repository"
