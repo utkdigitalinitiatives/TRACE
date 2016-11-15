@@ -96,7 +96,10 @@ cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # Login Module
 drush dl betterlogin
-drush -y -u 1 en betterlogin
+drush -y en betterlogin
+
+# Enable Triggers
+drush -y en trigger
 
 # Set variables for Islandora modules
 echo " Set variables for Islandora modules"
