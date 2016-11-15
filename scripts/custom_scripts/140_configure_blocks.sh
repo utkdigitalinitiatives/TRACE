@@ -67,3 +67,6 @@ drush block-disable --module=system --delta=navigation
 ##Apply new settings
 # drupal_form_submit('block_admin_display_form', $form_state, $blocks, $my_theme);
 # drupal_flush_all_caches();
+
+# Set block to be viewable by only authenticated users
+drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'
