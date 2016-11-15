@@ -1,11 +1,11 @@
 <?php
 
-function create_named_page($page_name, $page_body) {
+function create_named_page($page_name, $page_title, $page_body) {
   $node = new stdClass();
   $node->nid = NULL;
   $node->type = "page";
   node_object_prepare($node);
-  $node->title = "";
+  $node->title = $page_title;
   $node->uid = 1;
   $node->created = strtotime("now");
   $node->changed = strtotime("now");
@@ -53,14 +53,13 @@ $home_body =  <<<HOME_BODY
 HOME_BODY;
 
 $submit_body =  <<<SUBMIT_BODY
-<br />
-<p>Welcome to TRACE. What do you want to do today?</p>
 
-<p>I’m a <b>faculty member, staff researcher, or graduate student</b>. I want to submit or edit a copy of an <a href="islandora/object/utk.ir:fg/manage/overview/ingest">Article, Conference Presentation or Other Research or Creative Work.</a></p>
+<ul>
+<li>I’m a <b>faculty member, staff researcher, or graduate student</b>. I want to submit or edit a copy of an <a href="islandora/object/utk.ir:fg/manage/overview/ingest">Article, Conference Presentation or Other Research or Creative Work.</a></li>
 
-<p>I’m a <b>graduate student</b>. I want to submit or manage a <a href="islandora/object/utk.ir:td/manage/overview/ingest">Graduate Thesis or Dissertation</a>.</p>
+<li>I’m a <b>graduate student</b>. I want to submit or manage a <a href="islandora/object/utk.ir:td/manage/overview/ingest">Graduate Thesis or Dissertation</a>.</li>
 
-<p>I want to submit or manage one or more supervised undergraduate research projects. </p>
+<li>I want to submit or manage one or more supervised undergraduate research projects. </li>
 <ul>
 <li><a href="islandora/object/utk.ir:bsp/manage/overview/ingest">Baker Scholars Program</a></li>
 <li><a href="islandora/object/utk.ir:chp/manage/overview/ingest">Chancellor’s Honors Program</a></li>
@@ -68,22 +67,22 @@ $submit_body =  <<<SUBMIT_BODY
 <li><a href="islandora/object/utk.ir:eureca/manage/overview/ingest">EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
 <li><a href="islandora/object/utk.ir:hsp/manage/overview/ingest">Haslam Scholars Program</a></li>
 </ul>
-<p><a href="help">I want to do something else. Or, I’m not sure.</a> </p>
-
+<li><a href="help">I want to do something else. Or, I’m not sure.</a></li>
+</ul>
 SUBMIT_BODY;
 
 
-$home_nid = create_named_page("home", $home_body);
+$home_nid = create_named_page("home", "", $home_body);
 
-$submit_nid = create_named_page("submit", $submit_body);
+$submit_nid = create_named_page("submit", "Welcome to TRACE. What do you want to do today?", $submit_body);
 
 add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
 
-$about_nid = create_named_page("about", "");
+$about_nid = create_named_page("about", "", "");
 add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About TRACE", 0);
 
-$browse_nid = create_named_page("browse", "");
-add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse TRACE Collections", 2);
+$browse_nid = create_named_page("browse", "", "");
+add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse Collections", 2);
 
-$help_nid = create_named_page("help", "");
+$help_nid = create_named_page("help", "", "");
 add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Use TRACE: Help & Tutorial", 4);
