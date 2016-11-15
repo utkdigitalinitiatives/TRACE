@@ -26,8 +26,8 @@ sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_schol
 
 # Address Php Strict Warning Message with Google MetaTags
 echo "Grabbing Code to Address Islandora Google Meta Tags Strict Warning Message"
-sudo cp "$HOME_DIR"/islandora_scholar/modules/islandora_google_scholar/islandora_google_scholar.module /var/www/drupal/sites/all/modules/islandora_scholar/islandora_google_scholar/
-sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/islandora_google_scholar/
+sudo cp "$HOME_DIR"/islandora_scholar/modules/islandora_google_scholar/islandora_google_scholar.module /var/www/drupal/sites/all/modules/islandora_scholar/modules/islandora_google_scholar/
+sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/modules/islandora_google_scholar/
 
 # This script clones and and replaces the islandora_binary object
 echo "Checking for an islandora binary object repository"
