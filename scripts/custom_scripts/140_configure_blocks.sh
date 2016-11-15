@@ -26,6 +26,10 @@ drush sql-query "insert into block_role (rid, module, delta) select rid, 'privat
 drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
 
+# set the islandora_solr blocks
+drush block-configure --weight=0 --theme="UTKdrupal" --module="islandora_solr" --delta="simple" --region="sidebar_second"
+drush block-configure --weight=-1 --theme="UTKdrupal" --module="islandora_solr" --delta="basic_facets" --region="sidebar_second"
+
 #get rid of the powered by block
 drush block-disable --module=system --delta=powered-by
 drush block-disable --module=search --delta=form
