@@ -11,9 +11,4 @@ drush -y dl privatemsg
 drush -y en privatemsg
 drush -y en pm_block_user pm_email_notify privatemsg_filter privatemsg_limits privatemsg_realname privatemsg_roles privatemsg_rules
 
-# Set to "sidebar" blocks
-
-# Set block to be viewable by only authenticated users
-drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'
-
 drush cc theme-registry
