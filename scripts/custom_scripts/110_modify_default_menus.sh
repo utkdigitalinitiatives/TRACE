@@ -20,9 +20,9 @@ drush sql-query "update menu_router set title = 'Trace Collections' where path= 
 drush sql-query "update menu_links set menu_name = 'user-menu' where menu_name='navigation' and link_title='My bookmarks'"
 
 #if drush extras does not exist then
-if [ ! -d $HOME/.drush/drush_extras ]; then
-  drush dl drush_extras
-fi
+# if [ ! -d $HOME/.drush/drush_extras ]; then
+#   drush dl drush_extras
+# fi
 
 #Add the Submit link into the 'User Menu'
 
