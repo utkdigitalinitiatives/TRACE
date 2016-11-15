@@ -26,7 +26,7 @@ drush sql-query "update menu_links set menu_name = 'user-menu' where menu_name='
 
 #Add the Submit link into the 'User Menu'
 
-drush add-menu-item --weight='9' user-menu 'Submit' 'islandora/object/utk.ir:td/manage/overview/ingest'
+#drush add-menu-item --weight='9' user-menu 'Submit' 'islandora/object/utk.ir:td/manage/overview/ingest'
 drush add-menu-item --weight='-1' navigation 'Trace Root Collection' "islandora/object/utk:ir"
 
 #add in a manager menu with a link to the approve-inactive-objects list
