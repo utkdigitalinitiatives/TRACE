@@ -42,7 +42,7 @@ fi
 
 #add in a manager menu with a link to the approve-inactive-objects list
 if drush menu-create menu-default-login --title="Trace Login" --description="The default login link for TRACE"; then
-	drush add-menu-item menu-default-login 'Login' "user/login"
+	drush add-menu-item menu-default-login 'Login: Deposit & Manage Submissions' "user/login"
 	drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=2
 	# do not display the block title because it looks messy
 	drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-default-login'"
