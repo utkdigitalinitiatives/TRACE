@@ -1,0 +1,14 @@
+/**
+ * Base URL (optional).
+ * It is not allowed to have a trailing slash; Drupal will add it
+ * for you.
+ */
+
+$base_url = 'http://dlhost1.lib.utk.edu';
+
+/**
+ * $conf['https'] = TRUE;
+ * $cookie_domain = 'dlhost1.lib.utk.edu';
+ * $conf['maintenance_theme'] = 'adminimal';
+ * $conf['theme_debug'] = TRUE;
+ */

@@ -5,7 +5,6 @@ sites/*/*settings*.php
 ./testing.log
 
 # Ignore paths that contain generated content.
-files/
 sites/*/files
 sites/*/private
 
@@ -39,3 +38,4 @@ xmlrpc.php
 
 # Ignore the .vagrant directory
 .vagrant/
+*.key

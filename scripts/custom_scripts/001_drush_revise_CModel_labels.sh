@@ -9,7 +9,8 @@ echo "drush revise CModel Labels"
 # Thesis Content Model                   ir:thesisCModel
 # Islandora Binary Object Content Model  ir:binaryObjectCmodel
 
-cd /usr/local/fedora || exit
+# commenting out the change directory since this script should not rely on where fedora is installed
+# cd /usr/local/fedora || exit
 
 # islandora:sp_basic_image
 curl -vv -u "fedoraAdmin:fedoraAdmin" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_basic_image?label=chd_basic_image"

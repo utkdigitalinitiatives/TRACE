@@ -147,8 +147,12 @@ Priviledged User login - a netid login that can submit outside of
   - password: privUser
 
 Manager login - can assign users to roles, can approve submissions.
-  - username: manager
-  - password: manager
+    - username: manager
+    - password: manager
+
+Collection Manager login - can manage a certain collection.
+  - username: thesis_manager
+  - password: thesis_manager
 
 root Admin login: - for maintaining system, has all permissions.
   - username: admin

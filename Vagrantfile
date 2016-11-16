@@ -21,12 +21,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = $hostname
   # Every Vagrant virtual environment requires a box to build off of.
-  #config.vm.box = "islandora/islandora-base"
-  # config.vm.box = "http://dlwork.lib.utk.edu/vboxes/u14plus.json"
-	config.vm.box = "TRACE"
+  # config.vm.box = "islandora/islandora-base"
+  config.vm.box = "TRACE"
 
-	config.vm.box_url = "http://dlwork.lib.utk.edu/vboxes/u14plus.json"
-
+  config.vm.box_url = "http://dlwork.lib.utk.edu/vboxes/u14plus.json"
+  # config.vm.box_version = "0.1.4"
   shared_dir = "/vagrant"
 
   config.vm.provider "virtualbox" do |vb|
@@ -48,5 +47,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if File.exist?("~/Desktop/traceCustomModule") then
     config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",
         rsync__exclude: ".git/"
+  end
+
+  # This is to check if a file exist (only found on the staging server) and runs script
+  # Add alias vagrant='ENV='\''local'\'' vagrant'  to staging server
+	if ENV['ENV'] == 'staging'
+    config.vm.provision :shell, path: "./scripts/staging_env.sh", :args => shared_dir, :privileged => true
+		config.vm.network "forwarded_port", guest: 443, host: 8443
+
   end
 end
