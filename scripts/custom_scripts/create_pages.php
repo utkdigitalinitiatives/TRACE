@@ -14,7 +14,7 @@ function create_named_page($page_name, $page_title, $page_body) {
   $node->language = LANGUAGE_NONE;
   $node->validated = TRUE;
 
-  $node->body[$node->language][0]["value"]   =  $page_body;  
+  $node->body[$node->language][0]["value"]   =  $page_body;
   $node->body[$node->language][0]["summary"] = text_summary("");
   $node->body[$node->language][0]["format"]  = "filtered_html";
   $node->path = array("alias" => $page_name, "pathauto" => FALSE);
@@ -42,33 +42,43 @@ function add_menu_link_to_trace_navigation($pid, $menu_name, $link_title, $weigh
   $link['expanded'] =  0;
   $link['router_path'] = "node/%";
   $mlid = menu_link_save($link);
-  
+
 }
 $home_body =  <<<HOME_BODY
 <br/>
-<p class="trace_home_page_article_title">TRACE is Tennessee Research and Creative Exchange &ndash; 
+<p class="trace_home_page_article_title">TRACE is Tennessee Research and Creative Exchange &ndash;
       the University of Tennessee's open repository</p>
-<p class="trace_home_page_article_blurb">TRACE gives the world access to UT research and creative works &ndash; 
+<p class="trace_home_page_article_blurb">TRACE gives the world access to UT research and creative works &ndash;
        including faculty research findings and data  &ndash; as well as documents from our institutional history.</p>
 HOME_BODY;
 
 $submit_body =  <<<SUBMIT_BODY
 
-<ul>
-<li>I’m a <b>faculty member, staff researcher, or graduate student</b>. I want to submit or edit a copy of an <a href="islandora/object/utk.ir:fg/manage/overview/ingest">Article, Conference Presentation or Other Research or Creative Work.</a></li>
+<br/>
+<div class="row demo-row">
+  <div class="col-xs-3">
+    <a class="btn btn-block btn-lg btn-success" href="islandora/object/utk.ir:td/manage/overview/ingest">Submit Graduate Thesis or Dissertation</a>
+<br/>
+  </div>
+  <div class="col-xs-3">
+    <a class="btn btn-block btn-lg btn-success" href="islandora/object/utk.ir:fg/manage/overview/ingest">Submit Faculty and Graduate Student Research and Creative Work</a>
+<br/>
+  </div>
+  <div class="col-xs-3">
+    <p>Submit Undergraduate Research Projects</p>
+    <p style="margin-left: 40px">
+    <a href="islandora/object/utk.ir:bsp/manage/overview/ingest">Baker Scholars Program</a>
+    <a href="islandora/object/utk.ir:chp/manage/overview/ingest">Chancellor’s Honors Program</a>
+    <a href="islandora/object/utk.ir:csp/manage/overview/ingest">College Scholars Program</a>
+    <a href="islandora/object/utk.ir:eureca/manage/overview/ingest">EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a>
+    <a href="islandora/object/utk.ir:hsp/manage/overview/ingest">Haslam Scholars Program</a>
+    </p>
+  </div>
+  <div class="col-xs-3">
+    <a href="/help" class="btn btn-block btn-lg btn-info">Help, I’m not sure.</a>
+  </div>
+</div>
 
-<li>I’m a <b>graduate student</b>. I want to submit or manage a <a href="islandora/object/utk.ir:td/manage/overview/ingest">Graduate Thesis or Dissertation</a>.</li>
-
-<li>I want to submit or manage one or more supervised undergraduate research projects. </li>
-<ul>
-<li><a href="islandora/object/utk.ir:bsp/manage/overview/ingest">Baker Scholars Program</a></li>
-<li><a href="islandora/object/utk.ir:chp/manage/overview/ingest">Chancellor’s Honors Program</a></li>
-<li><a href="islandora/object/utk.ir:csp/manage/overview/ingest">College Scholars Program</a></li>
-<li><a href="islandora/object/utk.ir:eureca/manage/overview/ingest">EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
-<li><a href="islandora/object/utk.ir:hsp/manage/overview/ingest">Haslam Scholars Program</a></li>
-</ul>
-<li><a href="help">I want to do something else. Or, I’m not sure.</a></li>
-</ul>
 SUBMIT_BODY;
 
 
@@ -79,10 +89,10 @@ $submit_nid = create_named_page("submit", "Welcome to TRACE. What do you want to
 add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
 
 $about_nid = create_named_page("about", "", "");
-add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About TRACE", 0);
+add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About", 0);
 
 $browse_nid = create_named_page("browse", "", "");
 add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse Collections", 2);
 
 $help_nid = create_named_page("help", "", "");
-add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Use TRACE: Help & Tutorial", 4);
+add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Help & Tutorial", 4);
