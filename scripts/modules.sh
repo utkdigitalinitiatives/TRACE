@@ -35,7 +35,7 @@ git config core.filemode false
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # clone the Digital initiatives module to create nested collections
-git clone https://github.com/robert-patrick-waltz/islandora_nested_collections.git
+git clone https://github.com/utkdigitalinitiatives/islandora_nested_collections.git
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_nested_collections || exit
 git config core.filemode false
 cd "$DRUPAL_HOME"/sites/all/modules || exit
