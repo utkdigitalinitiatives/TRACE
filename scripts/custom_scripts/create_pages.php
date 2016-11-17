@@ -53,38 +53,28 @@ $home_body =  <<<HOME_BODY
 HOME_BODY;
 
 $submit_body =  <<<SUBMIT_BODY
-
-<br/>
-<div class="row demo-row">
-  <div class="col-xs-3">
-    <a class="btn btn-block btn-lg btn-success" href="islandora/object/utk.ir:td/manage/overview/ingest">Submit Graduate Thesis or Dissertation</a>
-<br/>
-  </div>
-  <div class="col-xs-3">
-    <a class="btn btn-block btn-lg btn-success" href="islandora/object/utk.ir:fg/manage/overview/ingest">Submit Faculty and Graduate Student Research and Creative Work</a>
-<br/>
-  </div>
-  <div class="col-xs-3">
-    <p>Submit Undergraduate Research Projects</p>
-    <p style="margin-left: 40px">
-    <a href="islandora/object/utk.ir:bsp/manage/overview/ingest">Baker Scholars Program</a>
-    <a href="islandora/object/utk.ir:chp/manage/overview/ingest">Chancellor’s Honors Program</a>
-    <a href="islandora/object/utk.ir:csp/manage/overview/ingest">College Scholars Program</a>
-    <a href="islandora/object/utk.ir:eureca/manage/overview/ingest">EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a>
-    <a href="islandora/object/utk.ir:hsp/manage/overview/ingest">Haslam Scholars Program</a>
-    </p>
-  </div>
-  <div class="col-xs-3">
-    <a href="/help" class="btn btn-block btn-lg btn-info">Help, I’m not sure.</a>
-  </div>
+<hr>
+<div style="line-height: 2.0; font-size: larger;">
+<ul style="list-style: none;">
+    <li style="padding-bottom:10px;"><a href="islandora/object/utk.ir:td/manage/overview/ingest">Submit Graduate Thesis or Dissertation</a></li>
+    <li style="padding-bottom:10px;"><a href="islandora/object/utk.ir:fg/manage/overview/ingest">Submit Faculty and Graduate Student Research and Creative Work</a></li>
+    <li style="color: #A7A9AC;">Submit Undergraduate Research Projects</li>
+    <ul style="list-style: none;">
+      <li><a href="islandora/object/utk.ir:bsp/manage/overview/ingest">Baker Scholars Program</a></li>
+      <li><a href="islandora/object/utk.ir:chp/manage/overview/ingest">Chancellor’s Honors Program</a></li>
+      <li><a href="islandora/object/utk.ir:csp/manage/overview/ingest">College Scholars Program</a></li>
+      <li><a href="islandora/object/utk.ir:eureca/manage/overview/ingest">EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
+      <li style="padding-bottom:10px;"><a href="islandora/object/utk.ir:hsp/manage/overview/ingest">Haslam Scholars Program</a></li>
+    </ul>
+    <li style="padding-bottom:10px;"><a href="/help">Help, I’m not sure.</a></li>
+</ul>
 </div>
-
 SUBMIT_BODY;
 
 
 $home_nid = create_named_page("home", "", $home_body);
 
-$submit_nid = create_named_page("submit", "Welcome to TRACE. What do you want to do today?", $submit_body);
+$submit_nid = create_named_page("submit", "Deposit Your Work", $submit_body);
 
 add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
 
