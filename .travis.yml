@@ -15,8 +15,8 @@ install:
 - export DEBIAN_FRONTEND=noninteractive
 - echo "Install scripts Starting"
 - sudo apt-get -q -y install shellcheck
-- sudo apt-get -q -y update
 - sudo apt-get -q -y upgrade shellcheck
+- sudo apt-get -q -y update
 - shellcheck --version
 script:
 - echo "shell commands Starting"
