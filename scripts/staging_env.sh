@@ -18,9 +18,13 @@ sudo bash -c 'cat /vagrant/files/change_base_url >> /var/www/drupal/sites/defaul
 # Activate the SSL Module
 # sudo a2enmod ssl
 # sudo service apache2 restart
+# sudo aptitude install ssl-cert
 
+# Place the CERTS in a folder and set permissions
 # sudo mkdir /etc/apache2/ssl
-# cp /vagrant/dlhost1.key /etc/apache2/ssl/dlhost1.key
+# sudo mkdir /etc/apache2/ssl/private
+# cp /vagrant/dlhost1.key /etc/apache2/ssl/private/dlhost1.key
+# chmod 600 /etc/apache2/ssl/private/dlhost1.key
 
 # Configure Apache to Use SSL
 # yes | cp /vagrant/files/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
@@ -31,7 +35,8 @@ sudo bash -c 'cat /vagrant/files/change_base_url >> /var/www/drupal/sites/defaul
 # git apply -v /vagrant/drupal7-fix-simpletest-https-471970-140-7.x.patch
 
 
-# Activate the SSL Virtual Host
+# Activate/Reset the SSL Virtual Host
 # cd /etc/apache2/sites-available/ || exit
+# sudo a2dissite default-ssl
 # sudo a2ensite default-ssl.conf
 # sudo service apache2 restart
