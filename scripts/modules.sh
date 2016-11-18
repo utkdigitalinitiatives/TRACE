@@ -43,7 +43,7 @@ cd "$DRUPAL_HOME"/sites/all/modules || exit
 # Clone Tuque, BagItPHP, and Cite-Proc
 cd "$DRUPAL_HOME"/sites/all || exit
 if [ ! -d libraries ]; then
-  mkdir libraries
+  mkdir libraries || echo failure
 fi
 cd "$DRUPAL_HOME"/sites/all/libraries || exit
 git clone https://github.com/Islandora/tuque.git
@@ -57,8 +57,8 @@ git config core.filemode false
 
 # Check for a user's .drush folder, create if it doesn't exist
 if [ ! -d "$HOME_DIR/.drush" ]; then
-  mkdir "$HOME_DIR/.drush"
-  sudo chown vagrant:vagrant "$HOME_DIR"/.drush
+  mkdir /home/vagrant/.drush || echo failure
+  sudo chown vagrant:vagrant /home/vagrant/.drush
 fi
 
 # Move OpenSeadragon drush file to user's .drush folder
