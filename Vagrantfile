@@ -51,9 +51,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # This is to check if a file exist (only found on the staging server) and runs script
   # Add alias vagrant='ENV='\''local'\'' vagrant'  to staging server
-	if ENV['ENV'] == 'staging'
+  if ENV['ENV'] == 'staging'
     config.vm.provision :shell, path: "./scripts/staging_env.sh", :args => shared_dir, :privileged => true
-		config.vm.network "forwarded_port", guest: 443, host: 8443
-
+    config.vm.network "forwarded_port", guest: 443, host: 8443
   end
 end
