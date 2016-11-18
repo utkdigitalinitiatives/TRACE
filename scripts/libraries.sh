@@ -12,4 +12,4 @@ sudo drush -v openseadragon-plugin
 sudo drush -v -y en islandora_openseadragon
 
 # After last drush call from root user, change cache permissions
-sudo chown -R vagrant:vagrant "$HOME_DIR"/.drush
+sudo chown -R $USER "$HOME_DIR"/.drush
