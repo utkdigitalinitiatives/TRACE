@@ -11,20 +11,6 @@ sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/libraries
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/modules
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/default/files
 
-# for some reason /home/vagrant/.drush/cache/ && /home/vagrant/.drush/cache/default become
-# owned by root. It causes failures in various scripts.
-if [ -d /home/vagrant/.drush/cache/default ]; then
-  sudo chown -R  vagrant /home/vagrant/.drush
-  sudo chmod -R 755 /home/vagrant/.drush
-else
-  sudo mkdir -p /home/vagrant/.drush/cache/default
-  sudo chown -R  vagrant /home/vagrant/.drush
-  sudo chmod -R 755 /home/vagrant/.drush
-fi
-
-ls -l /home/vagrant/.drush
-ls -l /home/vagrant/.drush/cache
-ls -l /home/vagrant/.drush/cache/default
 # Clone all Islandora Foundation modules
 echo "Cloning Islandora modules"
 cd "$DRUPAL_HOME"/sites/all/modules || exit
