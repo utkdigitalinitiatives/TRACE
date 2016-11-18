@@ -6,13 +6,12 @@
 sudo updatedb
 
 # Drupal into maintenance mode
-drush vset --exact maintenance_mode 1 drush cache-clear all
+drush -y vset --exact maintenance_mode 1
+drush cc all
 
 # Update Drupal
 yes | drush pm-update drupal
 
 # Drupal out of maintenance mode
-drush vset --exact maintenance_mode 0 drush cache-clear all
-
-# Clear drush's cache
+drush -y vset --exact maintenance_mode 0
 drush cc all
