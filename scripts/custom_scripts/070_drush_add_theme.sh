@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-
+if ["$HOMEUSER"=""]; then
+   HOMEUSER="vagrant"
+fi
 echo "drush enable theme"
 # Set permissions /sites/all/themes
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/themes
+sudo chown -hR $HOMEUSER:www-data "$DRUPAL_HOME"/sites/all/themes
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/themes
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
@@ -16,7 +18,7 @@ git pull
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
 # Set permissions UTKdrupal
-sudo chown -hR vagrant:www-data UTKdrupal
+sudo chown -hR $HOMEUSER:www-data UTKdrupal
 
 # Enable UTKdrupal and set as default
 drush -y en UTKdrupal
@@ -42,7 +44,7 @@ drush -y dis seven
 drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
-sudo apt-get -y update
+#sudo apt-get -y update
 sudo apt-get -y install subversion
 drush -y en devel
 
