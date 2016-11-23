@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 # Echos "drush add collections DRUPAL_HOME SHARED_DIR to /tmp/junk_out
 echo "drush add collections  ${DRUPAL_HOME}" > /tmp/junk_out
 echo "drush add collections  ${SHARED_DIR}" >> /tmp/junk_out

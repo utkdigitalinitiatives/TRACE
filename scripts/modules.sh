@@ -89,6 +89,7 @@ fi
 if [ -d "$HOME_DIR/.drush" ] && [ -f "$DRUPAL_HOME/sites/all/modules/islandora_internet_archive_bookreader/islandora_internet_archive_bookreader.drush.inc" ]; then
   mv "$DRUPAL_HOME/sites/all/modules/islandora_internet_archive_bookreader/islandora_internet_archive_bookreader.drush.inc" "$HOME_DIR/.drush"
 fi
+cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 drush -y -u 1 en php_lib islandora objective_forms
 drush -y -u 1 en islandora_solr islandora_solr_metadata islandora_solr_views
