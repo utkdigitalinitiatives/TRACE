@@ -67,7 +67,7 @@ git config core.filemode false
 # Check for a user's .drush folder, create if it doesn't exist
 if [ ! -d "$HOME_DIR/.drush" ]; then
   mkdir /home/vagrant/.drush || echo failure
-  sudo chown vagrant:vagrant /home/vagrant/.drush
+  sudo chown -hR vagrant:www-data /home/vagrant/.drush
 fi
 
 # Move OpenSeadragon drush file to user's .drush folder

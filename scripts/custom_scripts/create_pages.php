@@ -13,14 +13,12 @@ function create_named_page($page_name, $page_title, $page_body) {
   $node->promote = 0;
   $node->language = LANGUAGE_NONE;
   $node->validated = TRUE;
-
   $node->body[$node->language][0]["value"]   =  $page_body;
   $node->body[$node->language][0]["summary"] = text_summary("");
-  $node->body[$node->language][0]["format"]  = "filtered_html";
+  $node->body[$node->language][0]["format"]  = "full_html";
   $node->path = array("alias" => $page_name, "pathauto" => FALSE);
 
-  node_save($node);
-
+	node_save($node);
   drupal_set_message(t("Created $page_name page with node id " . $node->nid) );
   return $node->nid;
 }
