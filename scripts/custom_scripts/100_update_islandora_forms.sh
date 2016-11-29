@@ -16,4 +16,4 @@ fi
 
 # Replace default form.
 echo "Replace Default Islandora Thesis CModel XML Form."
-sudo cp "$HOME_DIR"/utk_isl_xml_forms/xml_forms/UTK_ir_etds.xml /var/www/drupal/sites/all/modules/islandora_scholar/xml/thesis_form.xml
+sudo cp "$HOME_DIR"/utk_isl_xml_forms/xml_forms/UTK_ir_etds.xml "$DRUPAL_HOME"/sites/all/modules/islandora_scholar/xml/thesis_form.xml
