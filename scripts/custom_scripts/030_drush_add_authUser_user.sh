@@ -21,7 +21,6 @@ declare -a AUTH_USER_PERMS=(
   "export islandora bookmarks"
   "share islandora bookmarks"
   "use islandora_bookmark"
-  "can embargo owned objects"
 )
 
 # iterate over the list of permissions and verify that they're added
