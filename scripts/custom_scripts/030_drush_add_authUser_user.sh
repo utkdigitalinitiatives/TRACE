@@ -17,14 +17,10 @@ drush -r $DRUPAL_HOME role-list | grep -o 'authUser-role' && echo "authUser-role
 declare -a AUTH_USER_PERMS=(
   "view fedora repository objects" #islandora
   "ingest fedora objects" #islandora
-  #"replace a datastream with new content, preserving version history" #islandora
-  #"view old datastream versions" #islandora
-  #"add fedora datastreams" #islandora
   "search islandora solr"
   "export islandora bookmarks"
   "share islandora bookmarks"
   "use islandora_bookmark"
-  "can embargo owned objects"
 )
 
 # iterate over the list of permissions and verify that they're added
