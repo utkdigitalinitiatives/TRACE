@@ -19,6 +19,13 @@ declare -a COLL_MANAGER_PERMS=(
   "view fedora repository objects" #islandora
   "add fedora datastreams" #islandora
   "ingest fedora objects" #islandora
+  "add fedora datastreams"
+  "replace a datastream with new content, preserving version history"
+  "view old datastream versions"
+  "revert to old datastream"
+  "edit fedora metadata"
+  "regenerate derivatives for an object"
+  "manage object properties"
   "export islandora bookmarks"
   "share islandora bookmarks"
   "use islandora_bookmark"
