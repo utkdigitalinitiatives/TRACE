@@ -3,7 +3,7 @@
 echo "drush revise CModel Labels"
 #if fedora password is not defined by the system, define it here
 if [ "$FEDORAPASS"=""]; then
-  FEDORAPASS="FedoraAdmin"
+  FEDORAPASS="fedoraAdmin"
 fi
 
 # Original Label                                Content Model Type
