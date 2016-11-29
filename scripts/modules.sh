@@ -10,6 +10,7 @@ sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/default/files
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/libraries
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/modules
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/default/files
+
 # for some reason /home/vagrant/.drush/cache/ && /home/vagrant/.drush/cache/default become
 # owned by root. It causes failures in various scripts.
 if [ -d /home/vagrant/.drush/cache/default ]; then
@@ -20,6 +21,7 @@ else
   sudo chown -R vagrant /home/vagrant/.drush
   sudo chmod -R 777 /home/vagrant/.drush
 fi
+
 # Clone all Islandora Foundation modules
 echo "Cloning Islandora modules"
 cd "$DRUPAL_HOME"/sites/all/modules || exit
@@ -34,13 +36,16 @@ while read -r LINE; do
   git config core.filemode false
   cd "$DRUPAL_HOME"/sites/all/modules || exit
 done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
+
 # clone binary_object from IslandoraLabs
 git clone git://github.com/Islandora-Labs/islandora_binary_object
 
 # clone the Digital initiatives module to ingest collections
 git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.git
+
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_ingest_collections || exit
 git config core.filemode false
+
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # clone the Digital initiatives module to create nested collections
@@ -54,6 +59,7 @@ cd "$DRUPAL_HOME"/sites/all || exit
 if [ ! -d libraries ]; then
   mkdir libraries || echo failure
 fi
+
 cd "$DRUPAL_HOME"/sites/all/libraries || exit
 git clone https://github.com/Islandora/tuque.git
 git clone git://github.com/scholarslab/BagItPHP.git
@@ -61,6 +67,7 @@ git clone https://github.com/Islandora/citeproc-php.git
 
 cd "$DRUPAL_HOME"/sites/all/libraries/tuque || exit
 git config core.filemode false
+
 cd "$DRUPAL_HOME"/sites/all/libraries/BagItPHP || exit
 git config core.filemode false
 
@@ -89,6 +96,7 @@ fi
 if [ -d "$HOME_DIR/.drush" ] && [ -f "$DRUPAL_HOME/sites/all/modules/islandora_internet_archive_bookreader/islandora_internet_archive_bookreader.drush.inc" ]; then
   mv "$DRUPAL_HOME/sites/all/modules/islandora_internet_archive_bookreader/islandora_internet_archive_bookreader.drush.inc" "$HOME_DIR/.drush"
 fi
+
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 drush -y -u 1 en php_lib islandora objective_forms

@@ -50,7 +50,11 @@ drush vset -y cas_port '443'
 drush vset -y cas_proxy 0
 drush vset -y cas_proxy_list ''
 drush vset -y cas_registerURL ''
+# This is for Staging Server Environment
 drush vset -y cas_server 'casdev.tennessee.edu'
+# This is for Production Environment
+# drush vset -y cas_server 'cas.tennessee.edu'
+
 drush vset -y cas_uri '/cas'
 drush vset -y cas_user_register 1
 drush vset -y cas_version '3.0'

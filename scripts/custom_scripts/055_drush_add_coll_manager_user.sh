@@ -16,32 +16,32 @@ drush -r $DRUPAL_HOME role-list | grep -o 'thesis_manager_role' && echo "thesis_
 
 ## add coll manager permissions
 declare -a COLL_MANAGER_PERMS=(
-	"view fedora repository objects" #islandora
-	"add fedora datastreams" #islandora
-	"ingest fedora objects" #islandora
-	"export islandora bookmarks"
-	"share islandora bookmarks"
-	"use islandora_bookmark"
-	"search islandora solr"
-	"bypass inactive object state" #simple_workflow
-	"manage inactive objects"  #simple_workflow
-	"can embargo owned objects"
-	"can embargo any object"
-	"access user profiles" #user
-	"access toolbar"
-	"view the administration theme"
-	"access administration pages" #system
-	"view islandora usage stats reports"
-	"view islandora usage stats collection overview stats"
+  "view fedora repository objects" #islandora
+  "add fedora datastreams" #islandora
+  "ingest fedora objects" #islandora
+  "export islandora bookmarks"
+  "share islandora bookmarks"
+  "use islandora_bookmark"
+  "search islandora solr"
+  "bypass inactive object state" #simple_workflow
+  "manage inactive objects"  #simple_workflow
+  "can embargo owned objects"
+  "can embargo any object"
+  "access user profiles" #user
+  "access toolbar"
+  "view the administration theme"
+  "access administration pages" #system
+  "view islandora usage stats reports"
+  "view islandora usage stats collection overview stats"
 )
 
 ## iterate over the list of permissions and verify that they're added
 drush_thesis_manager_role_perm_check() {
-	echo "Verifying thesis_manager_role permissions..."
-	for i in "${COLL_MANAGER_PERMS[@]}"
-	do
-		drush -r $DRUPAL_HOME role-add-perm 'thesis_manager_role' "$i"
-	done
+  echo "Verifying thesis_manager_role permissions..."
+  for i in "${COLL_MANAGER_PERMS[@]}"
+  do
+    drush -r $DRUPAL_HOME role-add-perm 'thesis_manager_role' "$i"
+  done
 }
 
 drush_thesis_manager_role_perm_check

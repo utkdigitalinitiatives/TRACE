@@ -11,43 +11,43 @@ drush -r $DRUPAL_HOME role-list | grep -o 'manager-role' && echo "manager-role e
 
 ## add islandora module permissions
 declare -a MANAGER_PERMS=(
-	"view fedora repository objects" #islandora
-	"search islandora solr"
-	"ingest fedora objects" #islandora
-	"add fedora datastreams" #islandora
-	"replace a datastream with new content, preserving version history" #islandora
-	"view old datastream versions" #islandora
-	"revert to old datastream"
-	"use islandora_bookmark"
-	"share islandora bookmarks"
-	"export islandora bookmarks"
-	"edit fedora metadata" #islandora
-	"view technical metadata"
-	"administer users" #user
-	"create child collection" #islandora_collection
-	"manage collection policy" #islandora_collection
-	"manage object properties" #islandora
-	"migrate collection members" #islandora_collection
-	"regenerate derivatives for an object" #islandora
-	"bypass inactive object state" #simple_workflow
-	"manage inactive objects"  #simple_workflow
-	"can embargo any object"
-	"access user profiles" #user
-	"administer users"  #user
-	"access toolbar"
-	"view the administration theme"
-	"access administration pages" #system
-	"view islandora usage stats reports"
-	"view islandora usage stats collection overview stats"
+  "view fedora repository objects" #islandora
+  "search islandora solr"
+  "ingest fedora objects" #islandora
+  "add fedora datastreams" #islandora
+  "replace a datastream with new content, preserving version history" #islandora
+  "view old datastream versions" #islandora
+  "revert to old datastream"
+  "use islandora_bookmark"
+  "share islandora bookmarks"
+  "export islandora bookmarks"
+  "edit fedora metadata" #islandora
+  "view technical metadata"
+  "administer users" #user
+  "create child collection" #islandora_collection
+  "manage collection policy" #islandora_collection
+  "manage object properties" #islandora
+  "migrate collection members" #islandora_collection
+  "regenerate derivatives for an object" #islandora
+  "bypass inactive object state" #simple_workflow
+  "manage inactive objects"  #simple_workflow
+  "can embargo any object"
+  "access user profiles" #user
+  "administer users"  #user
+  "access toolbar"
+  "view the administration theme"
+  "access administration pages" #system
+  "view islandora usage stats reports"
+  "view islandora usage stats collection overview stats"
 )
 
 # iterate over the list of permissions and verify that they're added
 drush_manager_role_perm_check() {
-	echo "Verifying manager-role permissions..."
-	for i in "${MANAGER_PERMS[@]}"
-	do
-		drush -r $DRUPAL_HOME role-add-perm 'manager-role' "$i"
-	done
+  echo "Verifying manager-role permissions..."
+  for i in "${MANAGER_PERMS[@]}"
+  do
+    drush -r $DRUPAL_HOME role-add-perm 'manager-role' "$i"
+  done
 }
 
 drush_manager_role_perm_check

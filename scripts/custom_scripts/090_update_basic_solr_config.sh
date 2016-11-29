@@ -4,10 +4,10 @@ FGS_TARGET="/var/lib/tomcat7/webapps/fedoragsearch/WEB-INF/classes/fgsconfigFina
 
 echo "Cloning basic-solr-config"
 if [ ! -d "$HOME_DIR"/4-x-utk ]; then
-	git clone -b 4.x --single-branch https://github.com/utkdigitalinitiatives/basic-solr-config/ 4-x-utk
-	chown -hR vagrant:vagrant 4-x-utk
+  git clone -b 4.x --single-branch https://github.com/utkdigitalinitiatives/basic-solr-config/ 4-x-utk
+  chown -hR vagrant:vagrant 4-x-utk
 else
-	git -C "$HOME_DIR"/4-x-utk pull
+  git -C "$HOME_DIR"/4-x-utk pull
 fi
 
 echo "Updating Fedora GSearch"
