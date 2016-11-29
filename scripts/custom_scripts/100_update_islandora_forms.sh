@@ -17,3 +17,13 @@ fi
 # Replace default form.
 echo "Replace Default Islandora Thesis CModel XML Form."
 sudo cp "$HOME_DIR"/utk_isl_xml_forms/xml_forms/UTK_ir_etds.xml "$DRUPAL_HOME"/sites/all/modules/islandora_scholar/xml/thesis_form.xml
+
+# Add post-process transforms
+echo "Add post-process XSL transforms."
+sudo cp "$HOME_DIR"/utk_isl_xml_forms/post_process_transforms/*.xsl "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms/builder/self_transforms
+
+# Fix ownership on the copied post-process transforms
+echo "Correct ownership on the post-process XSL transforms."
+sudo chown -R vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms/builder/self_transforms
+
+# Add a pre-configured form association
