@@ -11,7 +11,6 @@ drush sql-query "update block set title='<none>' where module = 'menu' and delta
 #limit to administators who can see the 'Admin Menu'
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'navigation' from role where name = 'administrator'"
 
-
 #set the home page to display nested collections
 drush block-configure --theme="UTKdrupal" --module="islandora_nested_collections" --delta="nested_collections_list" --region="content"
 # do not display the block title because it looks messy
@@ -51,19 +50,19 @@ drush block-disable --module=system --delta=navigation
 # $blocks = _block_rehash($my_theme);
 ##Enable Solr Search block
 # $form_state['values']['blocks']['islandora_solr_simple'] =
-    # array(
-	  # 'region' => 'sidebar_first',
-	  # 'theme'  => $my_theme,
-	  # 'weight' => 0,
-	  # 'title' => '<none>',
-	  # );
+  # array(
+  # 'region' => 'sidebar_first',
+  # 'theme'  => $my_theme,
+  # 'weight' => 0,
+  # 'title' => '<none>',
+  # );
 ##Disable default search block
 # $form_state['values']['blocks']['search_form'] =
-    # array(
-	  # 'region' => BLOCK_REGION_NONE,
-	  # 'theme'  => $my_theme,
-	  # 'weight' => 0,
-	  # );
+  # array(
+  # 'region' => BLOCK_REGION_NONE,
+  # 'theme'  => $my_theme,
+  # 'weight' => 0,
+  # );
 ##Apply new settings
 # drupal_form_submit('block_admin_display_form', $form_state, $blocks, $my_theme);
 # drupal_flush_all_caches();

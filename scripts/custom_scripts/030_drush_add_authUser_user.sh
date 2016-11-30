@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # ** add a userA and a userB to users in authuser role
-
 # adds all of the pieces of the authUser user: user, role, and permissions
 
 ## check for and create the user, if the user doesn't exist
@@ -16,25 +15,21 @@ drush -r $DRUPAL_HOME role-list | grep -o 'authUser-role' && echo "authUser-role
 
 ## add authUser permissions
 declare -a AUTH_USER_PERMS=(
-	"view fedora repository objects" #islandora
-	"ingest fedora objects" #islandora
-	#"replace a datastream with new content, preserving version history" #islandora
-	#"view old datastream versions" #islandora
-	#"add fedora datastreams" #islandora
-	"search islandora solr"
-	"export islandora bookmarks"
-	"share islandora bookmarks"
-	"use islandora_bookmark"
-	"can embargo owned objects"
+  "view fedora repository objects" #islandora
+  "ingest fedora objects" #islandora
+  "search islandora solr"
+  "export islandora bookmarks"
+  "share islandora bookmarks"
+  "use islandora_bookmark"
 )
 
 # iterate over the list of permissions and verify that they're added
 drush_authUser_role_perm_check() {
-	echo "Verifying authUser-role permissions..."
-	for i in "${AUTH_USER_PERMS[@]}"
-	do
-		drush -r $DRUPAL_HOME role-add-perm 'authUser-role' "$i"
-	done
+  echo "Verifying authUser-role permissions..."
+  for i in "${AUTH_USER_PERMS[@]}"
+  do
+    drush -r $DRUPAL_HOME role-add-perm 'authUser-role' "$i"
+  done
 }
 
 drush_authUser_role_perm_check

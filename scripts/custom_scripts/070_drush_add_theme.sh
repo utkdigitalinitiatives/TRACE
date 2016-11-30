@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# this makes the HOMEUSER equal to vagrant on devel and staging and
+# equal to islandora on the server
 if ["$HOMEUSER"=""]; then
    HOMEUSER="vagrant"
 fi
