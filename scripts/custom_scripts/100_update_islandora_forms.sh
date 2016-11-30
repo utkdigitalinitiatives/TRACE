@@ -28,4 +28,11 @@ sudo cp "$HOME_DIR"/utk_isl_xml_forms/post_process_transforms/*.xsl "$DRUPAL_HOM
 echo "Correct ownership on the post-process XSL transforms."
 sudo chown -R vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms/builder/self_transforms
 
-# Add a pre-configured form association
+# Add a pre-configured form association:
+# this will apply the UTK_ir_etds_post_process.xsl to output from our default MODS form
+echo "Checking for XML Forms sql files."
+if [ -f "$SHARED_DIR/configs/xml-form-tables/xml_form_builder_form_associations.sql" ]; then
+	echo "Loading XML Forms xml_form_builder_form_associations.sql"
+	drush sql-cli < $SHARED_DIR/configs/xml-form-tables/xml_form_builder_form_associations.sql
+	drush cc all
+fi
