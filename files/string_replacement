@@ -9,11 +9,12 @@
  * Remove the leading hash signs to enable.
  */
 
-
- $conf['locale_custom_strings_en'][''] = array(
-    'Islandora Repository'                                         => 'Collections',
-    'Would you like to include a PDF document for this citation?'  => 'Submit Your Thesis',
-    'Add an object to this Collection'                             => 'Submit',
-    'Ingest'                                                       => 'Submit',
-    'Select a Content Model to Ingest'                             => 'Select file type to submit',
-  );
+$conf['locale_custom_strings_en'][''] = array(
+  'Islandora Repository'                                         => 'Collections',
+  'Would you like to include a PDF document for this citation?'  => 'Submit Your Thesis',
+  'Add an object to this Collection'                             => 'Submit',
+  'Ingest'                                                       => 'Submit',
+  'Select a Content Model to Ingest'                             => 'Select file type to submit',
+  'Add a datastream'                                             => 'Add a Supplemental File',
+  'Datastreams'                                                  => 'Files',
+);
