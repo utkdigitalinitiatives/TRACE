@@ -21,6 +21,8 @@ declare -a AUTH_USER_PERMS=(
   "export islandora bookmarks"
   "share islandora bookmarks"
   "use islandora_bookmark"
+  "read private messages"
+  "write private messages"
 )
 
 # iterate over the list of permissions and verify that they're added

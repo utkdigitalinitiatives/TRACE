@@ -40,6 +40,10 @@ declare -a COLL_MANAGER_PERMS=(
   "access administration pages" #system
   "view islandora usage stats reports"
   "view islandora usage stats collection overview stats"
+  "read private messages"
+  "write new private messages"
+  "read all private messages"
+  "bypass recipient message limit"
 )
 
 ## iterate over the list of permissions and verify that they're added
