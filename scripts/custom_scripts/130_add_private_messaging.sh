@@ -16,8 +16,8 @@ drush cc theme-registry
 # ---- add permissions for private messages to roles
 ## add authUser private message permissions
 declare -a AUTH_USER_PERMS=(
-  "read private messages"
-  "write private messages"
+  "read privatemsg"
+  "write privatemsg"
 )
 # iterate over the list of permissions and verify that they're added
 drush_authUser_role_perm_check() {
@@ -31,8 +31,8 @@ drush_authUser_role_perm_check
 
 ## add coll/thesis manager private message permissions
 declare -a COLL_MANAGER_PERMS=(
-  "read private messages"
-  "write new private messages"
+  "read privatemsg"
+  "write privatemsg"
   "read all private messages"
   "bypass recipient message limit"
 )
@@ -48,8 +48,8 @@ drush_thesis_manager_role_perm_check
 
 ## add manager role private message permissions
 declare -a MANAGER_PERMS=(
-  "read private messages"
-  "write new private messages"
+  "read privatemsg"
+  "write privatemsg"
   "read all private messages"
   "bypass recipient message limit"
 )
