@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $FEDORAPASS = "" ]; then
+if [ "$FEDORAPASS" = "" ]; then
   FEDORAPASS="fedoraAdmin"
 fi
 
@@ -8,11 +8,11 @@ fi
 # this one is for the "thesis_manager" user and the "thesis_manager_role"
 
 ## check for and create user, if the user doesn't exist
-drush -r $DRUPAL_HOME user-information thesis_manager 2>&1 | grep '\[error\]' && drush -r $DRUPAL_HOME user-create thesis_manager --mail="thesismanager-person@example.com" --password="thesis_manager" && echo "Created thesis_manager user" || echo "The thesis_manager user already exists"
+drush -r "$DRUPAL_HOME" user-information thesis_manager 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create thesis_manager --mail="thesismanager-person@example.com" --password="thesis_manager" && echo "Created thesis_manager user" || echo "The thesis_manager user already exists"
 
 ## check for and create role, if the role doesn't exist
 # shellcheck disable=SC2015
-drush -r $DRUPAL_HOME role-list | grep -o 'thesis_manager_role' && echo "thesis_manager_role exists" || drush -r $DRUPAL_HOME role-create 'thesis_manager_role'
+drush -r "$DRUPAL_HOME" role-list | grep -o 'thesis_manager_role' && echo "thesis_manager_role exists" || drush -r "$DRUPAL_HOME" role-create 'thesis_manager_role'
 
 ## add coll manager permissions
 declare -a COLL_MANAGER_PERMS=(
@@ -47,14 +47,14 @@ drush_thesis_manager_role_perm_check() {
   echo "Verifying thesis_manager_role permissions..."
   for i in "${COLL_MANAGER_PERMS[@]}"
   do
-    drush -r $DRUPAL_HOME role-add-perm 'thesis_manager_role' "$i"
+    drush -r "$DRUPAL_HOME" role-add-perm 'thesis_manager_role' "$i"
   done
 }
 
 drush_thesis_manager_role_perm_check
 
 ## assign graduate_thesis_manager_role to graduate_thesis_manager_user user
-drush -r $DRUPAL_HOME user-add-role 'thesis_manager_role' thesis_manager
+drush -r "$DRUPAL_HOME" user-add-role 'thesis_manager_role' thesis_manager
 
 ## add the collection manager policy to the Graduate Thesis collection
 # this is adding a datastream from vboxes/policies

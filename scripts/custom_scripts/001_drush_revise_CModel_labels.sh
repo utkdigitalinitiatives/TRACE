@@ -2,7 +2,7 @@
 
 echo "drush revise CModel Labels"
 #if fedora password is not defined by the system, define it here
-if [ "$FEDORAPASS"=""]; then
+if [ "$FEDORAPASS" = "" ]; then
   FEDORAPASS="fedoraAdmin"
 fi
 

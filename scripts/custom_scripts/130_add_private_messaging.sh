@@ -24,7 +24,7 @@ drush_authUser_role_perm_check() {
   echo "Verifying authUser-role private message permissions..."
   for i in "${AUTH_USER_PERMS[@]}"
   do
-    drush -r $DRUPAL_HOME role-add-perm 'authUser-role' "$i"
+    drush -r "$DRUPAL_HOME" role-add-perm 'authUser-role' "$i"
   done
 }
 drush_authUser_role_perm_check
@@ -41,7 +41,7 @@ drush_thesis_manager_role_perm_check() {
   echo "Verifying thesis_manager_role private message permissions..."
   for i in "${COLL_MANAGER_PERMS[@]}"
   do
-    drush -r $DRUPAL_HOME role-add-perm 'thesis_manager_role' "$i"
+    drush -r "$DRUPAL_HOME" role-add-perm 'thesis_manager_role' "$i"
   done
 }
 drush_thesis_manager_role_perm_check
@@ -59,7 +59,7 @@ drush_manager_role_perm_check() {
   echo "Verifying manager-role private message permissions..."
   for i in "${MANAGER_PERMS[@]}"
   do
-    drush -r $DRUPAL_HOME role-add-perm 'manager-role' "$i"
+    drush -r "$DRUPAL_HOME" role-add-perm 'manager-role' "$i"
   done
 }
 drush_manager_role_perm_check
