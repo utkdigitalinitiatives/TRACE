@@ -163,7 +163,7 @@ root Admin login: - for maintaining system, has all permissions.
 
 PhpMyAdmin was added to allow database work during development
 
-phpmyadmin login:
+[phpmyadmin](http://localhost:8000/phpmyadmin/) login:
   - username: root
   - password: islandora
 
