@@ -19,7 +19,6 @@ declare -a AUTH_USER_PERMS=(
   "read private messages"
   "write private messages"
 )
-
 # iterate over the list of permissions and verify that they're added
 drush_authUser_role_perm_check() {
   echo "Verifying authUser-role private message permissions..."
@@ -28,6 +27,7 @@ drush_authUser_role_perm_check() {
     drush -r $DRUPAL_HOME role-add-perm 'authUser-role' "$i"
   done
 }
+drush_authUser_role_perm_check
 
 ## add coll/thesis manager private message permissions
 declare -a COLL_MANAGER_PERMS=(
@@ -36,7 +36,6 @@ declare -a COLL_MANAGER_PERMS=(
   "read all private messages"
   "bypass recipient message limit"
 )
-
 ## iterate over the list of permissions and verify that they're added
 drush_thesis_manager_role_perm_check() {
   echo "Verifying thesis_manager_role private message permissions..."
@@ -45,6 +44,7 @@ drush_thesis_manager_role_perm_check() {
     drush -r $DRUPAL_HOME role-add-perm 'thesis_manager_role' "$i"
   done
 }
+drush_thesis_manager_role_perm_check
 
 ## add manager role private message permissions
 declare -a MANAGER_PERMS=(
@@ -62,3 +62,4 @@ drush_manager_role_perm_check() {
     drush -r $DRUPAL_HOME role-add-perm 'manager-role' "$i"
   done
 }
+drush_manager_role_perm_check
