@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if ["$FEDORAPASS"=""]; then
-  $FEDORAPASS="fedoraAdmin"
+if [ $FEDORAPASS = "" ]; then
+  FEDORAPASS="fedoraAdmin"
 fi
 
 # adds all of the pieces of the collection manager role and user: user, role, and permissions
