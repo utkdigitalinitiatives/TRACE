@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if ["$HOMEUSER"=""]; then
+if [ "$HOMEUSER" = "" ]; then
    HOMEUSER="vagrant"
 fi
 # If utk_isl_xml_forms doesn't exist, clone it.  Otherwise, pull changes to from origin remote.
