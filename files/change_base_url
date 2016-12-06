@@ -12,3 +12,9 @@ $base_url = 'https://dlhost1.lib.utk.edu';
  * $conf['maintenance_theme'] = 'adminimal';
  * $conf['theme_debug'] = TRUE;
  */
+
+/**
+ * Prevent Cross-Site Request Forgery (CSRF) clickjacking
+ */
+
+$conf['x_frame_options'] = 'SAMEORIGIN';
