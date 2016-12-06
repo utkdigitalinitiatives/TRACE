@@ -31,6 +31,11 @@ case "$HOST_NAME" in
 		echo "You're on bare metal!"
 		FGS_TARGET="/vhosts/webapps/fedoragsearch/WEB-INF/classes/fgsconfigFinal/index/FgsIndex/"
 		SOLR_TARGET="/vhosts/solr/collection1/conf/"
+		echo "Updating Fedora GSearch"
+		# fix file paths in the new files
+		sed -i 's|/vhosts/fedora/solr|/vhosts/solr|g' 4-x-utk/index.properties
+		sed -i 's|/vhosts/fedora/tomcat/webapps|/vhosts/webapps|g' 4-x-utk/foxmlToSolr.xslt
+		sed -i 's|/vhosts/fedora/tomcat/webapps|/vhosts/webapps|g' 4-x-utk/islandora_transforms/*.xslt
 		;;
 esac
 
