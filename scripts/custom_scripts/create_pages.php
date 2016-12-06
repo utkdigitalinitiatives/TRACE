@@ -69,14 +69,30 @@ $submit_body =  <<<SUBMIT_BODY
 </div>
 SUBMIT_BODY;
 
+$about_body =  <<<ABOUT_BODY
+<br/>
+<h1>What Tests should be conducted?</h1>
+<hr><br/>
+<h2>Test student submission Process</h2>
+<p>Log in as userA. Submit a thesis, following the prompts and upload a pdf and multiple supplemental files. Check to verify you have access to your file.</p>
+<h2>Test Manager Review of a submission & feedback to student</h2>
+<p>Manager should be able to see a list of pending submissions</p>
+<h2>Test student receives instructions to edit and resubmit</h2>
+<p></p>
+<h2>Test Manager's ability to approve submissions(batch)</h2>
+<p></p>
+<h2>Test Embargos</h2>
+<p></p>
+<h2>Test User vs User access to inactive (pending) submissions</h2>
+<p></p>
+ABOUT_BODY;
 
 $home_nid = create_named_page("home", "", $home_body);
 
 $submit_nid = create_named_page("submit", "Deposit Your Work", $submit_body);
-
 add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
 
-$about_nid = create_named_page("about", "", "");
+$about_nid = create_named_page("about", "About", "$about_body");
 add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About", 0);
 
 $browse_nid = create_named_page("browse", "", "");
