@@ -43,12 +43,12 @@ drush -y vset adminimal_admin_menu_render "hidden"
 drush -y dis bartik
 drush -y dis seven
 
+# Enable devel and its prereqs
 drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
-#sudo apt-get -y update
 sudo apt-get -y install subversion
 drush -y en devel
 
-# Change Login
-# betterlogin
+# Rebuild on every page, needs to be disabled on production env
+devel_rebuild_theme_registry: 1
