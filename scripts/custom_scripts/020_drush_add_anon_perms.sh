@@ -14,7 +14,7 @@ drush_anon_role_perm_check() {
     echo "Verifying anonymous user role permissions..."
     for i in "${ANON_PERMS[@]}"
       do
-        drush -r $DRUPAL_HOME role-add-perm 'anonymous user' "$i"
+        drush -r "$DRUPAL_HOME" role-add-perm 'anonymous user' "$i"
       done
 }
 

@@ -13,6 +13,8 @@ echo "Updating islandora_solr's 'default metadata viewer' setting."
 drush vset islandora_metadata_display 'islandora_solr_metadata'
 
 # cat the list of filters into the islandora_solr_base_filter variable
+# shellcheck disable=SC2105
+# shellcheck disable=SC2002
 if [ ! -f "$SHARED_DIR"/configs/islandora_solr_base_filter_list ]; then
   echo "Missing the islandora_solr_base_filter_list file!"
   break
