@@ -63,3 +63,16 @@ drush_manager_role_perm_check() {
   done
 }
 drush_manager_role_perm_check
+
+# Add authenticated user role access to private messaging
+drush role-add-perm 'authenticated user' 'read privatemsg'
+drush role-add-perm 'authenticated user' 'reply only privatemsg'
+drush role-add-perm 'authenticated user' 'write privatemsg'
+
+# Add thesis_manager_role access to private messaging and added features
+drush role-add-perm 'thesis_manager_role' 'read privatemsg'
+drush role-add-perm 'thesis_manager_role' 'reply only privatemsg'
+drush role-add-perm 'thesis_manager_role' 'write privatemsg'
+drush role-add-perm 'thesis_manager_role' 'filter private messages'
+drush role-add-perm 'thesis_manager_role' 'bypass recipient message limit'
+drush role-add-perm 'thesis_manager_role' 'use tokens in privatemsg'
