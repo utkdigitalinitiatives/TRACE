@@ -11,7 +11,7 @@
 *.json text
 *.htm text
 *.html text
-*.xml text
+*.xml text  eol=lf
 *.svg text
 *.txt text
 *.ini text
@@ -21,8 +21,8 @@
 *.py text
 *.scm text
 *.sql text
-*.sh text
-*.bat text
+*.sh text  eol=lf
+*.bat text  eol=lf
 
 # templates
 *.ejs text
