@@ -101,12 +101,23 @@ cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 drush -y -u 1 en php_lib islandora objective_forms
 drush -y -u 1 en islandora_solr islandora_solr_metadata islandora_solr_views
-drush -y -u 1 en islandora_basic_collection islandora_pdf islandora_audio islandora_book
-drush -y -u 1 en islandora_basic_image islandora_large_image islandora_video
+drush -y -u 1 en islandora_basic_collection islandora_pdf islandora_book
+drush -y -u 1 en islandora_basic_image islandora_large_image
+#drush -y -u 1 en islandora_video islandora_audio
 drush -y -u 1 en islandora_checksum islandora_checksum_checker
-drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs islandora_videojs islandora_jwplayer islandora_openseadragon
-drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update zip_importer islandora_basic_image islandora_bibliography islandora_compound_object islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter doi_importer endnotexml_importer pmid_importer ris_importer
-drush -y -u 1 en islandora_fits islandora_ocr islandora_oai islandora_simple_workflow islandora_xacml_api islandora_xacml_editor islandora_xmlsitemap colorbox islandora_internet_archive_bookreader islandora_bagit islandora_batch_report islandora_usage_stats islandora_populator
+drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs
+#drush -y -u 1 en islandora_videojs islandora_jwplayer
+drush -y -u 1 en islandora_openseadragon
+drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update
+#drush -y -u 1 en zip_importer
+drush -y -u 1 en islandora_basic_image islandora_bibliography islandora_compound_object
+drush -y -u 1 en islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter
+#drush -y -u 1 en doi_importer endnotexml_importer pmid_importer ris_importer
+drush -y -u 1 en islandora_fits islandora_ocr islandora_oai islandora_simple_workflow
+drush -y -u 1 en islandora_xacml_api islandora_xacml_editor islandora_xmlsitemap colorbox
+drush -y -u 1 en islandora_internet_archive_bookreader islandora_bagit
+drush -y -u 1 en islandora_batch_report
+drush -y -u 1 en islandora_usage_stats islandora_populator
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
 
