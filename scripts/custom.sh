@@ -4,6 +4,7 @@
 ## shellcheck source=/dev/null
 # shellcheck disable=SC1073
 # shellcheck disable=SC1072
+# shellcheck disable=SC1009
 for SCRIPT in /vagrant/scripts/custom_scripts/*.sh
 do
  if [ -f "$SCRIPT" ]; then
