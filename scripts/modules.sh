@@ -109,7 +109,7 @@ drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs
 #drush -y -u 1 en islandora_videojs islandora_jwplayer
 drush -y -u 1 en islandora_openseadragon
 drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update
-#drush -y -u 1 en zip_importer
+drush -y -u 1 en zip_importer
 drush -y -u 1 en islandora_basic_image islandora_bibliography islandora_compound_object
 drush -y -u 1 en islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter
 #drush -y -u 1 en doi_importer endnotexml_importer pmid_importer ris_importer
