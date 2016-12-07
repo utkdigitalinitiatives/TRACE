@@ -112,7 +112,7 @@ drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml
 drush -y -u 1 en zip_importer
 drush -y -u 1 en islandora_basic_image islandora_bibliography islandora_compound_object
 drush -y -u 1 en islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter
-#drush -y -u 1 en doi_importer endnotexml_importer pmid_importer ris_importer
+drush -y -u 1 en doi_importer endnotexml_importer pmid_importer ris_importer
 drush -y -u 1 en islandora_fits islandora_ocr islandora_oai islandora_simple_workflow
 drush -y -u 1 en islandora_xacml_api islandora_xacml_editor islandora_xmlsitemap colorbox
 drush -y -u 1 en islandora_internet_archive_bookreader islandora_bagit
