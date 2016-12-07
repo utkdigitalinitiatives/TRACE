@@ -31,3 +31,4 @@
 #drush_advisor_role_perm_check
 
 ## we aren't automatically assigning this role to a given user right now
+echo 'remove this'
