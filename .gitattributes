@@ -3,7 +3,7 @@
 # $ git --global config core.eol lf
 # $ git --global config core.autocrlf input
 
-*                    text=auto
+*                    text=auto whitespace=trailing-space,space-before-tab,-indent-with-non-tab,tab-in-indent,tabwidth=4
 *.php                text
 *.css                text
 *.sass               text
@@ -15,7 +15,7 @@
 *.json               text
 *.htm                text
 *.html               text
-*.xml                text eol=lf
+*.xml                -text whitespace=cr-at-eol
 *.svg                text
 *.txt                text
 *.ini                text
@@ -42,6 +42,7 @@
 .htaccess            text
 
 # git config
+.git*                text export-ignore
 .gitattributes       text
 .gitignore           text
 .gitconfig           text
@@ -54,7 +55,7 @@
 
 # misc config
 *.yaml               text
-*.yml                text
+*.yml                -text whitespace=cr-at-eol
 .editorconfig        text
 
 # build config
