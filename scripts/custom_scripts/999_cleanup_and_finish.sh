@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Add any cleanup Commands here
+sudo chmod -R 777 /home/vagrant/.drush
 
 # For root developers to use locate commands
 sudo updatedb
