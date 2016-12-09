@@ -21,13 +21,15 @@ fi
 echo "Replacing the pdf_upload.form.inc"
 sudo cp "$HOME_DIR"/islandora_scholar/includes/pdf_upload.form.inc /var/www/drupal/sites/all/modules/islandora_scholar/includes/
 
-echo "Changing ownership of the pdf_upload.form"
-sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/includes
-
 # Address Php Strict Warning Message with Google MetaTags
 echo "Grabbing Code to Address Islandora Google Meta Tags Strict Warning Message"
 sudo cp "$HOME_DIR"/islandora_scholar/modules/islandora_google_scholar/islandora_google_scholar.module /var/www/drupal/sites/all/modules/islandora_scholar/modules/islandora_google_scholar/
 sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/modules/islandora_google_scholar/
+
+# Grab Utilities Include for Adding Supplemental Files to theme
+echo "Add supplemental files to Theme"
+sudo cp "$HOME_DIR"/islandora_scholar/includes/utilities.inc /var/www/drupal/sites/all/modules/islandora_scholar/includes/
+sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora_scholar/includes
 
 # This script clones and and replaces the islandora_binary object
 echo "Checking for an islandora binary object repository"
