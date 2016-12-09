@@ -17,6 +17,10 @@ drush -r "$DRUPAL_HOME" role-list | grep -o 'authUser-role' && echo "authUser-ro
 declare -a AUTH_USER_PERMS=(
   "view fedora repository objects" #islandora
   "ingest fedora objects" #islandora
+  "add fedora datastreams"
+  "replace a datastream with new content, preserving version history"
+  "edit fedora metadata"
+  "view old datastream versions"
   "search islandora solr"
   "export islandora bookmarks"
   "share islandora bookmarks"
