@@ -68,4 +68,4 @@ drush block-disable --module=system --delta=navigation
 # drupal_flush_all_caches();
 
 # Set block to be viewable by only authenticated users
-drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'
+# drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'
