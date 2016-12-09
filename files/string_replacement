@@ -11,7 +11,7 @@
 
 $conf['locale_custom_strings_en'][''] = array(
   'Islandora Repository'                                         => 'Collections',
-  'Would you like to include a PDF document for this citation?'  => 'Submit Your Thesis',
+  'Would you like to include a PDF document for this citation?'  => 'Submit Your Thesis or Dissertation',
   'Add an object to this Collection'                             => 'Submit',
   'Ingest'                                                       => 'Submit',
   'Select a Content Model to Ingest'                             => 'Select file type to submit',
