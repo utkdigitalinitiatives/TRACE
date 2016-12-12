@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd"
+      version="3.5">
+   <identifier type="local">0116_000050_000308</identifier>
+   <name authority="naf"
+         valueURI="http://id.loc.gov/authorities/names/n80083301">
+      <namePart>Children's Defense Fund (U.S.)</namePart>
+      <role>
+         <roleTerm type="text"
+                   authority="marcrelator"
+                   valueURI="http://id.loc.gov/vocabulary/relators/org">Originator</roleTerm>
+      </role>
+   </name>
+   <name authority="naf"
+         valueURI="http://id.loc.gov/authorities/names/n80149991">
+      <namePart>South Carolina Educational Television Network</namePart>
+      <role>
+         <roleTerm type="text"
+                   authority="marcrelator"
+                   valueURI="http://id.loc.gov/vocabulary/relators/prn">production company </roleTerm>
+      </role>
+   </name>
+   <titleInfo>
+      <title>Student Physicians for Social Responsibility: A Vaccine against Gun Violence Awards 1995</title>
+   </titleInfo>
+   <typeOfResource>moving image</typeOfResource>
+   <originInfo>
+      <publisher>Children's Defense Fund (U.S.)</publisher>
+      <dateCreated>1995</dateCreated>
+      <dateCreated encoding="edtf" keyDate="yes">1995</dateCreated>
+   </originInfo>
+   <physicalDescription>
+      <extent>7 minutes</extent>
+      <form authority="aat" valueURI="http://vocab.getty.edu/aat/300028682">video recordings</form>
+      <digitalOrigin>born digital</digitalOrigin>
+   </physicalDescription>
+   <abstract>Student Physicians for Social Responsibility talk about the violence the gun culture produces.</abstract>
+   <language>
+      <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+   </language>
+   <note>The University of Tennessee Libraries (Knoxville, Tennessee) is the digital publisher.</note>
+   <location>
+      <physicalLocation>University of Tennessee, Knoxville. Special Collections</physicalLocation>
+   </location>
+   <relatedItem type="host" displayLabel="Project">
+      <titleInfo>
+         <title>Children's Defense Fund Digital Collection</title>
+      </titleInfo>
+   </relatedItem>
+   <accessCondition type="use and reproduction">You may copy reprint, publish, reproduce, or otherwise display materials created by CDF or CDFAC and made available through a Children's Defense Fund Site (collectively, the "Children's Defense Fund Works") on the condition that you attribute those materials to CDF. Form of attribution to use: This material was created by the Children's Defense Fund.</accessCondition>
+   <recordInfo>
+      <recordIdentifier>record_0116_000050_000308</recordIdentifier>
+      <recordContentSource>University of Tennessee, Knoxville. Libraries</recordContentSource>
+      <languageOfCataloging>
+         <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+      </languageOfCataloging>
+      <recordOrigin>Created and edited in general conformance to MODS Guidelines (Version 3.5).</recordOrigin>
+   </recordInfo>
+</mods>
