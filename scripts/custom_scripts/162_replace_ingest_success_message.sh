@@ -10,8 +10,11 @@
 
 # replace the file: ingest.form.inc"
 echo "Replacing the file: ingest.form.inc"
-sudo cp /vagrant/files/ingest.form.inc /var/www/drupal/sites/all/modules/islandora_scholar/includes/
+sudo cp /vagrant/files/ingest.form.inc /var/www/drupal/sites/all/modules/islandora/includes/
 
 
+echo "Changing ownership of the file ingest.form.inc"
+sudo chown -hR vagrant:vagrant /var/www/drupal/sites/all/modules/islandora/includes/ingest.form.inc
 
+echo "End exectution of 162_replace_ingest_success_message.sh"
 
