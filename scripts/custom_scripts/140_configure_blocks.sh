@@ -20,10 +20,13 @@ drush sql-query "update block set title='<none>' where module = 'islandora_solr'
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'user-menu' from role where name = 'authenticated user'"
 
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'privatemsg', 'privatemsg-menu' from role where name = 'authenticated user'"
+#current settings
+#drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
+#drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 
+#reconfigure for TRAC-476  Put user-menu ABOVE trace-navigaton menu.
 drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
-drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
-
+drush block-configure --weight=-5 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 
 # use solr simple search as the search text on the Second left side bar
 drush block-configure --weight=-6 --theme="UTKdrupal" --module="islandora_solr" --delta="simple" --region="sidebar_second"

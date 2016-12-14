@@ -14,6 +14,7 @@ drush sql-query "update menu_links set weight=10 where menu_name = 'navigation' 
 #Change the display name of 'Islandora Repository' to 'Trace Collections'
 drush sql-query "update menu_router set title = 'Trace Collections' where path= 'islandora'"
 
+#Request to remove Bookmarks for TRAC-404
 #Change Islandora Bookmarks to the user menu
 drush sql-query "update menu_links set menu_name = 'user-menu' where menu_name='navigation' and link_title='My bookmarks'"
 
@@ -41,7 +42,14 @@ fi
 #add in a manager menu with a link to the approve-inactive-objects list
 if drush menu-create menu-default-login --title="Trace Login" --description="The default login link for TRACE"; then
   drush add-menu-item menu-default-login 'Login: Deposit & Manage Submissions' "user/login"
-  drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=2
+
+#current cofiguration 
+  #drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=2
+
+#reconfigure for TRAC-476 Put the Login Link first in the User Menu
+  drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=-11 
+
+
   # do not display the block title because it looks messy
   drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-default-login'"
   # do not show this link to administrators since it is duplicate information and is messy
