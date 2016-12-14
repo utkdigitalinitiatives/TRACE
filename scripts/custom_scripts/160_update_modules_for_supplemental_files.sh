@@ -5,8 +5,7 @@ echo "Checking for an islandora_scholar repository"
 
 cd "$HOME_DIR" || exit
 
-# Committing this with CoB/islandora_scholar as a temporary starting point, until
-# changes are incorporated into utkdigitalinitiatives
+# grab or update the repo
 if [ ! -d "$HOME_DIR"/islandora_scholar ]; then
   echo "Cloning utkdigitalinitiatives/islandora_scholar"
   git clone https://github.com/utkdigitalinitiatives/islandora_scholar
@@ -37,9 +36,7 @@ echo "Checking for an islandora binary object repository"
 cd "$HOME_DIR" || exit
 
 if [ ! -d "$HOME_DIR"/islandora_binary_object ]; then
-  #echo "Cloning utkdigitalinitiatives/islandora_scholar"
   echo "Cloning utkdigitalinitiatives/islandora_binary_object"
-  #git clone https://github.com/utkdigitalinitiatives/islandora_scholar
   git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
   chown -hR vagrant:vagrant islandora_binary_object
 else
