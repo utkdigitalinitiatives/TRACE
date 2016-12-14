@@ -64,3 +64,10 @@ php -r "print json_encode(array ( 4 => '4', 2 => true, 3 => 0, 5 => 0, 6 => 0, 7
 
 # Disable local Account Registrtion
 drush vset user_register 0
+
+# cas attributes brings NID, email, staff or student status
+drush en -y cas_attributes
+
+drush vset -y cas_attributes_overwrite '1'
+drush vset -y cas_attributes_sync_every_login '1'
+drush eval "variable_set('cas_attributes_relations', array('name' => '[cas:attribute:uid]', 'mail' => '[cas:attribute:mail]'))"
