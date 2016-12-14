@@ -39,3 +39,4 @@ xmlrpc.php
 # Ignore the .vagrant directory
 .vagrant/
 *.key
+files/cdf_308/0116_000050_000308.mp4
