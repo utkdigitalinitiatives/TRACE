@@ -71,3 +71,4 @@ drush en -y cas_attributes
 drush vset -y cas_attributes_overwrite '1'
 drush vset -y cas_attributes_sync_every_login '1'
 drush eval "variable_set('cas_attributes_relations', array('name' => '[cas:attribute:uid]', 'mail' => '[cas:attribute:mail]'))"
+drush vset -y realname_pattern '[user:cas:name]'
