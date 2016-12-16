@@ -99,4 +99,4 @@ $browse_nid = create_named_page("browse", "", "");
 add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse Collections", 2);
 
 $help_nid = create_named_page("help", "", "");
-add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Help & Tutorial", 4);
+add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Help and Tutorial", 4);
