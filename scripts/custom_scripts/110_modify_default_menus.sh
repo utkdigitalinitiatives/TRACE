@@ -43,12 +43,14 @@ fi
 if drush menu-create menu-default-login --title="Trace Login" --description="The default login link for TRACE"; then
   drush add-menu-item menu-default-login 'Login' "user/login"
 
-#current cofiguration
-  #drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=2
+  # current cofiguration
+    #drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=2
 
-#reconfigure for TRAC-476 Put the Login Link first in the User Menu
+  # reconfigure for TRAC-476 Put the Login Link first in the User Menu
   drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="sidebar_first" --weight=-11
 
+  # Shift logout button just below 'My Account'
+  drush sql-query 'UPDATE menu_links SET weight="-3" WHERE link_title="Log out"' -y
 
   # do not display the block title because it looks messy
   drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'menu-default-login'"
