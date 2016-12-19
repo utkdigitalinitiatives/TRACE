@@ -11,7 +11,6 @@ drush sql-query "update block set title='<none>' where module = 'menu' and delta
 #limit to administators who can see the 'Admin Menu'
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'navigation' from role where name = 'administrator'"
 
-
 #set the home page to display nested collections
 drush block-configure --theme="UTKdrupal" --module="islandora_nested_collections" --delta="nested_collections_list" --region="content"
 # do not display the block title because it looks messy
@@ -21,10 +20,13 @@ drush sql-query "update block set title='<none>' where module = 'islandora_solr'
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'user-menu' from role where name = 'authenticated user'"
 
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'privatemsg', 'privatemsg-menu' from role where name = 'authenticated user'"
+#current settings
+#drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
+#drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 
+#reconfigure for TRAC-476  Put user-menu ABOVE trace-navigaton menu.
 drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
-drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
-
+drush block-configure --weight=-5 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 
 # use solr simple search as the search text on the Second left side bar
 drush block-configure --weight=-6 --theme="UTKdrupal" --module="islandora_solr" --delta="simple" --region="sidebar_second"
@@ -51,22 +53,22 @@ drush block-disable --module=system --delta=navigation
 # $blocks = _block_rehash($my_theme);
 ##Enable Solr Search block
 # $form_state['values']['blocks']['islandora_solr_simple'] =
-    # array(
-	  # 'region' => 'sidebar_first',
-	  # 'theme'  => $my_theme,
-	  # 'weight' => 0,
-	  # 'title' => '<none>',
-	  # );
+  # array(
+  # 'region' => 'sidebar_first',
+  # 'theme'  => $my_theme,
+  # 'weight' => 0,
+  # 'title' => '<none>',
+  # );
 ##Disable default search block
 # $form_state['values']['blocks']['search_form'] =
-    # array(
-	  # 'region' => BLOCK_REGION_NONE,
-	  # 'theme'  => $my_theme,
-	  # 'weight' => 0,
-	  # );
+  # array(
+  # 'region' => BLOCK_REGION_NONE,
+  # 'theme'  => $my_theme,
+  # 'weight' => 0,
+  # );
 ##Apply new settings
 # drupal_form_submit('block_admin_display_form', $form_state, $blocks, $my_theme);
 # drupal_flush_all_caches();
 
 # Set block to be viewable by only authenticated users
-drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'
+# drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'

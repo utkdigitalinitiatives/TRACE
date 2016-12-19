@@ -20,3 +20,32 @@
 - [ ] Fork or New Content Model
 - [ ] Setup forms & simple workflow
 - [ ] XACML Configuration for withdrawn objects
+
+## Sprint #5 - Workflow - User Submission
+- [ ] User Login / Register (LDAP)
+- [ ] User Submission Complete Process
+- [ ] Student (A|B) can submit Thesis & Dissertation
+- [ ] Faculty can Submit Published Articles
+- [ ] Researchers & Staff
+- [ ] Community Admin Can See/Approve/Tombstone Submissions
+- [ ] URL Proxy Setup and deployment
+
+## Sprint #6 - Getting into Stakeholders Hands
+- [ ] Community Level Permissions for Community Managers
+- [ ] Manager can only modify their own collections (A|B Managers)
+- [ ] Workflow & Links
+- [ ] Intuitive layout development
+- [ ] Labels
+- [ ] Remove excess
+- [ ] Design
+- [ ] Header/Footer
+- [ ] Side Content split
+- [ ] Download & Enable Developer Tools
+
+## Sprint #7 - Getting ready for import
+- [ ] Metadata
+- [ ] Migration Scripts
+- [ ] Production Server Colocate
+- [ ] Reverse Proxy Configure and Test
+- [ ] GUI workflow Corrections
+- [ ] String Replacement

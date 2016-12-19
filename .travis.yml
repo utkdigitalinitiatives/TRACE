@@ -1,18 +1,22 @@
 dist: trusty
 language: sh
 before_script:
+- export DEBIAN_FRONTEND=noninteractive
 - sudo add-apt-repository -y "deb http://mirrors.kernel.org/ubuntu trusty main universe"
 - sudo apt-get -y update
 before_install:
+- export DEBIAN_FRONTEND=noninteractive
+- sudo apt-get -y update
 - echo "Before Install scripts Start\n NODE ENV:"
 - echo $NODE_ENV
 - echo "Decrypting Environmentals"
 - openssl aes-256-cbc -K $encrypted_1c676f2c50bd_key -iv $encrypted_1c676f2c50bd_iv -in ".travis/TRACE.enc" -out TRACE -d
 install:
+- export DEBIAN_FRONTEND=noninteractive
 - echo "Install scripts Starting"
 - sudo apt-get -y install shellcheck
-- sudo apt-get update
 - sudo apt-get -y upgrade shellcheck
+- sudo apt-get -y update
 - shellcheck --version
 script:
 - echo "shell commands Starting"

@@ -5,7 +5,7 @@ What is the Institutional Repository Project?
 
 The Libraries is currently investigating open source IR systems with the intention to select and implement a new institutional repository platform to replace the hosted Bepress Digtial Commons instance of Trace.
 
-The TRACE project in github is a virtual platform for the DI programmers to investigate the most effective solutions for the IR Project.  
+The TRACE project in github is a virtual platform for the DI programmers to investigate the most effective solutions for the IR Project.
 
 This virtual platform should support
  * Creation of a migration plan
@@ -163,7 +163,7 @@ root Admin login: - for maintaining system, has all permissions.
 
 PhpMyAdmin was added to allow database work during development
 
-phpmyadmin login:
+[phpmyadmin](http://localhost:8000/phpmyadmin/) login:
   - username: root
   - password: islandora
 
@@ -199,3 +199,7 @@ ssh, scp, rsync:
 Install: https://github.com/koalaman/shellcheck
 
 `shellcheck yourscript`
+## CAS Setup Information
+[CAS Module](https://www.drupal.org/project/cas)
+[phpCAS library](https://www.drupal.org/node/1084302)
+[Managing CAS Users](https://www.drupal.org/node/1261232)
