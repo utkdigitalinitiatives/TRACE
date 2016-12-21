@@ -13,9 +13,9 @@ cd "$DRUPAL_HOME"/sites/all/themes || exit
 # Clone UTKdrupal Theme
 git clone https://github.com/utkdigitalinitiatives/UTKdrupal
 cd "$DRUPAL_HOME"/sites/all/themes/UTKdrupal || exit
-git fetch
-git branch -r
-git checkout -b october origin/october
+# git fetch
+# git branch -r
+# git checkout -b october origin/october
 git pull
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
