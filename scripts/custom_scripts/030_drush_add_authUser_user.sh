@@ -44,7 +44,6 @@ drush -r "$DRUPAL_HOME" user-add-role 'authUser-role' userA
 drush -r "$DRUPAL_HOME" user-add-role 'authUser-role' userB
 
 ## add utk_reflector module for user perm separation
-cd $DRUPAL_HOME/sites/all/modules
+cd "$DRUPAL_HOME"/sites/all/modules || exit
 git clone https://github.com/pc37utn/utk_reflector
 drush en -y flvc_policy_reflector
-

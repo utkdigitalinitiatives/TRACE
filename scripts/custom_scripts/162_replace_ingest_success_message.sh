@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script replaces the file: $DRUPAL_HOME/sites/all/modules/islandora/includes/ingest.form.inc 
+# This script replaces the file: $DRUPAL_HOME/sites/all/modules/islandora/includes/ingest.form.inc
 # with the file: /vagrant/files/ingest.form.inc
 
 # Purpose:
@@ -14,11 +14,10 @@
 
 # replace the file: ingest.form.inc
 echo "Replacing the file: ingest.form.inc per TRAC-459"
-sudo cp /vagrant/files/ingest.form.inc $DRUPAL_HOME/sites/all/modules/islandora/includes/
+sudo cp /vagrant/files/ingest.form.inc "$DRUPAL_HOME"/sites/all/modules/islandora/includes/
 
 
 echo "Changing ownership of the file ingest.form.inc"
-sudo chown -hR vagrant:vagrant $DRUPAL_HOME/sites/all/modules/islandora/includes/ingest.form.inc
+sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/includes/ingest.form.inc
 
 echo "End exectution of 162_replace_ingest_success_message.sh"
-
