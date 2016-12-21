@@ -106,7 +106,6 @@ drush -y -u 1 en islandora_basic_image islandora_large_image
 #drush -y -u 1 en islandora_video islandora_audio
 drush -y -u 1 en islandora_checksum islandora_checksum_checker
 drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs
-#drush -y -u 1 en islandora_videojs islandora_jwplayer
 drush -y -u 1 en islandora_openseadragon
 drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update
 drush -y -u 1 en zip_importer
