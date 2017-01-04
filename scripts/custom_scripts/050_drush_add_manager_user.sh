@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# **** JIRA Trac-404 remove bookmarks module
+
 # adds all of the pieces of the manager user: user, role, and permissions
 
 ## check for and create the user, if the user doesn't exist
@@ -18,9 +20,6 @@ declare -a MANAGER_PERMS=(
   "replace a datastream with new content, preserving version history" #islandora
   "view old datastream versions" #islandora
   "revert to old datastream"
-  "use islandora_bookmark"
-  "share islandora bookmarks"
-  "export islandora bookmarks"
   "edit fedora metadata" #islandora
   "view technical metadata"
   "administer users" #user
@@ -40,6 +39,7 @@ declare -a MANAGER_PERMS=(
   "view islandora usage stats reports"
   "view islandora usage stats collection overview stats"
 )
+
 
 # iterate over the list of permissions and verify that they're added
 drush_manager_role_perm_check() {

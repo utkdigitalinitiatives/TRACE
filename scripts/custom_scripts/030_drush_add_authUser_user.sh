@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# **** JIRA Trac-404 remove bookmarks module
+
 # ** add a userA and a userB to users in authuser role
 # adds all of the pieces of the authUser user: user, role, and permissions
 
@@ -22,10 +24,8 @@ declare -a AUTH_USER_PERMS=(
   "edit fedora metadata"
   "view old datastream versions"
   "search islandora solr"
-  "export islandora bookmarks"
-  "share islandora bookmarks"
-  "use islandora_bookmark"
 )
+
 
 # iterate over the list of permissions and verify that they're added
 drush_authUser_role_perm_check() {

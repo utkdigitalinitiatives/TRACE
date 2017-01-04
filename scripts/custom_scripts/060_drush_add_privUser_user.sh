@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# **** JIRA Trac-404 remove bookmarks module
+
 # adds all of the pieces of the privilegedUser user: user, role, and permissions
 
 ## check for and create user, if the user doesn't exist
@@ -14,12 +16,11 @@ declare -a PRIV_USER_PERMS=(
   "view fedora repository objects" #islandora
   "add fedora datastreams" #islandora
   "ingest fedora objects" #islandora
-  "export islandora bookmarks"
-  "share islandora bookmarks"
-  "use islandora_bookmark"
   "search islandora solr"
   "can embargo owned objects"
 )
+
+
 
 ## iterate over the list of permissions and verify that they're added
 drush_privUser_role_perm_check() {
