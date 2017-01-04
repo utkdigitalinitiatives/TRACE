@@ -2,7 +2,6 @@ islandora
 islandora_bagit
 islandora_batch
 islandora_book_batch
-islandora_bookmark
 islandora_checksum
 islandora_checksum_checker
 islandora_fits
