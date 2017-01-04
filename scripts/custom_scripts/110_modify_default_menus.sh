@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# **** JIRA Trac-404 remove bookmarks module
+
 #Add to the block_role table, a module, delta and role_id that will restrict the default navigation menu to administrator.
 #currently the values would be system | navigation | 3 ;
 #The role Id should be queried from the role table for the name 'administrator'
@@ -16,7 +18,7 @@ drush sql-query "update menu_router set title = 'Trace Collections' where path= 
 
 #Request to remove Bookmarks for TRAC-404
 #Change Islandora Bookmarks to the user menu
-drush sql-query "update menu_links set menu_name = 'user-menu' where menu_name='navigation' and link_title='My bookmarks'"
+####drush sql-query "update menu_links set menu_name = 'user-menu' where menu_name='navigation' and link_title='My bookmarks'"
 
 #if drush extras does not exist then
 if [ ! -d "$HOME"/.drush/drush_extras ]; then
