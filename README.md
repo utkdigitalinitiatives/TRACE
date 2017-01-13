@@ -1,4 +1,4 @@
-# TRACE [![Build Status](https://travis-ci.org/utkdigitalinitiatives/TRACE.svg?branch=Sprint-%234)](https://travis-ci.org/utkdigitalinitiatives/TRACE)
+# TRACE [![Build Status](https://travis-ci.org/utkdigitalinitiatives/TRACE.svg?branch=Sprint-%238)](https://travis-ci.org/utkdigitalinitiatives/TRACE)
 <description>Trace is a University of Tennessee digital archive that showcases and preserves published and unpublished works by faculty, departments, programs, research ...</description>
 
 What is the Institutional Repository Project?
