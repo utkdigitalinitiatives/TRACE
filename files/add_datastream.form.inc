@@ -207,7 +207,7 @@ function islandora_add_datastream_form_submit(array $form, array &$form_state) {
     return;
   }
   //drupal_set_message(t("Successfully Added Datastream!"));
-  //change per Trac-537
+  //change per Trac-537 revise message text.
   drupal_set_message(t("Successfully added files!"));
 }
 
