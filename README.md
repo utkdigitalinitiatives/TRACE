@@ -67,6 +67,17 @@ Hold Windows Key and type r<br/>
 This will open a run window. Type __cmd__ and click OK<br/>
 ![alt text](http://poweronapp.com/help/xp-run-cmd.png)
 
+Linux
+
+ install git
+ install VirtualBox
+ install vagrant
+ clone repo
+ cd repo
+ vagrant up
+
+
+
 ### Download it to the desktop
 Windows
 ```bash
@@ -122,7 +133,6 @@ cd %UserProfile%\Desktop\TRACE
 vagrant destroy
 vagrant up
 ```
-
 
 ## Open browser: [http://localhost:8000](http://localhost:8000)
 
