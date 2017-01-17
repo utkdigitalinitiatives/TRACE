@@ -87,7 +87,7 @@ $about_body =  <<<ABOUT_BODY
 <p></p>
 ABOUT_BODY;
 
-$home_nid = create_named_page("home", "", $home_body);
+# $home_nid = create_named_page("home", "", $home_body);
 
 $submit_nid = create_named_page("submit", "Deposit Your Work", $submit_body);
 add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
