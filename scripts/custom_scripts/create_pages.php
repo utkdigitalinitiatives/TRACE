@@ -42,15 +42,15 @@ function add_menu_link_to_trace_navigation($pid, $menu_name, $link_title, $weigh
   $mlid = menu_link_save($link);
 
 }
-$home_body =  <<<HOME_BODY
-<br/>
-<p class="trace_home_page_article_title">TRACE is Tennessee Research and Creative Exchange &ndash;
-  the University of Tennessee's open repository</p>
-<p class="trace_home_page_article_blurb">TRACE gives the world access to UT research and creative works &ndash;
-  including faculty research findings and data  &ndash; as well as documents from our institutional history.</p>
-HOME_BODY;
+# $home_body =  <<<HOME_BODY
+# <br/>
+# <p class="trace_home_page_article_title">TRACE is Tennessee Research and Creative Exchange &ndash;
+#  the University of Tennessee's open repository</p>
+# <p class="trace_home_page_article_blurb">TRACE gives the world access to UT research and creative works &ndash;#
+#  including faculty research findings and data  &ndash; as well as documents from our institutional history.</p>
+# HOME_BODY;
 
-$submit_body =  <<<SUBMIT_BODY
+# $submit_body =  <<<SUBMIT_BODY
 <hr>
 <div style="line-height: 2.0; font-size: larger;">
 <ul style="list-style: none;">
