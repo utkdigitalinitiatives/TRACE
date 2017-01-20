@@ -19,6 +19,7 @@ fi
 # update the pdf_upload.form.inc
 echo "Replacing the pdf_upload.form.inc"
 sudo cp "$HOME_DIR"/islandora_scholar/includes/pdf_upload.form.inc /var/www/drupal/sites/all/modules/islandora_scholar/includes/
+sudo cp "$HOME_DIR"/islandora_scholar/includes/upload.tab.inc /var/www/drupal/sites/all/modules/islandora_scholar/includes/
 
 # Address Php Strict Warning Message with Google MetaTags
 echo "Grabbing Code to Address Islandora Google Meta Tags Strict Warning Message"
