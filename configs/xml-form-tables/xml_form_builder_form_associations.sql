@@ -43,8 +43,7 @@ CREATE TABLE IF NOT EXISTS `xml_form_builder_form_associations` (
 -- Dumping data for table `xml_form_builder_form_associations`
 --
 
-INSERT INTO `xml_form_builder_form_associations` (`id`, `content_model`, `form_name`, `dsid`, `title_field`, `transform`, `self_transform`, `template`) VALUES
-(1, 'ir:thesisCModel', 'Thesis MODS form', 'MODS', NULL, 'mods_to_dc.xsl', 'UTK_ir_etds_post_process.xsl', '');
+INSERT INTO `xml_form_builder_form_associations` (`id`, `content_model`, `form_name`, `dsid`, `title_field`, `transform`, `self_transform`, `template`) VALUES (1, 'ir:thesisCModel', 'Thesis MODS form', 'MODS', NULL, 'mods_to_dc.xsl', 'UTK_ir_etds_post_process.xsl', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
