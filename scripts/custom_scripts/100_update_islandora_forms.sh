@@ -31,7 +31,7 @@ sudo chown -R vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora_xml_for
 # Add a pre-configured form association:
 # this will apply the UTK_ir_etds_post_process.xsl to output from our default MODS form
 echo "Checking for XML Forms sql files."
-if [ -f "$SHARED_DIR/configs/xml-form-tables/xml_form_builder_form_associations.sql" ]; then
+if [ -f "$SHARED_DIR"/configs/xml-form-tables/xml_form_builder_form_associations.sql ]; then
 	echo "Loading XML Forms xml_form_builder_form_associations.sql"
 	drush sql-cli < "$SHARED_DIR"/configs/xml-form-tables/xml_form_builder_form_associations.sql
 	drush cc all
