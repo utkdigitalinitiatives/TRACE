@@ -18,3 +18,10 @@ drush -y vset site_frontpage 'home'
 drush -y vset date_default_timezone 'America/New_York'
 drush -y vset site_slogan "TRACE: Tennessee Research and Creative Exchange"
 drush -y vset site_name "TRACE"
+
+# Set Default Drush Root
+cd "$HOME_DIR"/.drush || exit
+touch drushrc.php
+echo '<?php' >> drushrc.php
+echo '$options["uri"] = "localhost";' >> drushrc.php
+echo '$options["root"] = "'"$DRUPAL_HOME"'";' >> drushrc.php
