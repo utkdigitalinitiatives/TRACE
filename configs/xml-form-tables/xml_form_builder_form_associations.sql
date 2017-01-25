@@ -37,13 +37,13 @@ CREATE TABLE IF NOT EXISTS `xml_form_builder_form_associations` (
   `self_transform` varchar(128) DEFAULT NULL COMMENT 'A xsl transform for setting the Fedora Object’s Dublin Core metadata datastream.',
   `template` mediumtext COMMENT 'A sample metadata file used to prepopulate the form on ingest.',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='This table is used to store associations between XML Form...' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='This table is used to store associations between XML Form...' AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `xml_form_builder_form_associations`
 --
 
-INSERT INTO `xml_form_builder_form_associations` (`id`, `content_model`, `form_name`, `dsid`, `title_field`, `transform`, `self_transform`, `template`) VALUES (1, 'ir:thesisCModel', 'Thesis MODS form', 'MODS', NULL, 'mods_to_dc.xsl', 'UTK_ir_etds_post_process.xsl', '');
+INSERT INTO `xml_form_builder_form_associations` (`id`, `content_model`, `form_name`, `dsid`, `title_field`, `transform`, `self_transform`, `template`) VALUES (1, 'ir:thesisCModel', 'Thesis MODS form', 'MODS', 'a:2:{i:0;s:9:"titleInfo";i:1;s:5:"title";}', 'mods_to_dc.xsl', 'UTK_ir_etds_post_process.xsl', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
