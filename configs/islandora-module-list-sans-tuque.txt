@@ -15,7 +15,6 @@ islandora_pathauto
 islandora_pdfjs
 islandora_populator
 islandora_scholar
-islandora_simple_workflow
 islandora_solr_metadata
 islandora_solr_search
 islandora_solr_views

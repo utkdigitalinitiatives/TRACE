@@ -40,6 +40,10 @@ done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
 # clone binary_object from IslandoraLabs
 git clone git://github.com/Islandora-Labs/islandora_binary_object
 
+git clone https://github.com/utkdigitalinitiatives/islandora_simple_workflow.git
+
+git clone https://robert-patrick-waltz@github.com/robert-patrick-waltz/trace_ext_workflow.git
+
 # clone the Digital initiatives module to ingest collections
 git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.git
 
@@ -113,6 +117,7 @@ drush -y -u 1 en islandora_batch_report
 drush -y -u 1 en islandora_usage_stats islandora_populator
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
+drush -y -u 1 en rules_admin trace_ext_workflow
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 

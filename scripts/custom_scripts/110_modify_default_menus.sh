@@ -32,7 +32,8 @@ drush add-menu-item --weight='-1' navigation 'Trace Root Collection' "islandora/
 
 #add in a manager menu with a link to the approve-inactive-objects list
 if drush menu-create menu-manager-navigation --title="Manager Navigation" --description="Manager Links"; then
-  drush add-menu-item menu-manager-navigation "Items Waiting for Approval" "admin/islandora/tools/simple_workflow/list"
+  drush add-menu-item menu-manager-navigation "Items to Accept" "trace_ext_workflow/list"
+  drush add-menu-item menu-manager-navigation "Items to Publish" "admin/islandora/tools/simple_workflow/list"
   drush add-menu-item menu-manager-navigation 'Trace Root Collection' "islandora/object/utk:ir"
   drush block-configure --theme="UTKdrupal" --module="menu" --delta="menu-manager-navigation" --region="sidebar_first"
   # do not display the block title because it looks messy
