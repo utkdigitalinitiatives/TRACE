@@ -37,15 +37,13 @@ while read -r LINE; do
   cd "$DRUPAL_HOME"/sites/all/modules || exit
 done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
 
-# clone binary_object from IslandoraLabs
-git clone git://github.com/Islandora-Labs/islandora_binary_object
-
 # clone UTK Digital Initiatives forks and local modules
 git clone https://github.com/utkdigitalinitiatives/islandora_simple_workflow.git
 git clone https://robert-patrick-waltz@github.com/robert-patrick-waltz/trace_ext_workflow.git
 git clone https://github.com/utkdigitalinitiatives/islandora_scholar
 git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
 git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
+git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
 
 # set core.filemode on our forks
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
@@ -57,6 +55,10 @@ git config core.filemode false
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_binary_object || exit
 git config core.filemode false
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
