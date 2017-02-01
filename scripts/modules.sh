@@ -40,9 +40,12 @@ done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
 # clone binary_object from IslandoraLabs
 git clone git://github.com/Islandora-Labs/islandora_binary_object
 
+# clone UTK Digital Initiatives forks and local modules
 git clone https://github.com/utkdigitalinitiatives/islandora_simple_workflow.git
-
 git clone https://robert-patrick-waltz@github.com/robert-patrick-waltz/trace_ext_workflow.git
+git clone https://github.com/utkdigitalinitiatives/islandora_scholar
+git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
+git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
 
 # clone the Digital initiatives module to ingest collections
 git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.git
