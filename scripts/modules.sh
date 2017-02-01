@@ -47,6 +47,19 @@ git clone https://github.com/utkdigitalinitiatives/islandora_scholar
 git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
 git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
 
+# set core.filemode on our forks
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_solr_metadata || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
 # clone the Digital initiatives module to ingest collections
 git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.git
 
