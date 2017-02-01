@@ -14,8 +14,6 @@ islandora_paged_content
 islandora_pathauto
 islandora_pdfjs
 islandora_populator
-islandora_scholar
-islandora_solr_metadata
 islandora_solr_search
 islandora_solr_views
 islandora_solution_pack_audio
@@ -27,7 +25,6 @@ islandora_solution_pack_pdf
 islandora_solution_pack_video
 islandora_usage_stats
 islandora_xacml_editor
-islandora_xml_forms
 islandora_xmlsitemap
 objective_forms
 php_lib
