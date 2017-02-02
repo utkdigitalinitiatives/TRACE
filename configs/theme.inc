@@ -101,8 +101,11 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
         // Add new datastream content as the lastest version.
         if($ds->label == 'MODS Record') {
           $row[] = array(
-            'class' => 'datastream-replace',
+            'class' => 'datastream-versions',
             'data' => t('&nbsp;'));
+            $row[] = array(
+              'class' => 'datastream-replace',
+              'data' => t('&nbsp;'));
         }else{
           $row[] = array(
             'class' => 'datastream-versions',
