@@ -314,7 +314,8 @@ function islandora_datastream_version_replace_form($form, &$form_state, Abstract
       ),
       'submit' => array(
         '#type' => 'submit',
-        '#value' => t('Add Contents'),
+        //'#value' => t('Add Contents'), chd TRAC-543 REQUEST THREE-2 Instead of "Add Contents,"  use "Update."
+        '#value' => t('Update'),
       ),
     ),
   );
