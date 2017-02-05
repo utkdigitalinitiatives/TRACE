@@ -43,8 +43,10 @@ function islandora_add_datastream_form(array $form, array &$form_state, Abstract
       '#collapsible' => FALSE,
       '#collapsed' => FALSE,
       'dsid' => array(
-        //'#title' => 'Datastream ID', chd change per TRAC-543 REQUEST TWO-A
-        '#title' => 'Datastream ID',
+        //'#title' => 'Datastream ID', chd change per TRAC-543 REQUEST TWO-A Part 1.:
+        //How about:
+        //Datastream ID becomes instead: File Name (An ID for this file that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores.)
+        '#title' => 'File ID',
         //'#description' => t("An ID for this stream that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores. The following datastreams are defined by this content model but don't currently exist: <strong>@unused_dsids</strong>.", array('@unused_dsids' => $unused_datastreams)), chd change per TRAC-543 REQUEST TWO
         '#description' => t("A unique ID for this Supplemental File. Must start with a letter and contain only letters, numbers, dashes and underscores. NO WHITESPACE. ", array('@unused_dsids' => $unused_datastreams)),
         '#type' => 'textfield',
@@ -59,7 +61,11 @@ function islandora_add_datastream_form(array $form, array &$form_state, Abstract
         '#autocomplete_path' => "islandora/object/{$object->id}/manage/datastreams/add/autocomplete",
       ),
       'label' => array(
-        '#title' => 'Datastream Label',
+        //'#title' => 'Datastream Label', chd change per TRAC-543 REQUEST TWO-A Part 2.:
+        //How about: 
+        //Datastream Label becomes instead: File Title (A descriptive, human-readable label for the file.)
+       //COMMENT(chd): File Title is confusing and unacceptable. Change to "File Label"
+        '#title' => 'File Label',
         '#required' => TRUE,
         '#size' => 64,
         '#maxlength' => 64,

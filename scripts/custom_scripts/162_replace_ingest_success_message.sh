@@ -46,6 +46,17 @@ sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/includ
 # WITH: Add Supplemental File
 # IN FILE: islandora/includes/add_datastream.form.inc
 # cdeane  Jan 12, 2017
+
+#also Trac-543 
+# change per TRAC-543 REQUEST TWO-A Part 1:
+#How about: 
+#Datastream ID becomes instead: File Name (An ID for this file that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores.) 
+# change per TRAC-543 REQUEST TWO-A Part 2:
+#How about: 
+#Datastream Label becomes instead: File Title (A descriptive, human-readable label for the file.)
+#COMMENT (chd): File Title is confusing and unacceptable.  Chang to File Label.
+
+
 # replace the file: add_datastream.form.inc
 echo "Replacing the file: add_datastream.form.inc"
 sudo cp /vagrant/files/add_datastream.form.inc "$DRUPAL_HOME"/sites/all/modules/islandora/includes/
