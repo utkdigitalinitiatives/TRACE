@@ -22,4 +22,7 @@ if [ -f "$SHARED_DIR/configs/solr-tables/islandora_solr_fields.sql" ]; then
   drush cc all
 fi
 
+# Set the islandora_solr_facet_min_limit to "1"
+drush vset islandora_solr_facet_min_limit 1
+
 echo "Finished loading solr metadata config"
