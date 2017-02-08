@@ -136,6 +136,7 @@ drush -y -u 1 en islandora_usage_stats islandora_populator
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
 drush -y -u 1 en rules_admin trace_ext_workflow
+drush -y -u 1 en islandora_binary_object_zip_importer
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
