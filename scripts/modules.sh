@@ -37,8 +37,30 @@ while read -r LINE; do
   cd "$DRUPAL_HOME"/sites/all/modules || exit
 done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
 
-# clone binary_object from IslandoraLabs
-git clone git://github.com/Islandora-Labs/islandora_binary_object
+# clone UTK Digital Initiatives forks and local modules
+git clone https://github.com/utkdigitalinitiatives/islandora_simple_workflow.git
+git clone https://robert-patrick-waltz@github.com/robert-patrick-waltz/trace_ext_workflow.git
+git clone https://github.com/utkdigitalinitiatives/islandora_scholar
+git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
+git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
+git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
+
+# set core.filemode on our forks
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_solr_metadata || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+cd "$DRUPAL_HOME"/sites/all/modules/islandora_binary_object || exit
+git config core.filemode false
+cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # clone the Digital initiatives module to ingest collections
 git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.git
@@ -82,11 +104,6 @@ if [ -d "$HOME_DIR/.drush" ] && [ -f "$DRUPAL_HOME/sites/all/modules/islandora_o
   mv "$DRUPAL_HOME/sites/all/modules/islandora_openseadragon/islandora_openseadragon.drush.inc" "$HOME_DIR/.drush"
 fi
 
-# Move video.js drush file to user's .drush folder
-# if [ -d "$HOME_DIR/.drush" ] && [ -f "$DRUPAL_HOME/sites/all/modules/islandora_videojs/islandora_videojs.drush.inc" ]; then
-#   mv "$DRUPAL_HOME/sites/all/modules/islandora_videojs/islandora_videojs.drush.inc" "$HOME_DIR/.drush"
-# fi
-
 # Move pdf.js drush file to user's .drush folder
 if [ -d "$HOME_DIR/.drush" ] && [ -f "$DRUPAL_HOME/sites/all/modules/islandora_pdfjs/islandora_pdfjs.drush.inc" ]; then
   mv "$DRUPAL_HOME/sites/all/modules/islandora_pdfjs/islandora_pdfjs.drush.inc" "$HOME_DIR/.drush"
@@ -103,14 +120,12 @@ drush -y -u 1 en php_lib islandora objective_forms
 drush -y -u 1 en islandora_solr islandora_solr_metadata islandora_solr_views
 drush -y -u 1 en islandora_basic_collection islandora_pdf islandora_book
 drush -y -u 1 en islandora_basic_image islandora_large_image
-#drush -y -u 1 en islandora_video islandora_audio
 drush -y -u 1 en islandora_checksum islandora_checksum_checker
 drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs
-#drush -y -u 1 en islandora_videojs islandora_jwplayer
 drush -y -u 1 en islandora_openseadragon
 drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update
 drush -y -u 1 en zip_importer
-drush -y -u 1 en islandora_basic_image islandora_bibliography islandora_compound_object
+drush -y -u 1 en islandora_bibliography islandora_compound_object
 drush -y -u 1 en islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter
 drush -y -u 1 en doi_importer endnotexml_importer pmid_importer ris_importer
 drush -y -u 1 en islandora_fits islandora_ocr islandora_oai islandora_simple_workflow
@@ -120,6 +135,8 @@ drush -y -u 1 en islandora_batch_report
 drush -y -u 1 en islandora_usage_stats islandora_populator
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
+drush -y -u 1 en rules_admin trace_ext_workflow
+drush -y -u 1 en islandora_binary_object_zip_importer
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
@@ -132,11 +149,8 @@ drush -y en trigger
 
 # Set variables for Islandora modules
 echo " Set variables for Islandora modules"
-# drush eval "variable_set('islandora_audio_viewers', array('name' => array('none' => 'none', 'islandora_videojs' => 'islandora_videojs'), 'default' => 'islandora_videojs'))"
 drush eval "variable_set('islandora_fits_executable_path', '$FITS_HOME/fits-$FITS_VERSION/fits.sh')"
 drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
-# drush eval "variable_set('islandora_video_viewers', array('name' => array('none' => 'none', 'islandora_videojs' => 'islandora_videojs'), 'default' => 'islandora_videojs'))"
-# drush eval "variable_set('islandora_video_ffmpeg_path', '/usr/local/bin/ffmpeg')"
 drush eval "variable_set('islandora_book_viewers', array('name' => array('none' => 'none', 'islandora_internet_archive_bookreader' => 'islandora_internet_archive_bookreader'), 'default' => 'islandora_internet_archive_bookreader'))"
 drush eval "variable_set('islandora_book_page_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"
 drush eval "variable_set('islandora_large_image_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"
@@ -144,11 +158,18 @@ drush eval "variable_set('islandora_use_kakadu', TRUE)"
 drush eval "variable_set('islandora_pdf_create_fulltext', 1)"
 drush eval "variable_set('islandora_pdf_create_pdfa', 1)"
 drush eval "variable_set('islandora_checksum_enable_checksum', TRUE)"
-drush eval "variable_set('islandora_checksum_checksum_type', 'SHA-1')"
+drush eval "variable_set('islandora_checksum_checksum_type', 'SHA-256')"
+# comment out dsids to check to set a default of all dsids
+#drush eval "variable_set('islandora_checksum_dsids_to_check', 'MODS,OBJ,PDF,DIGITAL_COMMONS_MD')"
 drush eval "variable_set('islandora_ocr_tesseract', '/usr/bin/tesseract')"
 drush eval "variable_set('islandora_batch_java', '/usr/bin/java')"
 drush eval "variable_set('image_toolkit', 'imagemagick')"
 drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
 drush eval "variable_set('islandora_embargo_content_models', array('ir:citationCModel', 'ir:thesisCModel', 'islandora:sp_pdf', 'islandora:binaryObjectCModel'))"
-
+drush eval "variable_set('islandora_scholar_create_fulltext', 0)"
+drush eval "variable_set('islandora_scholar_google_scholar_search_enabled', 0)"
+drush eval "variable_set('islandora_scholar_path_to_pdftotext', '/usr/bin/pdftotext')"
+drush eval "variable_set('islandora_scholar_preview_density', 72)"
+drush eval "variable_set('islandora_scholar_preview_height', 700)"
+drush eval "variable_set('islandora_scholar_preview_width', 500)"
 drush eval "variable_set('islandora_repository_pid', 'utk:ir')"

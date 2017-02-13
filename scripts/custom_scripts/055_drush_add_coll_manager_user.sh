@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# **** JIRA Trac-404 remove bookmarks module
+
 if [ "$FEDORAPASS" = "" ]; then
   FEDORAPASS="fedoraAdmin"
 fi
@@ -26,9 +28,6 @@ declare -a COLL_MANAGER_PERMS=(
   "edit fedora metadata"
   "regenerate derivatives for an object"
   "manage object properties"
-  "export islandora bookmarks"
-  "share islandora bookmarks"
-  "use islandora_bookmark"
   "search islandora solr"
   "bypass inactive object state" #simple_workflow
   "manage inactive objects"  #simple_workflow
@@ -41,6 +40,8 @@ declare -a COLL_MANAGER_PERMS=(
   "view islandora usage stats reports"
   "view islandora usage stats collection overview stats"
 )
+
+
 
 ## iterate over the list of permissions and verify that they're added
 drush_thesis_manager_role_perm_check() {

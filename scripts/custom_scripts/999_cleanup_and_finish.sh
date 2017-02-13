@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # add themes.inc to islandora/themes directory
-sudo cp $SHARED_DIR/configs/theme.inc $DRUPAL_HOME/sites/all/modules/islandora/theme/
+sudo cp "$SHARED_DIR"/configs/theme.inc "$DRUPAL_HOME"/sites/all/modules/islandora/theme/
 
 # Add any cleanup Commands here
 sudo chmod -R 777 /home/vagrant/.drush

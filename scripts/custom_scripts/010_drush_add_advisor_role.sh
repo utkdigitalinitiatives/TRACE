@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# **** JIRA Trac-404 remove bookmarks module
+
 # *** commented out until an advisor role is needed
 # adds an advisor-role and appropriate permissions
 
@@ -12,9 +14,6 @@
 #	"view fedora repository objects"
 #	"search islandora solr"
 #	"ingest fedora objects"
-#	"use islandora_bookmark"
-#	"share islandora bookmarks"
-#	"export islandora bookmarks"
 #	"can embargo owned objects"
 #)
 

@@ -21,7 +21,7 @@ fi
 curl -vv -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/ir:citationCModel?label=chd_citation"
 
 # info:fedora/ir:thesisCModel
-curl -vv -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/ir:thesisCModel?label='Thesis or Dissertation'"
+curl -vv -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/ir:thesisCModel?label=Thesis or Dissertation"
 
 # info:fedora/islandora:binaryObjectCmodel
 curl -vv -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:binaryObjectCModel?label=Other"

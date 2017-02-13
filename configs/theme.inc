@@ -35,15 +35,16 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
   }
   if (user_access(ISLANDORA_VIEW_DATASTREAM_HISTORY)) {
     if (!$has_submitter_role) {
-    $header[] = array('data' => t('Versions'));
+      $header[] = array('data' => t('Versions'));
     }else{
-    $header[] = array('data' => t('Replace'));
+      $header[] = array('data' => t('Versions'));
+      $header[] = array('data' => t('Replace'));
     }
   }
   if (!$has_submitter_role) {
     $header[] = array('data' => t('Operations'), 'colspan' => '5');
   }else{
-    $header[] = array('data' => t('Operations'), 'colspan' => '2');
+    $header[] = array('data' => t('Operations'), 'colspan' => '3');
   }
   $table_attributes = array('class' => array('manage-datastreams'));
   $rows = array();
@@ -100,9 +101,18 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
         // Add new datastream content as the lastest version.
         if($ds->label == 'MODS Record') {
           $row[] = array(
-            'class' => 'datastream-replace',
+            'class' => 'datastream-versions',
             'data' => t('&nbsp;'));
+            $row[] = array(
+              'class' => 'datastream-replace',
+              'data' => t('&nbsp;'));
         }else{
+          $row[] = array(
+            'class' => 'datastream-versions',
+            'data' => theme('islandora_datastream_version_link', array(
+              'datastream' => $ds,
+            )),
+          );
           $row[] = array(
             'class' => 'datastream-replace',
             'data' => theme('islandora_datastream_replace_link', array(

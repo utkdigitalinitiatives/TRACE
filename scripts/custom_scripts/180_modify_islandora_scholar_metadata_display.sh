@@ -21,15 +21,3 @@ if [ ! -f "$SHARED_DIR"/configs/islandora_solr_base_filter_list ]; then
 else
   cat "$SHARED_DIR"/configs/islandora_solr_base_filter_list | drush vset islandora_solr_base_filter -
 fi
-
-# clone utkdigitalinitiative/islandora_solr_metadata
-echo "Updating the end-user metadata display."
-
-cd "$USER_HOME" || exit
-git clone https://github.com/CanOfBees/islandora_solr_metadata
-
-echo "Copying TPL files."
-sudo cp islandora_solr_metadata/theme/islandora_solr_metadata_display.tpl.php "$DRUPAL_HOME"/sites/all/modules/islandora_solr_metadata/theme/
-
-echo "Verifying permissions."
-sudo chown -R vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora_solr_metadata
