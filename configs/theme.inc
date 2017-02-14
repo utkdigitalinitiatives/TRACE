@@ -54,6 +54,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
       ||($ds->label == 'DC Record')
       ||($ds->label == 'PREVIEW')
       ||($ds->label == 'FULL_TEXT')
+      ||($ds->label == 'POLICY')
       ||($ds->label == 'TN')) {
         continue;
       }
