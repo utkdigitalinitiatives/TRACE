@@ -39,7 +39,7 @@ done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
 
 # clone UTK Digital Initiatives forks and local modules
 git clone https://github.com/utkdigitalinitiatives/islandora_simple_workflow.git
-git clone https://robert-patrick-waltz@github.com/robert-patrick-waltz/trace_ext_workflow.git
+git clone https://github.com/utkdigitalinitiatives/robert-patrick-waltz/trace_ext_workflow.git
 git clone https://github.com/utkdigitalinitiatives/islandora_scholar
 git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
 git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
