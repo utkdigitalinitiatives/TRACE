@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 # run all shell scripts in scripts/custom_scripts/
-## shellcheck source=/dev/null
+# shellcheck source=/dev/null
 # shellcheck disable=SC1073
 # shellcheck disable=SC1072
 # shellcheck disable=SC1009
