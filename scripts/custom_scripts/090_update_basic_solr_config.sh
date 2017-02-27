@@ -6,10 +6,9 @@ if [ "$HOMEUSER" = "" ]; then
 fi
 
 # Clone utk-fedora-fedoragsearch-solr-config
-# @TODO add utk-fedora-fedoragsearch-solr-config to the utkdigitalinitiatives github account
 echo "Cloning utk-fedora-fedoragsearch-solr-config"
 if [ ! -d "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config ]; then
-  git clone https://github.com/CanOfBees/utk-fedora-fedoragsearch-solr-config
+  git clone https://github.com/utkdigitalinitiatives/utk-fedora-fedoragsearch-solr-config
   chown -hR $HOMEUSER:$HOMEUSER utk-fedora-fedoragsearch-solr-config
 else
   git -C "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config pull
