@@ -30,6 +30,20 @@ function islandora_add_datastream_form(array $form, array &$form_state, Abstract
   $datastream_requirements = islandora_get_missing_datastreams_requirements($object);
   $unused_datastreams = array_keys($datastream_requirements);
   $unused_datastreams = "'" . implode("', '", $unused_datastreams) . "'";
+
+/**
+ * $suppl_files finds the next open SUPPL_ name not currently in the datastreams
+ * @var string
+ */
+	$suppl_files = 'SUPPL_0';
+  foreach (range(0, 999) as $number) {
+    $temp_suppl_file = 'SUPPL_'.$number;
+    if (array_key_exists($temp_suppl_file, islandora_get_missing_datastreams_requirements($object))){
+      $suppl_files= 'SUPPL_'.$number;
+      break;
+    }
+  }
+
   $upload_size = min((int) ini_get('post_max_size'), (int) ini_get('upload_max_filesize'));
   return array(
     '#redirect' => "islandora/object/{$object->id}",
@@ -46,13 +60,14 @@ function islandora_add_datastream_form(array $form, array &$form_state, Abstract
         //'#title' => 'Datastream ID', chd change per TRAC-543 REQUEST TWO-A Part 1.:
         //How about:
         //Datastream ID becomes instead: File Name (An ID for this file that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores.)
-        '#title' => 'File ID',
+        // '#title' => 'File ID',
         //'#description' => t("An ID for this stream that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores. The following datastreams are defined by this content model but don't currently exist: <strong>@unused_dsids</strong>.", array('@unused_dsids' => $unused_datastreams)), chd change per TRAC-543 REQUEST TWO
-        '#description' => t("A unique ID for this Supplemental File. Must start with a letter and contain only letters, numbers, dashes and underscores. NO WHITESPACE. ", array('@unused_dsids' => $unused_datastreams)),
-        '#type' => 'textfield',
-        '#size' => 64,
-        '#maxlength' => 64,
-        '#required' => TRUE,
+        // '#description' => t("A unique ID for this Supplemental File. Must start with a letter and contain only letters, numbers, dashes and underscores. NO WHITESPACE. ", array('@unused_dsids' => $unused_datastreams)),
+        '#type' => 'hidden',
+				'#value' => $suppl_files,
+        // '#size' => 64,
+        // '#maxlength' => 64,
+        // '#required' => TRUE,
         '#element_validate' => array(
           'islandora_add_datastream_form_field_is_not_an_existing_datastream_id',
           'islandora_add_datastream_form_field_starts_with_a_letter',
@@ -60,19 +75,19 @@ function islandora_add_datastream_form(array $form, array &$form_state, Abstract
         ),
         '#autocomplete_path' => "islandora/object/{$object->id}/manage/datastreams/add/autocomplete",
       ),
-      'label' => array(
+      // 'label' => array(
         //'#title' => 'Datastream Label', chd change per TRAC-543 REQUEST TWO-A Part 2.:
-        //How about: 
+        //How about:
         //Datastream Label becomes instead: File Title (A descriptive, human-readable label for the file.)
        //COMMENT(chd): File Title is confusing and unacceptable. Change to "File Label"
-        '#title' => 'File Label',
-        '#required' => TRUE,
-        '#size' => 64,
-        '#maxlength' => 64,
-        '#description' => t('A human-readable label.'),
-        '#type' => 'textfield',
-        '#element_validate' => array('islandora_add_datastream_form_field_does_not_contain_a_forward_slash'),
-      ),
+        // '#title' => 'File Label',
+        // '#required' => TRUE,
+        // '#size' => 64,
+        // '#maxlength' => 64,
+        // '#description' => t('A human-readable label.'),
+        // '#type' => 'textfield',
+        // '#element_validate' => array('islandora_add_datastream_form_field_does_not_contain_a_forward_slash'),
+        // ),
       'file' => array(
         '#type' => 'managed_file',
         '#required' => TRUE,
@@ -203,7 +218,7 @@ function islandora_add_datastream_form_submit(array $form, array &$form_state) {
   $file = file_load($form_state['values']['file']);
   try {
     $ds = $object->constructDatastream($form_state['values']['dsid'], 'M');
-    $ds->label = $form_state['values']['label'];
+    $ds->label = $file->filename;
     $ds->mimetype = $file->filemime;
     $path = drupal_realpath($file->uri);
     $ds->setContentFromFile($path);
