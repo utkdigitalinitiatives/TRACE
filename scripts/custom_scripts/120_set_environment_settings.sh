@@ -22,6 +22,9 @@ drush -y vset site_name "TRACE"
 # Set Default Drush Root
 cd "$HOME_DIR"/.drush || exit
 touch drushrc.php
+# shellcheck disable=SC2129
 echo '<?php' >> drushrc.php
+# shellcheck disable=SC2016
 echo '$options["uri"] = "localhost";' >> drushrc.php
+# shellcheck disable=SC2016
 echo '$options["root"] = "'"$DRUPAL_HOME"'";' >> drushrc.php
