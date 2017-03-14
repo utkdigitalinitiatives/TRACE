@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# this makes the HOMEUSER equal to vagrant on devel and staging and
-# equal to islandora on the server
-if [ "$HOMEUSER" = "" ]; then
-   HOMEUSER="vagrant"
-fi
 echo "drush enable theme"
 # Set permissions /sites/all/themes
 sudo chown -hR $HOMEUSER:www-data "$DRUPAL_HOME"/sites/all/themes
