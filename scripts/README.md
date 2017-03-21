@@ -1,25 +1,47 @@
 # Scripts Folder information
 ```shell
-.
-1 ├── README.md
-2 ├── custom.sh
-3 ├── custom_scripts
-4 │   ├── drush_add_advisor_role.sh
-5 │   ├── drush_add_anon_perms.sh
-6 │   ├── drush_add_authUser_user.sh
-7 │   ├── drush_add_collections.sh
-8 │   ├── drush_add_manager_user.sh
-9 │   ├── drush_add_privUser_user.sh
-10│   ├── drush_add_theme.sh
-11│   ├── drush_revise_CModel_labels.sh
-12│   └── update_basic_solr_config.sh
-13├── ldap.sh
-14├── libraries.sh
-15├── modules.sh
-16├── post.sh
-17└── tests
-18  ├── test_users.sh
-19  └── usertest.sh
+./
+├── README.md
+├── custom.sh
+├── custom_scripts
+│   ├── 001_drush_revise_CModel_labels.sh
+│   ├── 010_drush_add_advisor_role.sh
+│   ├── 020_drush_add_anon_perms.sh
+│   ├── 030_drush_add_authUser_user.sh
+│   ├── 040_drush_add_collections.sh
+│   ├── 050_drush_add_manager_user.sh
+│   ├── 055_drush_add_coll_manager_user.sh
+│   ├── 060_drush_add_privUser_user.sh
+│   ├── 070_drush_add_theme.sh
+│   ├── 090_update_basic_solr_config.sh
+│   ├── 095_load_solr_metadata_config_data.sh
+│   ├── 100_update_islandora_forms.sh
+│   ├── 110_modify_default_menus.sh
+│   ├── 120_set_environment_settings.sh
+│   ├── 130_add_private_messaging.sh
+│   ├── 140_configure_blocks.sh
+│   ├── 150_redirect_breadcrumbs.sh
+│   ├── 161_modify_islandora_xml_form_builder.sh
+│   ├── 162_replace_ingest_success_message.sh
+│   ├── 170_ingest_sample_theses.sh
+│   ├── 171_ingest_sample_articles.sh
+│   ├── 172_ingest_sample_theses.sh
+│   ├── 180_modify_islandora_scholar_metadata_display.sh
+│   ├── 190_security.sh
+│   ├── 200_analytics.sh
+│   ├── 210_switch_module_repos.sh
+│   ├── 220_create_workflow_entries.sh
+│   ├── 999_cleanup_and_finish.sh
+│   ├── README.md
+│   └── create_pages.php
+├── libraries.sh
+├── modules.sh
+├── post.sh
+├── staging_env.sh
+└── tests
+    ├── README.md
+    ├── test_users.sh
+    └── usertest.sh
 ```
 ## [custom.sh](./custom.sh)
 * Launches all script found within custom_scripts folder
