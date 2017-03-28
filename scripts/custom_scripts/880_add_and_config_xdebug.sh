@@ -6,10 +6,11 @@ sudo apt-get install php5-xdebug;
 PHP_INI="/etc/php5/apache2/php.ini"
 
 # add the following config settings to apache2's php.ini
-# use printf, yo.
+# use printf, yo, except for our 'then' because printf doesn't
+# like to have variables in it's formatted output.
 if grep -Fxq 'xdebug.idekey="TRACE-DEV"' $PHP_INI
 	then
-		printf "Already updated $PHP_INI"
+		echo "Already updated $PHP_INI"
 	else
 		printf "[Xdebug]\n" | sudo tee -a $PHP_INI
 		printf "zend_extension=/usr/lib/php5/20121212/xdebug.so\n" | sudo tee -a $PHP_INI
