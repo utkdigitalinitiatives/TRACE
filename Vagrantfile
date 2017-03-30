@@ -12,11 +12,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.provider "virtualbox" do |v|
   #   v.name = "TRACE Development VM"
   # end
+  
+  if File.exist?("#{Dir.home}/Desktop/traceCustomXdebug") then # set up the internal network (intnet) for communicating between two VMs 
+#  	config.vm.instance_variables.map{|var| puts [var, config.vm.instance_variable_get(var)].join(":")}
+		config.vm.provider "virtualbox" do |v|
+			v.name = "TRACE Development VM"
+			v.customize ["modifyvm", :id, "--nic2", "intnet", "--cableconnected2", "on", "--macaddress2", "080027A49CB0"]
+		end
+  end
 
   unless  $forward.eql? "FALSE"
     config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true # Tomcat
     config.vm.network :forwarded_port, guest: 3306, host: 3306, auto_correct: true # MySQL
     config.vm.network :forwarded_port, guest: 8000, host: 8000 # Apache
+    unless File.exist?("#{Dir.home}/Desktop/traceCustomXdebug") then #XDebug
+      config.vm.network "forwarded_port", guest: 9000, host: 9000
+    end
   end
 
   config.vm.hostname = $hostname
