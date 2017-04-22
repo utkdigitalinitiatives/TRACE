@@ -213,3 +213,6 @@ Install: https://github.com/koalaman/shellcheck
 [CAS Module](https://www.drupal.org/project/cas)
 [phpCAS library](https://www.drupal.org/node/1084302)
 [Managing CAS Users](https://www.drupal.org/node/1261232)
+
+## Random
+* Armadillos can hold their breath for four to six minutes.
