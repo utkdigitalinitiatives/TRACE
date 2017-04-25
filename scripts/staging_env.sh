@@ -22,7 +22,7 @@ sudo bash -c 'cat /vagrant/files/change_base_url >> /var/www/drupal/sites/defaul
 
 # CAS Setup
 cd "$DRUPAL_HOME"/sites/all/libraries/ || exit
-sudo curl https://developer.jasig.org/cas-clients/php/current/CAS-1.3.4.tgz | tar -xz
+sudo curl https://developer.jasig.org/cas-clients/php/1.3.5/CAS-1.3.5.tgz | tar -xz
 mv CAS-* CAS
 
 cd "$DRUPAL_HOME"/sites/all/modules/ || exit
