@@ -37,7 +37,7 @@ drush vset -y cas_exclude 'services/*'
 drush vset -y cas_first_login_destination 'user'
 drush vset -y cas_hide_email 1
 drush vset -y cas_hide_password 1
-drush vset -y cas_login_drupal_invite 'Go back to Local Login without NID'
+drush vset -y cas_login_drupal_invite 'Go back to Local Login without NetID'
 drush vset -y cas_login_form '1'
 drush vset -y cas_login_invite 'Login with UT NID'
 drush vset -y cas_login_message ''
@@ -65,7 +65,7 @@ php -r "print json_encode(array ( 4 => '4', 2 => true, 3 => 0, 5 => 0, 6 => 0, 7
 # Disable local Account Registrtion
 drush vset user_register 0
 
-# cas attributes brings NID, email, staff or student status
+# cas attributes brings NetID, email, staff or student status
 drush en -y cas_attributes
 
 drush vset -y cas_attributes_overwrite '1'
