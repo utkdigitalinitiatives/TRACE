@@ -39,7 +39,7 @@ drush vset -y cas_hide_email 1
 drush vset -y cas_hide_password 1
 drush vset -y cas_login_drupal_invite 'Go back to Local Login without NetID'
 drush vset -y cas_login_form '1'
-drush vset -y cas_login_invite 'Login with UT NID'
+drush vset -y cas_login_invite 'Login with UT NetID'
 drush vset -y cas_login_message ''
 drush vset -y cas_login_redir_message ''
 drush vset -y cas_logout_destination '<front>'
