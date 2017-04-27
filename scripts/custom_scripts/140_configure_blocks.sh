@@ -26,7 +26,7 @@ drush sql-query "insert into block_role (rid, module, delta) select rid, 'privat
 
 #reconfigure for TRAC-648  Reboot TRACE interface / horizontal menu assignments.
 drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="top_menu"
-drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="top_menu"
+drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="secondary_menu"
 drush block-configure --weight=-4 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="secondary_menu"
 drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="menu-manager-navigation" --region="secondary_menu"
 
