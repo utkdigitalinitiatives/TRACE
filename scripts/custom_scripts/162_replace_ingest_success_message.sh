@@ -131,4 +131,11 @@ sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/island
 #
 # FIXED BY /files/string_replacement
 
+
+#####################################################################
+# This is a temp fix. There is a PR pending discussion in
+# Islandora/Islandora. Ticket Number TRAC-730
+sudo sed -i "1027i \  if ( \$object->state != 'A') { \n    drupal_set_message(t('This object is not active. Metadata may not display correctly.'), 'warning');\n\   }" /var/www/drupal/sites/all/modules/islandora/islandora.module
+
+
 echo "End exectution of 162_replace_ingest_success_message.sh"
