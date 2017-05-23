@@ -1,26 +1,22 @@
 #!/usr/bin/env bash
-# this makes the HOMEUSER equal to vagrant on devel and staging and
-# equal to islandora on the server
-if [ "$HOMEUSER" = "" ]; then
-   HOMEUSER="vagrant"
-fi
 echo "drush enable theme"
 # Set permissions /sites/all/themes
-sudo chown -hR $HOMEUSER:www-data "$DRUPAL_HOME"/sites/all/themes
+sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/themes
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/themes
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
 # Clone UTKdrupal Theme
 git clone https://github.com/utkdigitalinitiatives/UTKdrupal
 cd "$DRUPAL_HOME"/sites/all/themes/UTKdrupal || exit
-# git fetch
-# git branch -r
-# git checkout -b october origin/october
 git pull
+git checkout horizontal
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
 # Set permissions UTKdrupal
-sudo chown -hR $HOMEUSER:www-data UTKdrupal
+sudo chown -hR vagrant:www-data UTKdrupal
+
+#Horizontal branch
+
 
 # Enable UTKdrupal and set as default
 drush -y en UTKdrupal

@@ -39,7 +39,7 @@ done < "$SHARED_DIR"/configs/islandora-module-list-sans-tuque.txt
 
 # clone UTK Digital Initiatives forks and local modules
 git clone https://github.com/utkdigitalinitiatives/islandora_simple_workflow.git
-git clone https://robert-patrick-waltz@github.com/robert-patrick-waltz/trace_ext_workflow.git
+git clone https://github.com/utkdigitalinitiatives/trace_ext_workflow.git
 git clone https://github.com/utkdigitalinitiatives/islandora_scholar
 git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
 git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
@@ -75,6 +75,10 @@ git clone https://github.com/utkdigitalinitiatives/islandora_nested_collections.
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_nested_collections || exit
 git config core.filemode false
 cd "$DRUPAL_HOME"/sites/all/modules || exit
+
+# clone Ashok Modi's module to extend XML Form Builder to Work with Field Panels and Field Panes
+cd "$DRUPAL_HOME"/sites/all/modules || exit
+git clone https://github.com/cherryhill/islandora_form_fieldpanel
 
 # Clone Tuque, BagItPHP, and Cite-Proc
 cd "$DRUPAL_HOME"/sites/all || exit
@@ -137,6 +141,7 @@ drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
 drush -y -u 1 en rules_admin trace_ext_workflow
 drush -y -u 1 en islandora_binary_object_zip_importer
+drush -y -u 1 en islandora_form_fieldpanel
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 

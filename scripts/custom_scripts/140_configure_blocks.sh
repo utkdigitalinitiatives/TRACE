@@ -24,17 +24,19 @@ drush sql-query "insert into block_role (rid, module, delta) select rid, 'privat
 #drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
 #drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
 
-#reconfigure for TRAC-476  Put user-menu ABOVE trace-navigaton menu.
-drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
-drush block-configure --weight=-5 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
+#reconfigure for TRAC-648  Reboot TRACE interface / horizontal menu assignments.
+drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="top_menu"
+drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="menu-default-login" --region="secondary_menu"
+drush block-configure --weight=-4 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="secondary_menu"
+drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="menu-manager-navigation" --region="secondary_menu"
 
-# use solr simple search as the search text on the Second left side bar
-drush block-configure --weight=-6 --theme="UTKdrupal" --module="islandora_solr" --delta="simple" --region="sidebar_second"
+# use solr simple search in the search bar
+drush block-configure --weight=-6 --theme="UTKdrupal" --module="islandora_solr" --delta="simple" --region="search_bar"
 # do not display the block title because it looks messy
 drush sql-query "update block set title='<none>' where module = 'islandora_solr' and delta = 'simple' and theme = 'UTKdrupal'"
 
 # set the islandora_solr facets block on the second sidebar
-drush block-configure --weight=0 --theme="UTKdrupal" --module="islandora_solr" --delta="basic_facets" --region="sidebar_second"
+drush block-configure --weight=0 --theme="UTKdrupal" --module="islandora_solr" --delta="basic_facets" --region="sidebar_first"
 # do not display the block title because it looks messy
 drush sql-query "update block set title='<none>' where module = 'islandora_solr' and delta = 'basic_facets' and theme = 'UTKdrupal'"
 

@@ -46,9 +46,14 @@ $home_body =  <<<HOME_BODY
 <br/>
 <p class="trace_home_page_article_title">TRACE is Tennessee Research and Creative Exchange &ndash;
   the University of Tennessee's open repository</p>
-<p class="trace_home_page_article_blurb">TRACE gives the world access to UT research and creative works &ndash;
-  including faculty research findings and data  &ndash; as well as documents from our institutional history.</p>
+<p class="trace_home_page_article_blurb">Home page content is contained in page--front.tpl currently.</p>
 HOME_BODY;
+
+$help_body =  <<<HELP_BODY
+<h4>Contact</h4>
+<p>Rachel Caldwell - rachelcaldwell@utk.edu</p>
+<p>Keila Zayas Ruiz - kzayasru@utk.edu</p>
+HELP_BODY;
 
 $submit_body =  <<<SUBMIT_BODY
 <hr>
@@ -70,20 +75,20 @@ $submit_body =  <<<SUBMIT_BODY
 SUBMIT_BODY;
 
 $about_body =  <<<ABOUT_BODY
-<br/>
-<h1>What Tests should be conducted?</h1>
-<hr><br/>
-<h2>Test student submission Process</h2>
+
+<h2>What Tests should be conducted?</h2>
+
+<h3>Test student submission Process</h3>
 <p>Log in as userA. Submit a thesis, following the prompts and upload a pdf and multiple supplemental files. Check to verify you have access to your file.</p>
-<h2>Test Manager Review of a submission & feedback to student</h2>
+<h3>Test Manager Review of a submission & feedback to student</h3>
 <p>Manager should be able to see a list of pending submissions</p>
-<h2>Test student receives instructions to edit and resubmit</h2>
+<h3>Test student receives instructions to edit and resubmit</h3>
 <p></p>
-<h2>Test Manager's ability to approve submissions(batch)</h2>
+<h3>Test Manager's ability to approve submissions(batch)</h3>
 <p></p>
-<h2>Test Embargos</h2>
+<h3>Test Embargos</h3>
 <p></p>
-<h2>Test User vs User access to inactive (pending) submissions</h2>
+<h3>Test User vs User access to inactive (pending) submissions</h3>
 <p></p>
 ABOUT_BODY;
 
@@ -92,11 +97,11 @@ $home_nid = create_named_page("home", "", $home_body);
 $submit_nid = create_named_page("submit", "Deposit Your Work", $submit_body);
 add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
 
-$about_nid = create_named_page("about", "About", "$about_body");
-add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About", 0);
+$about_nid = create_named_page("about", "About TRACE", "$about_body");
+add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About TRACE", 0);
 
 $browse_nid = create_named_page("browse", "", "");
 add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse Collections", 2);
 
-$help_nid = create_named_page("help", "", "");
-add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Help and Tutorial", 4);
+$help_nid = create_named_page("help", "Help", "$help_body");
+add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Help", 4);

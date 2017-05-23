@@ -18,7 +18,7 @@
 # with the file: /vagrant/files/ingest.form.inc
 
 ####################################################################
-# Per Trac-537 : Text Replace "Successfully Added Datastream!" 
+# Per Trac-537 : Text Replace "Successfully Added Datastream!"
 # This script replaces the file: $DRUPAL_HOME/sites/all/modules/islandora/includes/ingest.form.inc
 # with the file: /vagrant/files/ingest.form.inc
 # Purpose:
@@ -33,6 +33,10 @@
 echo "Replacing the file: ingest.form.inc per TRAC-459"
 sudo cp /vagrant/files/ingest.form.inc "$DRUPAL_HOME"/sites/all/modules/islandora/includes/
 
+# To add new CMODEL changes for add_datastream.form and reinstall cmodel
+sudo cp /vagrant/files/DS-COMPOSITE-MODEL.xml "$DRUPAL_HOME"/sites/all/modules/islandora_scholar/xml/
+cd "$DRUPAL_HOME" || exit
+drush -u 1 ispiro --module=islandora_scholar --force
 
 # revise ownership
 echo "Changing ownership of the file ingest.form.inc"
@@ -41,18 +45,18 @@ sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/includ
 
 #####################################################################
 #Per Trac-537 : change "Successfully Added Datastreams!" to "Successfully added files!"
-#also Trac-543 REQUEST ONE: 
+#also Trac-543 REQUEST ONE:
 # REPLACE: Add Datastream
 # WITH: Add Supplemental File
 # IN FILE: islandora/includes/add_datastream.form.inc
 # cdeane  Jan 12, 2017
 
-#also Trac-543 
+#also Trac-543
 # change per TRAC-543 REQUEST TWO-A Part 1:
-#How about: 
-#Datastream ID becomes instead: File Name (An ID for this file that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores.) 
+#How about:
+#Datastream ID becomes instead: File Name (An ID for this file that is unique to this object. Must start with a letter and contain only alphanumeric characters, dashes and underscores.)
 # change per TRAC-543 REQUEST TWO-A Part 2:
-#How about: 
+#How about:
 #Datastream Label becomes instead: File Title (A descriptive, human-readable label for the file.)
 #COMMENT (chd): File Title is confusing and unacceptable.  Chang to File Label.
 
@@ -69,9 +73,9 @@ sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/includ
 #####################################################################
 # Per TRAC-536 : change "Replace Datastream" to "Replace file."
 # Per TRAC-543 Part 1.: looks same as TRAC-536 but different file.  See below.
-# Per TRAC-543 Part 2.: 
+# Per TRAC-543 Part 2.:
 # ON SUBMIT BUTTON
-# REPLACE: "Add Content" 
+# REPLACE: "Add Content"
 # WITH:    "Update"
 # IN FILE: islandora/includes/datastream.version.inc
 # cdeane  Jan 12, 2017
@@ -102,8 +106,8 @@ sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/includ
 
 #####################################################################
 # Per TRAC-543 : change "Replace Datastream" to "Replace file."
-# Per TRAC-543 Part 1.: (looks same as TRAC-536 but different file. 
-# REPLACE: "Replace Datastream" 
+# Per TRAC-543 Part 1.: (looks same as TRAC-536 but different file.
+# REPLACE: "Replace Datastream"
 # WITH:    "Replace File"
 # IN FILE: islandora/islandora.module
 
@@ -120,12 +124,18 @@ sudo chown -hR vagrant:vagrant "$DRUPAL_HOME"/sites/all/modules/islandora/island
 #####################################################################
 # Test to see if the string_replacement script will take care of this one, since this is an islandora_scholar file
 # cdeane  Jan 12, 2017
-# TRAC-543 REQUEST FIVE: 
-# REPLACE: Would you like to include supplemental files with this Electronic Thesis or Dissertation? 
+# TRAC-543 REQUEST FIVE:
+# REPLACE: Would you like to include supplemental files with this Electronic Thesis or Dissertation?
 # WITH:    Check the box to upload supplement file(s).
 # IN FILE: islandora_scholar/includes/pdf_upload.form.inc
 #
 # FIXED BY /files/string_replacement
 
-echo "End exectution of 162_replace_ingest_success_message.sh"
 
+#####################################################################
+# This is a temp fix. There is a PR pending discussion in
+# Islandora/Islandora. Ticket Number TRAC-730
+sudo sed -i "1027i \  if ( \$object->state != 'A') { \n    drupal_set_message(t('This object is not active. Metadata may not display correctly.'), 'warning');\n\   }" /var/www/drupal/sites/all/modules/islandora/islandora.module
+
+
+echo "End exectution of 162_replace_ingest_success_message.sh"
