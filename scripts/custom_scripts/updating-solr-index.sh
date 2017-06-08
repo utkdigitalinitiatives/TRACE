@@ -8,7 +8,7 @@ a-curl()
 	URL="http://localhost:8080/fedora/objects?query=cDate%3E%3D";
 	PIDS="%20pid%7Eutk.ir*";
 	ARGS="&pid=true&resultFormat=xml";
-	REQUEST=`curl ${URL}${RUN_TIME}${PIDS}${ARGS}`
+	REQUEST=`curl -s ${URL}${RUN_TIME}${PIDS}${ARGS}`
 	# xmlstarlet args = select text noblanks template value-of
 	SESSION=`echo "$REQUEST" | xmlstarlet sel -T -B -t -v '/_:result/_:listSession/_:token'`;
 	if [ -z "$SESSION" ]; then
@@ -27,7 +27,7 @@ re-cur()
 	PIDS="%20pid%7Eutk.ir*";
 	ARGS="&pid=true&resultFormat=xml&sessionToken=";
 	SESSION=$1;
-	REQUEST=`curl ${URL}${RUN_TIME}${PIDS}${ARGS}${SESSION}`
+	REQUEST=`curl -s ${URL}${RUN_TIME}${PIDS}${ARGS}${SESSION}`
 	NEW_SESSION=`echo "$REQUEST" | xmlstarlet sel -T -B -t -v '/_:result/_:listSession/_:token'`;
 	if [ -z "$NEW_SESSION" ]; then
 		echo "no new token";
@@ -44,3 +44,20 @@ echo "Querying Fedora..."
 # a-curl will dump PIDs to a file (/tmp/PID_LIST)
 a-curl
 
+# Sleep for a second or two
+echo "Why don't you rest for a second?"
+sleep 2
+
+echo "Updating Solr"
+while read LINE;
+do
+	echo "i am a pid: ${LINE}"
+	curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE";
+	# curl -u fedoraAdmin:fedoraAdmin -X GET "http://localhost:8080/fedoragsest?operation=updateIndex&action=fromPid&value=utk.ir.td:100"
+	# <date name="timestamp">2017-06-08T21:15:41.412Z</date>
+	# <date name="timestamp">2017-06-08T21:16:41.606Z</date>
+done < /tmp/PID_LIST
+
+# Remove the temporary PID list
+echo "Removing the temporary PID_LIST"
+rm -f /tmp/PID_LIST
