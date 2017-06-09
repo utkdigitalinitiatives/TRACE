@@ -48,6 +48,8 @@ a-curl
 echo "Why don't you rest for a second?"
 sleep 2
 
+# Begin updating Solr via Fedora GSearch
+# The following curl command requires a username/password
 echo "Updating Solr"
 while read LINE;
 do
@@ -59,5 +61,5 @@ do
 done < /tmp/PID_LIST
 
 # Remove the temporary PID list
-echo "Removing the temporary PID_LIST"
+echo "All finished: removing the temporary PID_LIST"
 rm -f /tmp/PID_LIST
