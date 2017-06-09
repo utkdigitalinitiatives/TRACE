@@ -12,10 +12,10 @@ a-curl()
 	# xmlstarlet args = select text noblanks template value-of
 	SESSION=`echo "$REQUEST" | xmlstarlet sel -T -B -t -v '/_:result/_:listSession/_:token'`;
 	if [ -z "$SESSION" ]; then
-		echo "no token";
+		# if there is not a sessionToken, echo the appropriate pieces of the request to a temp file and finish
 		echo "$REQUEST" | xmlstarlet sel -T -B -t -v '//_:pid' | grep -E '[0-9]$' > /tmp/PID_LIST;
 	else
-		echo "token";
+		# if there is a sessionToken, echo the appropriate pieces of the request to a temp file and re-cur(l)
 		echo "$REQUEST" | xmlstarlet sel -T -B -t -v '//_:pid' | grep -E '[0-9]$' > /tmp/PID_LIST;
 		re-cur "$SESSION"
 	fi
@@ -30,10 +30,10 @@ re-cur()
 	REQUEST=`curl -s ${URL}${RUN_TIME}${PIDS}${ARGS}${SESSION}`
 	NEW_SESSION=`echo "$REQUEST" | xmlstarlet sel -T -B -t -v '/_:result/_:listSession/_:token'`;
 	if [ -z "$NEW_SESSION" ]; then
-		echo "no new token";
+		# if there is not a sessionToken, echo the appropriate pieces of the request to a temp file and finish
 		echo "$REQUEST" | xmlstarlet sel -T -B -t -v '//_:pid' | grep -E '[0-9]$' >> /tmp/PID_LIST;
 	else
-		echo "token";
+		# if there is a sessionToken, echo the appropriate pieces of the request to a temp file and re-cur(l)
 		echo "$REQUEST" | xmlstarlet sel -T -B -t -v '//_:pid' | grep -E '[0-9]$' >> /tmp/PID_LIST;
 		re-cur "$NEW_SESSION"
 	fi
@@ -55,9 +55,6 @@ while read LINE;
 do
 	echo "i am a pid: ${LINE}"
 	curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE";
-	# curl -u fedoraAdmin:fedoraAdmin -X GET "http://localhost:8080/fedoragsest?operation=updateIndex&action=fromPid&value=utk.ir.td:100"
-	# <date name="timestamp">2017-06-08T21:15:41.412Z</date>
-	# <date name="timestamp">2017-06-08T21:16:41.606Z</date>
 done < /tmp/PID_LIST
 
 # Remove the temporary PID list
