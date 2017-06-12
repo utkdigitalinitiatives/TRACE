@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#RUN_TIME=`date +%Y-%m-%dT%I:%M:%S`
-RUN_TIME="2017-06-01T12:01:01"
+RUN_TIME=`date +%Y-%m-%dT%I:%M:%S`
+#RUN_TIME="2017-06-12T14:30:01"
 
 a-curl()
 {
