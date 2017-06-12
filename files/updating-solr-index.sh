@@ -31,7 +31,7 @@ re-cur()
 	PIDS="%20pid%7Eutk.ir*";
 	ARGS="&pid=true&resultFormat=xml&sessionToken=";
 	SESSION=$1;
-	REQUEST=$(curl -s $"URL"$"RUN_TIME"$"PIDS"$"ARGS"$"SESSION")
+	REQUEST=$(curl -s "$URL""$C_DATE""$M_DATE""$PIDS""$ARGS""$SESSION")
 	NEW_SESSION=$(echo "$REQUEST" | xmlstarlet sel -T -B -t -v '/_:result/_:listSession/_:token');
 	if [ -z "$NEW_SESSION" ]; then
 		# if there is not a sessionToken, echo the appropriate pieces of the request to a temp file and finish
