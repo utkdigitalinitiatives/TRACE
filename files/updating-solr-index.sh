@@ -58,7 +58,6 @@ echo "Updating Solr"
 #shellcheck disable=SC2162
 while read LINE;
 do
-	echo "i am a pid: ${LINE}"
 	(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE");
 done < /tmp/PID_LIST
 
