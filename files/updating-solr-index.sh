@@ -58,6 +58,8 @@ echo "Updating Solr"
 #shellcheck disable=SC2162
 while read LINE;
 do
+	#PID_ENCODE=$(echo "$LINE" | sed 's/:/%3A/')
+	#RISEARCH=$(curl "http://localhost:8080/fedora/risearch?type=tuples&lang=sparql&format=CSV&query=ASK%20FROM%20%3C%23ri%3E%20WHERE%20%7B%20%3Cfedora%2F"$PID_ENCODE"%3E%20%3Cfedora%2Ffedora-system%3Adef%2Fview%23disseminates%3E%20%3Cfedora%2F"$PID_ENCODE"%2FRELS-INT%3E%20.%20%7D")
 	(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE");
 done < /tmp/PID_LIST
 
