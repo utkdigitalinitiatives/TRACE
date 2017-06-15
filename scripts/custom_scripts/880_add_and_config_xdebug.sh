@@ -7,7 +7,7 @@ PHP_INI="/etc/php5/apache2/php.ini"
 
 # add the following config settings to apache2's php.ini
 # use printf, yo, except for our 'then' because printf doesn't
-# like to have variables in it's formatted output.
+# like to have variables in its formatted output.
 if grep -Fxq 'xdebug.idekey="TRACE-DEV"' $PHP_INI
 	then
 		echo "Already updated $PHP_INI"
