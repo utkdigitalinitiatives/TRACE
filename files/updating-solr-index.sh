@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-RUN_TIME=(date +%Y-%m-%dT%I:%M:%S)
-#RUN_TIME="2017-06-12T14:30:01"
+#RUN_TIME=$(date +%Y-%m-%dT%I:%M:%S)
+RUN_TIME="2017-06-12T14:30:01"
 
 a-curl()
 {
@@ -11,7 +11,7 @@ a-curl()
 	PIDS="%20pid%7Eutk.ir*";
 	ARGS="&pid=true&resultFormat=xml";
 	REQUEST=$(curl -s "$URL""$C_DATE""$M_DATE""$PIDS""$ARGS")
-	# xmlstarlet args = select text noblanks template value-of
+	# xmlstarlet args =  quiet select text noblanks template value-of
 	SESSION=$(echo "$REQUEST" | xmlstarlet sel -T -B -t -v '/_:result/_:listSession/_:token');
 	if [ -z "$SESSION" ]; then
 		# if there is not a sessionToken, echo the appropriate pieces of the request to a temp file and finish
@@ -58,7 +58,7 @@ echo "Updating Solr"
 #shellcheck disable=SC2162
 while read LINE;
 do
-	RELS_INT=$(curl -u fedoraAdmin:fedoraAdmin -s "http://localhost:8080/fedora/objects/"$LINE"/datastreams/RELS-INT/content")
+	RELS_INT=$(curl -u fedoraAdmin:fedoraAdmin -s "http://localhost:8080/fedora/objects/""$LINE""/datastreams/RELS-INT/content")
 	# If $RELS_INT starts with '[DefaulAccess]', then there isn't a RELS-INT datastream.
 	# (Yes, that's a legit typo from Fedora.)
 	# Update the Solr document for the PID.
@@ -76,7 +76,7 @@ do
 		# We update the Solr document for the PID AND we drop the 'FULL_TEXT_t' field from the Solr document.
 		else
 			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
-			(curl http://localhost:8080/solr/update?commit=true -H 'Content-type:application/json' --data-binary '[{"PID":"$LINE", "FULL_TEXT_t": {"set":null}}]')
+			(curl http://localhost:8080/solr/update?commit=true -H 'Content-type:application/json' --data-binary '[{"PID":"'"$LINE"'", "FULL_TEXT_t": {"set":null}}]')
 		fi
 	fi
 done < /tmp/PID_LIST
