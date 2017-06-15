@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-RUN_TIME=(date +%Y-%m-%dT%I:%M:%S)
-#RUN_TIME="2017-06-12T14:30:01"
+#RUN_TIME=(date +%Y-%m-%dT%I:%M:%S)
+RUN_TIME="2017-06-12T14:30:01"
 
 a-curl()
 {
@@ -48,6 +48,8 @@ echo "Querying Fedora..."
 # a-curl will dump PIDs to a file (/tmp/PID_LIST)
 a-curl
 
+cat /tmp/PID_LIST
+
 # Sleep for a second or two
 echo "Why don't you rest for a second?"
 sleep 2
@@ -58,9 +60,20 @@ echo "Updating Solr"
 #shellcheck disable=SC2162
 while read LINE;
 do
-	#PID_ENCODE=$(echo "$LINE" | sed 's/:/%3A/')
-	#RISEARCH=$(curl "http://localhost:8080/fedora/risearch?type=tuples&lang=sparql&format=CSV&query=ASK%20FROM%20%3C%23ri%3E%20WHERE%20%7B%20%3Cfedora%2F"$PID_ENCODE"%3E%20%3Cfedora%2Ffedora-system%3Adef%2Fview%23disseminates%3E%20%3Cfedora%2F"$PID_ENCODE"%2FRELS-INT%3E%20.%20%7D")
-	(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE");
+	RELS_INT=$(curl -u fedoraAdmin:fedoraAdmin -s "http://localhost:8080/fedora/objects/"$LINE"/datastreams/RELS-INT/content")
+	if echo "$RELS_INT" | grep -q '\[DefaulAccess\]'; then
+		echo "updating a PID"
+		(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
+	else
+		if echo "$RELS_INT" | grep -q -v 'FULL_TEXT'; then
+			echo "withdrawal: deleting PID from Solr"
+			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=deletePid&value=$LINE")
+		else
+			echo "embargo: deleting FULL_TEXT and updating Solr"
+			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
+			(curl http://localhost:8080/solr/update?commit=true -H 'Content-type:application/json' --data-binary '[{"PID":"$LINE", "FULL_TEXT_t": {"set":null}}]')
+		fi
+	fi
 done < /tmp/PID_LIST
 
 # Remove the temporary PID list
