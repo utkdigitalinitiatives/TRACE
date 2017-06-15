@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RUN_TIME=$(date +%Y-%m-%dT%I:%M:%S)
+RUN_TIME=$(date -u +%Y-%m-%dT%H:%M:%S)
 #RUN_TIME="2017-06-12T14:30:01"
 
 a-curl()
@@ -44,17 +44,21 @@ re-cur()
 }
 
 # Query Fedora for newly created or recently modified PIDs
-echo "Querying Fedora..."
+# Write output to log in /var/log/updating-solr
+echo "------------------------------------------------" >> /var/log/updating-solr
+echo "========= Updating Solr: ""$RUN_TIME"" =========" >> /var/log/updating-solr
+echo "Querying Fedora..." >> /var/log/updating-solr
 # a-curl will dump PIDs to a file (/tmp/PID_LIST)
 a-curl
 
+echo "*** PIDs ***" >> /var/log/updating-solr
+cat /tmp/PID_LIST >> /var/log/updating-solr
 # Sleep for a second or two
-echo "Why don't you rest for a second?"
 sleep 2
 
 # Begin updating Solr via Fedora GSearch
 # The following curl commands require a username/password
-echo "Updating Solr"
+echo "*** Updating Solr ***" >> /var/log/updating-solr
 #shellcheck disable=SC2162
 while read LINE;
 do
@@ -63,18 +67,21 @@ do
 	# (Yes, that's a legit typo from Fedora.)
 	# Update the Solr document for the PID.
 	if echo "$RELS_INT" | grep -q '\[DefaulAccess\]'; then
+		echo "$LINE"" updated." >> /var/log/updating-solr
 		(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
 	else
 		# If there is a RELS-INT datastream, and it DOES NOT contain the string 'FULL_TEXT', it is a withdrawal.
 		# (Withdrawal -- i.e. OBJ-level embargo -- results in an empty RELS-INT datastream.)
 		# Delete the Solr document for the PID.
 		if echo "$RELS_INT" | grep -q -v 'FULL_TEXT'; then
+			echo "$LINE"" was withdrawn from the Solr index." >> /var/log/updating-solr
 			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=deletePid&value=$LINE")
 		# If the RELS-INT datastream is NOT empty -- i.e. it contains the string 'FULL_TEXT' -- then it is an embargo.
 		# (Embargo -- i.e. datastream-level embargo -- results in a RELS-INT with a child node for each datastream
 		# that received a check in the Drupal UI.)
 		# We update the Solr document for the PID AND we drop the 'FULL_TEXT_t' field from the Solr document.
 		else
+			echo "$LINE"" was an embargo; the FULL_TEXT field has been dropped from the Solr index." >> /var/log/updating-solr
 			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
 			(curl http://localhost:8080/solr/update?commit=true -H 'Content-type:application/json' --data-binary '[{"PID":"'"$LINE"'", "FULL_TEXT_t": {"set":null}}]')
 		fi
@@ -82,5 +89,7 @@ do
 done < /tmp/PID_LIST
 
 # Remove the temporary PID list
-echo "All finished: removing the temporary PID_LIST"
+echo "*** All finished: removing the temporary PID_LIST ***" >> /var/log/updating-solr
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> /var/log/updating-solr
+echo >> /var/log/updating-solr
 rm -f /tmp/PID_LIST
