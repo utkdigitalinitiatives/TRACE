@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#RUN_TIME=(date +%Y-%m-%dT%I:%M:%S)
-RUN_TIME="2017-06-12T14:30:01"
+RUN_TIME=(date +%Y-%m-%dT%I:%M:%S)
+#RUN_TIME="2017-06-12T14:30:01"
 
 a-curl()
 {
@@ -48,14 +48,12 @@ echo "Querying Fedora..."
 # a-curl will dump PIDs to a file (/tmp/PID_LIST)
 a-curl
 
-cat /tmp/PID_LIST
-
 # Sleep for a second or two
 echo "Why don't you rest for a second?"
 sleep 2
 
 # Begin updating Solr via Fedora GSearch
-# The following curl command requires a username/password
+# The following curl commands require a username/password
 echo "Updating Solr"
 #shellcheck disable=SC2162
 while read LINE;
@@ -77,7 +75,6 @@ do
 		# that received a check in the Drupal UI.)
 		# We update the Solr document for the PID AND we drop the 'FULL_TEXT_t' field from the Solr document.
 		else
-			echo "embargo: deleting FULL_TEXT and updating Solr"
 			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
 			(curl http://localhost:8080/solr/update?commit=true -H 'Content-type:application/json' --data-binary '[{"PID":"$LINE", "FULL_TEXT_t": {"set":null}}]')
 		fi
