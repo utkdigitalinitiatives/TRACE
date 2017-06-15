@@ -10,5 +10,5 @@ else
 	sudo touch "$SOLR_CRON"
 	printf "# updating-solr cron\n" | sudo tee -a $SOLR_CRON
 	printf "# run as root every 5 minutes\n" | sudo tee -a $SOLR_CRON
-	printf "*/5 * * * * /vagrant/files/updating-solr-index.sh\n" | sudo tee -a $SOLR_CRON
+	printf "*/5 * * * *\troot\t/vagrant/files/updating-solr-index.sh\n" | sudo tee -a $SOLR_CRON
 fi
