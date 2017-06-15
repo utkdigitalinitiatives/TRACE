@@ -61,13 +61,21 @@ echo "Updating Solr"
 while read LINE;
 do
 	RELS_INT=$(curl -u fedoraAdmin:fedoraAdmin -s "http://localhost:8080/fedora/objects/"$LINE"/datastreams/RELS-INT/content")
+	# If $RELS_INT starts with '[DefaulAccess]', then there isn't a RELS-INT datastream.
+	# (Yes, that's a legit typo from Fedora.)
+	# Update the Solr document for the PID.
 	if echo "$RELS_INT" | grep -q '\[DefaulAccess\]'; then
-		echo "updating a PID"
 		(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
 	else
+		# If there is a RELS-INT datastream, and it DOES NOT contain the string 'FULL_TEXT', it is a withdrawal.
+		# (Withdrawal -- i.e. OBJ-level embargo -- results in an empty RELS-INT datastream.)
+		# Delete the Solr document for the PID.
 		if echo "$RELS_INT" | grep -q -v 'FULL_TEXT'; then
-			echo "withdrawal: deleting PID from Solr"
 			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=deletePid&value=$LINE")
+		# If the RELS-INT datastream is NOT empty -- i.e. it contains the string 'FULL_TEXT' -- then it is an embargo.
+		# (Embargo -- i.e. datastream-level embargo -- results in a RELS-INT with a child node for each datastream
+		# that received a check in the Drupal UI.)
+		# We update the Solr document for the PID AND we drop the 'FULL_TEXT_t' field from the Solr document.
 		else
 			echo "embargo: deleting FULL_TEXT and updating Solr"
 			(curl -u fedoraAdmin:fedoraAdmin -s -o /dev/null -X GET "http://localhost:8080/fedoragsearch/rest?operation=updateIndex&action=fromPid&value=$LINE")
