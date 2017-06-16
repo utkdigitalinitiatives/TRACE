@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Temp Fix for TRAC-750
+cd "$DRUPAL_HOME" || exit
+drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'trace-navigation'"
+
 # add themes.inc to islandora/themes directory
 sudo cp "$SHARED_DIR"/configs/theme.inc "$DRUPAL_HOME"/sites/all/modules/islandora/theme/
 

@@ -47,7 +47,7 @@ sudo apt-get -y install subversion
 drush -y en devel
 
 # Rebuild on every page, needs to be disabled on production env
-devel_rebuild_theme_registry: 1
+drush vset devel_rebuild_theme_registry 1
 
 # Fix Admin menu
 drush -y vset admin_menu_margin_top 1

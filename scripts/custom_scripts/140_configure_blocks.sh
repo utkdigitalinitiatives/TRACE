@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+cd "$DRUPAL_HOME" || exit
+
 #display the title of the menu as 'Admin Menu' in instead of 'Navigation'
 drush sql-query "update block set title='<none>' where module = 'system' and delta = 'navigation'"
-drush sql-query "update block set title='<none>' where module = 'system' and delta = 'user-menu'"
 drush sql-query "update block set title='<none>' where module = 'system' and delta = 'user-menu'"
 drush sql-query "update block set title='<none>' where module = 'user' and delta = 'login'"
 drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'trace-navigation'"
