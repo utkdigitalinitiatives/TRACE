@@ -1047,6 +1047,12 @@ VALUES ('utk.ir.td',
                 </Action>
                 <Action>
                     <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getDatastreamHistory</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
+                    </ActionMatch>
+                </Action>
+                <Action>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
                         <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getDatastreamDissemination</AttributeValue>
                         <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
