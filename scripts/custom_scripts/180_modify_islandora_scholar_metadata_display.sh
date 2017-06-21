@@ -12,9 +12,6 @@ drush vset islandora_solr_limit_result_fields 1
 echo "Updating islandora_solr's 'default metadata viewer' setting."
 drush vset islandora_metadata_display 'islandora_solr_metadata'
 
-echo "Updating islandora_scholar's 'create_fulltext' setting."
-drush vset islandora_scholar_create_fulltext 1
-
 # cat the list of filters into the islandora_solr_base_filter variable
 # shellcheck disable=SC2105
 # shellcheck disable=SC2002
