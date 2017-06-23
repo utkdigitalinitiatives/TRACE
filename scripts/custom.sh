@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/usr/bin/env bash
 
 # run all shell scripts in scripts/custom_scripts/
 ## shellcheck source=/dev/null
