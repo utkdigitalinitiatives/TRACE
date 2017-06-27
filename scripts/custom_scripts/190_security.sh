@@ -2,7 +2,7 @@
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
-sudo curl https://ftp.drupal.org/files/projects/seckit-7.x-1.x-dev.tar.gz | tar -xz
+sudo curl -s https://ftp.drupal.org/files/projects/seckit-7.x-1.x-dev.tar.gz | tar -xz
 
 drush en -y seckit
 
