@@ -7,13 +7,23 @@ export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 dpkg-reconfigure locales
 
+## If eth1 has been successfully configured, then xdebug needs to 
+## send its information to the base box via the hostonly network
+## Otherwise, assume a localhost xdebug setup
+
+if (ip link show dev eth1 2> /dev/null | grep -q 'state UP' 2>&1); then
+	IP_ADDRESS="192.168.160.1"
+else
+	IP_ADDRESS="localhost"
+fi
+
 
 # install xdebug
 sudo apt-get install --quiet --assume-yes --force-yes php5-xdebug
 
 #PHP_INI="/etc/php5/apache2/php.ini"
 PHP_INI="/etc/php5/apache2/conf.d/20-xdebug.ini" 
-IP_ADDRESS="192.168.160.1" 
+
 # add the following config settings to apache2's php.ini
 # use printf, yo, except for our 'then' because printf doesn't
 # like to have variables in its formatted output.
