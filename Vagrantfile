@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true # Tomcat
     config.vm.network :forwarded_port, guest: 3306, host: 3306, auto_correct: true # MySQL
     config.vm.network :forwarded_port, guest: 8000, host: 8000 # Apache
-    config.vm.network :forwarded_port, guest: 9000, host: 9000 # Xdebug
+    #config.vm.network :forwarded_port, guest: 9000, host: 9000 # Xdebug
   end
 
   config.vm.hostname = $hostname
