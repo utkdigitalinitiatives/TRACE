@@ -36,6 +36,7 @@ if grep -Fxq 'xdebug.idekey="TRACE-DEV"' $PHP_INI
 		printf "xdebug.remote_enable=1\n" | sudo tee -a $PHP_INI
 		printf "xdebug.remote_host=${IP_ADDRESS}\n" | sudo tee -a $PHP_INI
 		printf "xdebug.remote_port=9000\n" | sudo tee -a $PHP_INI
+		printf "xdebug.remote_log=/tmp/xdebug-log\n" | sudo tee -a $PHP_INI
 		printf "xdebug.idekey=\"TRACE-DEV\"\n" | sudo tee -a $PHP_INI
 fi
 
