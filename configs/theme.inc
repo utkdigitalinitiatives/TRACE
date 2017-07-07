@@ -55,7 +55,6 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
       ||($ds->label == 'PREVIEW')
       ||($ds->label == 'FULL_TEXT')
       ||($ds->label == 'TN')
-      ||($ds->label == 'MESSAGES')
       ||($ds->label == 'Policy')) {
         continue;
       }
