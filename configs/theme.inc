@@ -19,6 +19,14 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
     }
   }
   $islandora_object = $variables['islandora_object'];
+  // get pid
+  $pid = $islandora_object->id;
+  // get workflow state
+  $wfstate = db_select('trace_workflow_pids', 'q')
+     ->fields('q', array('state'))
+     ->condition('pid', "$pid")
+     ->execute()
+     ->fetchField();
   $datastreams = array();
   $variables['islandora_editmetadata_url'] = $base_url . '/islandora/edit_form/' . $islandora_object->id;
   module_load_include('inc', 'islandora', 'includes/datastream');
