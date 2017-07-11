@@ -171,7 +171,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
     );
     if (!$has_submitter_role) {
       $row[] = array(
-        'class' => 'datstream-edit',
+        'class' => 'datastream-edit',
         'data' => theme('islandora_datastream_edit_link', array(
           'datastream' => $ds,
         )),
