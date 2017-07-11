@@ -19,6 +19,14 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
     }
   }
   $islandora_object = $variables['islandora_object'];
+  // get pid
+  $pid = $islandora_object->id;
+  // get workflow state
+  $wfstate = db_select('trace_workflow_pids', 'q')
+     ->fields('q', array('state'))
+     ->condition('pid', "$pid")
+     ->execute()
+     ->fetchField();
   $datastreams = array();
   $variables['islandora_editmetadata_url'] = $base_url . '/islandora/edit_form/' . $islandora_object->id;
   module_load_include('inc', 'islandora', 'includes/datastream');
@@ -44,7 +52,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
   if (!$has_submitter_role) {
     $header[] = array('data' => t('Operations'), 'colspan' => '5');
   }else{
-    $header[] = array('data' => t('Operations'), 'colspan' => '3');
+    $header[] = array('data' => t(' '), 'colspan' => '3');
   }
   $table_attributes = array('class' => array('manage-datastreams'));
   $rows = array();
@@ -55,6 +63,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
       ||($ds->label == 'PREVIEW')
       ||($ds->label == 'FULL_TEXT')
       ||($ds->label == 'TN')
+      ||($ds->label == 'messages.txt')
       ||($ds->label == 'Policy')) {
         continue;
       }
@@ -104,19 +113,10 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
           $row[] = array(
             'class' => 'datastream-versions',
             'data' => t('&nbsp;'));
-            $row[] = array(
-              'class' => 'datastream-replace',
-              'data' => t('&nbsp;'));
         }else{
           $row[] = array(
             'class' => 'datastream-versions',
             'data' => theme('islandora_datastream_version_link', array(
-              'datastream' => $ds,
-            )),
-          );
-          $row[] = array(
-            'class' => 'datastream-replace',
-            'data' => theme('islandora_datastream_replace_link', array(
               'datastream' => $ds,
             )),
           );
@@ -145,12 +145,14 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
         'datastream' => $ds,
       )),
     );
-    $row[] = array(
-      'class' => 'datstream-edit',
-      'data' => theme('islandora_datastream_edit_link', array(
-        'datastream' => $ds,
-      )),
-    );
+    if (!$has_submitter_role) {
+      $row[] = array(
+        'class' => 'datstream-edit',
+        'data' => theme('islandora_datastream_edit_link', array(
+          'datastream' => $ds,
+        )),
+      );
+    }
     if (!$has_submitter_role) {
       $row[] = array(
         'class' => 'datastream-delete',

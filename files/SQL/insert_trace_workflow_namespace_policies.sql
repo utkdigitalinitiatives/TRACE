@@ -60,9 +60,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>    
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -114,9 +114,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-getNextPid</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getNextPid</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -150,15 +150,15 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -311,9 +311,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -365,9 +365,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-getNextPid</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getNextPid</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -395,15 +395,15 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -580,9 +580,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -658,15 +658,15 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -771,9 +771,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -849,15 +849,15 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -1034,14 +1034,20 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
                     <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
                         <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getDatastream</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
+                    </ActionMatch>
+                </Action>
+                <Action>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getDatastreamHistory</AttributeValue>
                         <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
@@ -1094,15 +1100,15 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -1118,9 +1124,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-oai</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-oai</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -1201,9 +1207,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-findObjects</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -1255,9 +1261,9 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-getNextPid</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-getNextPid</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
@@ -1285,15 +1291,15 @@ VALUES ('utk.ir.td',
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listDatastreams</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>
-                    <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
-                        <ActionAttributeDesignator AttributeId="urn:fedora:names:fedora:2.1:action:id" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    <ActionMatch MatchId=\"urn:oasis:names:tc:xacml:1.0:function:string-equal\">
+                        <AttributeValue DataType=\"http://www.w3.org/2001/XMLSchema#string\">urn:fedora:names:fedora:2.1:action:id-listMethods</AttributeValue>
+                        <ActionAttributeDesignator AttributeId=\"urn:fedora:names:fedora:2.1:action:id\" DataType=\"http://www.w3.org/2001/XMLSchema#string\"/>
                     </ActionMatch>
                 </Action>
                 <Action>

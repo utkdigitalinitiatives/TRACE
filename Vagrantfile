@@ -17,6 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true # Tomcat
     config.vm.network :forwarded_port, guest: 3306, host: 3306, auto_correct: true # MySQL
     config.vm.network :forwarded_port, guest: 8000, host: 8000 # Apache
+    config.vm.network :forwarded_port, guest: 9000, host: 9000 # Xdebug
   end
 
   config.vm.hostname = $hostname
@@ -41,8 +42,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "custom", type: "shell", path: "./scripts/custom.sh"
   end
   config.vm.provision "post", type: "shell", path: "./scripts/post.sh"
-  #config.vm.provision :shell, path: "./scripts/ldap.sh", :args => shared_dir, :privileged => false
-  #config.vm.provision :shell, path: "./scripts/tests/test_users.sh", :args => shared_dir, :privileged => false
 
   if File.exist?("~/Desktop/traceCustomModule") then
     config.vm.synced_folder "~/Desktop/traceCustomModule", "/var/www/drupal/sites/all/modules/traceCustomModule", type: "rsync",

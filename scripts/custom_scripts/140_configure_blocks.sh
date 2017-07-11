@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
+cd "$DRUPAL_HOME" || exit
+
 #display the title of the menu as 'Admin Menu' in instead of 'Navigation'
 drush sql-query "update block set title='<none>' where module = 'system' and delta = 'navigation'"
 drush sql-query "update block set title='<none>' where module = 'system' and delta = 'user-menu'"
-drush sql-query "update block set title='<none>' where module = 'system' and delta = 'user-menu'"
 drush sql-query "update block set title='<none>' where module = 'user' and delta = 'login'"
-drush sql-query "update block set title='<none>' where module = 'privatemsg' and delta = 'privatemsg-menu'"
 drush sql-query "update block set title='<none>' where module = 'menu' and delta = 'trace-navigation'"
 
 #limit to administators who can see the 'Admin Menu'
@@ -19,7 +19,6 @@ drush sql-query "update block set title='<none>' where module = 'islandora_solr'
 #The user-menu should only be shown to logged in users, but not administrator (or authenticated)
 drush sql-query "insert into block_role (rid, module, delta) select rid, 'system', 'user-menu' from role where name = 'authenticated user'"
 
-drush sql-query "insert into block_role (rid, module, delta) select rid, 'privatemsg', 'privatemsg-menu' from role where name = 'authenticated user'"
 #current settings
 #drush block-configure --weight=-4 --theme="UTKdrupal" --module="menu" --delta="trace-navigation" --region="sidebar_first"
 #drush block-configure --weight=2 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="sidebar_first"
@@ -71,6 +70,3 @@ drush block-disable --module=system --delta=navigation
 ##Apply new settings
 # drupal_form_submit('block_admin_display_form', $form_state, $blocks, $my_theme);
 # drupal_flush_all_caches();
-
-# Set block to be viewable by only authenticated users
-# drush block-configure --theme='UTKdrupal' --module=privatemsg --delta=privatemsg-menu --region='sidebar_first' --weight='1'
