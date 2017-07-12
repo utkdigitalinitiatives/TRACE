@@ -72,3 +72,13 @@ drush vset -y cas_attributes_overwrite '1'
 drush vset -y cas_attributes_sync_every_login '1'
 drush eval "variable_set('cas_attributes_relations', array('name' => '[cas:attribute:uid]', 'mail' => '[cas:attribute:mail]'))"
 drush vset -y realname_pattern '[user:cas:name]'
+
+# Notify the user the current TRACE repo branch the when the last refresh
+# happened. NOT FOR PRODUCTION
+cd /vagrant || exit
+branch_name="$(git symbolic-ref --short -q HEAD)"
+last_updated="$(uptime -p)"
+echo "<br/><div><h3>Git branch is "$(echo $branch_name)"</h3><br/>"$(uptime -p)"</div><br/><br/>" >> /var/www/drupal/sites/all/themes/UTKdrupal/templates/page--front.tpl.php
+
+# Reset to original dirrectory just incase
+cd $DRUPAL_HOME || exit
