@@ -114,6 +114,12 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
           $row[] = array(
             'class' => 'datastream-versions',
             'data' => t('&nbsp;'));
+          $row[] = array(
+            'class' => 'datastream-edit',
+            'data' => theme('islandora_datastream_edit_link', array(
+            'datastream' => $ds,
+            )),
+          );
         }else{
           $row[] = array(
             'class' => 'datastream-versions',
