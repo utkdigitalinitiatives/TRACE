@@ -77,8 +77,7 @@ drush vset -y realname_pattern '[user:cas:name]'
 # happened. NOT FOR PRODUCTION
 cd /vagrant || exit
 branch_name="$(git symbolic-ref --short -q HEAD)"
-last_updated="$(uptime -p)"
-echo "<br/><div><h3>Git branch is "$(echo $branch_name)"</h3><br/>"$(uptime -p)"</div><br/><br/>" >> /var/www/drupal/sites/all/themes/UTKdrupal/templates/page--front.tpl.php
+echo "<br/><div><h3>> Git branch is "$(echo $branch_name)"</h3><br/><p>>> Last vagrant <?php echo exec('uptime -p'); ?></p></div><br/><br/>" >> /var/www/drupal/sites/all/themes/UTKdrupal/templates/page--front.tpl.php
 
 # Reset to original dirrectory just incase
 cd $DRUPAL_HOME || exit
