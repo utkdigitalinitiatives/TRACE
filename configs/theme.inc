@@ -11,7 +11,7 @@
 function islandora_preprocess_islandora_default_edit(array &$variables) {
   global $base_url,$roles,$user;
   // Add in the authUser detector
-   $has_submitter_role = FALSE;
+  $has_submitter_role = FALSE;
   foreach ($user->roles as $role) {
     if ($role == 'authUser-role') {
       $has_submitter_role = TRUE;
@@ -22,6 +22,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
   // get pid
   $pid = $islandora_object->id;
   // get workflow state
+  $wfstate = 'x';
   $wfstate = db_select('trace_workflow_pids', 'q')
      ->fields('q', array('state'))
      ->condition('pid', "$pid")
@@ -49,7 +50,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
       $header[] = array('data' => t('Replace'));
     }
   }
-  if (!$has_submitter_role) {
+  if ((!$has_submitter_role)||(($has_submitter_role)&&($wfstate == 's'))) {
     $header[] = array('data' => t('Operations'), 'colspan' => '5');
   }else{
     $header[] = array('data' => t(' '), 'colspan' => '3');
@@ -106,13 +107,42 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
         'data' => islandora_datastream_get_human_readable_size($ds),
       );
     }
-    if ($has_submitter_role) {
+    if (($has_submitter_role)&&($wfstate == 's')) {
       if (islandora_datastream_access(ISLANDORA_VIEW_DATASTREAM_HISTORY, $ds)) {
         // Add new datastream content as the lastest version.
         if($ds->label == 'MODS Record') {
           $row[] = array(
             'class' => 'datastream-versions',
             'data' => t('&nbsp;'));
+          $row[] = array(
+            'class' => 'datastream-edit',
+            'data' => theme('islandora_datastream_edit_link', array(
+            'datastream' => $ds,
+            )),
+          );
+        }else{
+          $row[] = array(
+            'class' => 'datastream-versions',
+            'data' => theme('islandora_datastream_version_link', array(
+              'datastream' => $ds,
+            )),
+          );
+          // Add new datastream content as the lastest version.
+          $row[] = array(
+            'class' => 'datastream-replace',
+            'data' => theme('islandora_datastream_replace_link', array(
+              'datastream' => $ds,
+            )),
+          );
+        }
+      }
+   }elseif (($has_submitter_role)&&($wfstate == 'a')) {
+      if (islandora_datastream_access(ISLANDORA_VIEW_DATASTREAM_HISTORY, $ds)) {
+        // Add new datastream content as the lastest version.
+        if($ds->label == 'MODS Record') {
+          $row[] = array(
+            'class' => 'datastream-versions',
+            'data' => t('&nbsp; '));
         }else{
           $row[] = array(
             'class' => 'datastream-versions',
@@ -147,7 +177,7 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
     );
     if (!$has_submitter_role) {
       $row[] = array(
-        'class' => 'datstream-edit',
+        'class' => 'datastream-edit',
         'data' => theme('islandora_datastream_edit_link', array(
           'datastream' => $ds,
         )),
