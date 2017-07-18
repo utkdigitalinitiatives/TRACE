@@ -14,6 +14,9 @@ sudo chmod -R 777 /home/vagrant/.drush/
 cd "$DRUPAL_HOME" || exit
 drush dl drush_extras
 
+# install mutt to pull in basic email capabilities
+sudo apt-get -y install  mutt
+
 # Log time when this script starts running
 echo "Set settings.php Script Ran" >> ../time.log
 
