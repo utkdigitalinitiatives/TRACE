@@ -47,13 +47,13 @@ function islandora_preprocess_islandora_default_edit(array &$variables) {
       $header[] = array('data' => t('Versions'));
     }else{
       $header[] = array('data' => t('Versions'));
-      $header[] = array('data' => t('Replace'));
+      //$header[] = array('data' => t('Replace'));
     }
   }
   if ((!$has_submitter_role)||(($has_submitter_role)&&($wfstate == 's'))) {
     $header[] = array('data' => t('Operations'), 'colspan' => '5');
   }else{
-    $header[] = array('data' => t(' '), 'colspan' => '3');
+    $header[] = array('data' => t('Operations'), 'colspan' => '3');
   }
   $table_attributes = array('class' => array('manage-datastreams'));
   $rows = array();
