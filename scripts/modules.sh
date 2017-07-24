@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# detect centos
+$OS="ubuntu"
+if [ ! -f "/etc/centos-release" ]; then
+  $OS="centos"
+fi
+
 echo "Installing all Islandora Foundation modules"
 
 # Permissions and ownership
