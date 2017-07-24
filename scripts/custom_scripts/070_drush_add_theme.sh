@@ -51,9 +51,9 @@ drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
 if [ OS="centos" ]; then
-  sudo apt-get -y install subversion
-else
   sudo yum -y install subversion
+else
+  sudo apt-get -y install subversion
 fi
 drush -y en devel
 
