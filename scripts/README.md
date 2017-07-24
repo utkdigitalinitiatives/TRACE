@@ -38,22 +38,12 @@
 ├── modules.sh
 ├── post.sh
 ├── staging_env.sh
-└── tests
-    ├── README.md
-    ├── test_users.sh
-    └── usertest.sh
 ```
 ## [custom.sh](./custom.sh)
 * Launches all script found within custom_scripts folder
 
 ## [custom_scripts](./custom_scripts)
 * Is a directory of scripts to setup users, user roles, collections, theme, cmodel labels, and solr config
-
-## [ldap.sh](./ldap.sh)
-* Installs and enables simple ldap module for Drupal
-* Ldap configured to ldap.utk.edu
-* Sets ldap ports and variables
-* Sets Time Zone to New York
 
 ## [libraries.sh](./libraries.sh)
 * Installing all module's required libraries
@@ -80,6 +70,3 @@
 
 ## [post.sh](./post.sh)
 * Set correct permissions on sites/default/files
-
-## [tests directory](./tests)
-* Scripts to test features and configurations for specific cases
