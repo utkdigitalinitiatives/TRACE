@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
+# detect centos
+OS="ubuntu"
+APACHEGROUP="www-data"
+if [ -f "/etc/centos-release" ]; then
+  OS="centos"
+  APACHEGROUP="apache"
+fi
 echo "drush enable theme"
 # Set permissions /sites/all/themes
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/themes
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/all/themes
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/themes
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
@@ -13,7 +20,7 @@ git checkout horizontal
 cd "$DRUPAL_HOME"/sites/all/themes || exit
 
 # Set permissions UTKdrupal
-sudo chown -hR vagrant:www-data UTKdrupal
+sudo chown -hR vagrant:"$APACHEGROUP" UTKdrupal
 
 #Horizontal branch
 
@@ -43,7 +50,11 @@ drush -y dis seven
 drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
-sudo apt-get -y install subversion
+if [ OS="centos" ]; then
+  sudo apt-get -y install subversion
+else
+  sudo yum -y install subversion
+fi
 drush -y en devel
 
 # Rebuild on every page, needs to be disabled on production env
