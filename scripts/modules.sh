@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
 
 # detect centos
-$OS="ubuntu"
-if [ ! -f "/etc/centos-release" ]; then
-  $OS="centos"
+OS="ubuntu"
+APACHEGROUP="www-data"
+if [ -f "/etc/centos-release" ]; then
+  OS="centos"
+  APACHEGROUP="apache"
 fi
 
 echo "Installing all Islandora Foundation modules"
-
+echo "OS = "$OS
+echo "  APACHEGROUP = "$APACHEGROUP
 # Permissions and ownership
 echo "Setting permissions and ownership for Drupal directories"
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/libraries
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/modules
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/default/files
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/all/libraries
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/all/modules
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/default/files
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/libraries
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/modules
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/default/files
