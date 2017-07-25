@@ -11,10 +11,12 @@ fi
 #Islandora Internet Archive Book Content Model  islandora:bookCModel
 #Islandora Collection Content Model             islandora:collectionCModel
 #Islandora Page Content Model                   islandora:pageCModel
+#REMOVE---------------------------------------------------------------------- 
 #Islandora Audio Content Model                  islandora:sp-audioCModel
 #Islandora Basic Image Content Model            islandora:sp_basic_image
 #Islandora Large Image Content Model            islandora:sp_large_image_cmodel
 #Islandora Binary Object Content Model          islandora:sp_pdf
+#REMOVE---------------------------------------------------------------------- 
 #Islandora Video Content Model                  islandora:sp_videoCModel
 
 # info:fedora/ir:citationCModel
@@ -36,7 +38,8 @@ curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/object
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:pageCModel?label=chd_page"
 
 # info:fedora/islandora:sp-audioCModel
-curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp-audioCModel?label=chd_audio"
+#REMOVE---------------------------------------------------------------------- 
+#curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp-audioCModel?label=chd_audio"
 
 # info:fedora/islandora:sp_basic_image
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_basic_image?label=chd_basic_image"
@@ -48,6 +51,7 @@ curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/object
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_pdf?label=PDF"
 
 #info:fedora/islandora:sp_videoCModel
-curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_videoCModel?label=chd_video"
+#REMOVE---------------------------------------------------------------------- 
+#curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_videoCModel?label=chd_video"
 
 echo "CModel Labels have been revised."

@@ -7,16 +7,8 @@ export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 dpkg-reconfigure locales
 
-## If eth1 has been successfully configured, then xdebug needs to 
-## send its information to the base box via the hostonly network
-## Otherwise, assume a localhost xdebug setup
 
-if (ip link show dev eth1 2> /dev/null | grep -q 'state UP' 2>&1); then
-	IP_ADDRESS="192.168.160.1"
-else
-	IP_ADDRESS="localhost"
-fi
-
+#IP_ADDRESS=`php -i | grep -n '^SSH_CLIENT' | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
 
 # install xdebug
 sudo apt-get install --quiet --assume-yes --force-yes php5-xdebug
@@ -34,7 +26,7 @@ if grep -Fxq 'xdebug.idekey="TRACE-DEV"' $PHP_INI
 		printf "[Xdebug]\n" | sudo tee $PHP_INI
 		printf "zend_extension=/usr/lib/php5/20121212/xdebug.so\n" | sudo tee -a $PHP_INI
 		printf "xdebug.remote_enable=1\n" | sudo tee -a $PHP_INI
-		printf "xdebug.remote_host=${IP_ADDRESS}\n" | sudo tee -a $PHP_INI
+		printf "xdebug.remote_host=10.0.2.2\n" | sudo tee -a $PHP_INI
 		printf "xdebug.remote_port=9000\n" | sudo tee -a $PHP_INI
 		printf "xdebug.remote_log=/tmp/xdebug-log\n" | sudo tee -a $PHP_INI
 		printf "xdebug.idekey=\"TRACE-DEV\"\n" | sudo tee -a $PHP_INI
