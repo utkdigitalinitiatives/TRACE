@@ -39,8 +39,8 @@ case "$OS" in
 		echo "Updating Fedora GSearch"
 		# fix file paths in the new files
 		sed -i 's|/vhosts/fedora/solr|/usr/local/solr|g' utk-fedora-fedoragsearch-solr-config/fedoragsearch-transforms/index.properties
-		sed -i "s|/vhosts/fedora/tomcat/webapps|/var/lib/$TOMCAT_NAME|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-transforms/foxmlToSolr.xslt
-		sed -i "s|/vhosts/fedora/tomcat/webapps|/var/lib/$TOMCAT_NAME|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-transforms/islandora_transforms/*.xslt
+		sed -i "s|/vhosts/fedora/tomcat/webapps|/var/lib/$TOMCAT_NAME/webapps|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-transforms/foxmlToSolr.xslt
+		sed -i "s|/vhosts/fedora/tomcat/webapps|/var/lib/$TOMCAT_NAME/webapps|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-transforms/islandora_transforms/*.xslt
 		sed -i "7s|/var/lib/tomcat7|/var/lib/$TOMCAT_NAME|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-conf/fedoragsearch.properties
 		sed -i "32s|/var/lib/tomcat7|/var/lib/$TOMCAT_NAME|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-conf/fgsconfig-basic-configForIslandora.properties
 		sed -i "37s|/var/log/tomcat7|/var/log/$TOMCAT_NAME|g" utk-fedora-fedoragsearch-solr-config/fedoragsearch-conf/fgsconfig-basic-configForIslandora.properties
