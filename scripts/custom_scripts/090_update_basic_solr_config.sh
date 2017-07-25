@@ -21,11 +21,11 @@ if [ -f "/etc/centos-release" ]; then
 	TOMCAT_NAME="tomcat"
 elif [ -f "/etc/redhat-release" ]; then
 	OS="redhat"
-	APACHE_GROUP="www-data"
+	APACHE_GROUP="apache"
 	TOMCAT_NAME="tomcat"
 elif [ $(grep -c 'Ubuntu' /etc/issue) -ne 0 ]; then
 	OS="ubuntu"
-	APACHE_GROUP="apache"
+	APACHE_GROUP="www-data"
 	TOMCAT_NAME="tomcat7"
 fi
 
