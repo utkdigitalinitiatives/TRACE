@@ -164,7 +164,8 @@ drush -y en trigger
 # Set variables for Islandora modules
 echo " Set variables for Islandora modules"
 drush eval "variable_set('islandora_fits_executable_path', '$FITS_HOME/fits-$FITS_VERSION/fits.sh')"
-drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
+#the line below sets the audio encoder and is not currently needed per Trac-618.  Suggestion from Paul Cummins.
+#drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
 drush eval "variable_set('islandora_book_viewers', array('name' => array('none' => 'none', 'islandora_internet_archive_bookreader' => 'islandora_internet_archive_bookreader'), 'default' => 'islandora_internet_archive_bookreader'))"
 drush eval "variable_set('islandora_book_page_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"
 drush eval "variable_set('islandora_large_image_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"
