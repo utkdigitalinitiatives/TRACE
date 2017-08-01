@@ -7,5 +7,9 @@ if [ -e "/usr/bin/xmlstarlet" ]; then
 	exit
 else
 	echo "Installing XMLStarlet"
+  if [ -f "/etc/centos-release" ]; then
+	sudo yum -y install xmlstarlet
+  else
 	sudo apt-get install xmlstarlet
+  fi
 fi
