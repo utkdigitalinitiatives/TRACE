@@ -7,6 +7,9 @@ if [ -f "/etc/centos-release" ]; then
   OS="centos"
   APACHEGROUP="apache"
 fi
+# correct env variables for fits
+export FITS_HOME=/usr/local/fits
+export FITS_VERSION=1.1.1
 
 echo "Installing all Islandora Foundation modules"
 echo "OS = "$OS
