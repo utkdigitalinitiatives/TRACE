@@ -41,6 +41,7 @@ else
      printf "xdebug.remote_port=9000\n" | sudo tee -a $PHP_INI
      printf "xdebug.remote_log=/tmp/xdebug-log\n" | sudo tee -a $PHP_INI
      printf "xdebug.idekey=\"TRACE-DEV\"\n" | sudo tee -a $PHP_INI
+  fi
 fi
 
 # check it:
