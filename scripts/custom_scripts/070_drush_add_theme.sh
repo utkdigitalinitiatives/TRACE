@@ -3,6 +3,7 @@
 OS="ubuntu"
 APACHEGROUP="www-data"
 if [ -f "/etc/centos-release" ]; then
+# shellcheck disable=SC2034
   OS="centos"
   APACHEGROUP="apache"
 fi
@@ -50,6 +51,7 @@ drush -y dis seven
 drush -y vset theme_debug 1
 drush -y dis devel
 drush -y dl devel
+# shellcheck disable=SC2078
 if [ OS="centos" ]; then
   sudo yum -y install subversion
 else
