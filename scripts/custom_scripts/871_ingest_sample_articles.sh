@@ -21,5 +21,10 @@ fi
 
 cd "$DRUPAL_HOME" || exit
 echo "Ingesting Sample Article Objects"
-drush --user=admin --uri=http://localhost ibsp --content_models=ir:citationCModel --type=directory --parent=utk.ir:fg --namespace=utk.ir.fg --target=/home/vagrant/sample_articles/sample_trace_articles
+# centos7 uses drush 8 so have to detect and change old target parameter
+if [ -f "/etc/centos-release" ]; then
+  drush --user=admin --uri=http://localhost ibsp --content_models=ir:citationCModel --type=directory --parent=utk.ir:fg --namespace=utk.ir.fg --scan_target=/home/vagrant/sample_articles/sample_trace_articles
+else
+  drush --user=admin --uri=http://localhost ibsp --content_models=ir:citationCModel --type=directory --parent=utk.ir:fg --namespace=utk.ir.fg --target=/home/vagrant/sample_articles/sample_trace_articles
+fi
 drush --user=admin --uri=http://localhost islandora_batch_ingest

@@ -21,5 +21,10 @@ fi
 
 cd "$DRUPAL_HOME" || exit
 echo "Ingesting Sample Thesis Objects"
+# centos7 uses drush 8 so have to detect and change old target parameter
+if [ -f "/etc/centos-release" ]; then
+drush --user=admin --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --scan_target=/home/vagrant/sample_data/trace_sample_data
+else
 drush --user=admin --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --target=/home/vagrant/sample_data/trace_sample_data
+fi
 drush --user=admin --uri=http://localhost islandora_batch_ingest

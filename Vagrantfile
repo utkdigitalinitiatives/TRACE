@@ -17,15 +17,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true # Tomcat
     config.vm.network :forwarded_port, guest: 3306, host: 3306, auto_correct: true # MySQL
     config.vm.network :forwarded_port, guest: 8000, host: 8000 # Apache
-    config.vm.network :forwarded_port, guest: 9000, host: 9000 # Xdebug
   end
 
   config.vm.hostname = $hostname
   # Every Vagrant virtual environment requires a box to build off of.
   # config.vm.box = "islandora/islandora-base"
   config.vm.box = "TRACE"
+  #config.vm.box = "c7vbb"
 
   config.vm.box_url = "http://dlwork.lib.utk.edu/vboxes/u14plus.json"
+  #config.vm.box_url = "http://dlwork.lib.utk.edu/vboxes/c7vbb.json"
   # config.vm.box_version = "0.1.4"
   shared_dir = "/vagrant"
 

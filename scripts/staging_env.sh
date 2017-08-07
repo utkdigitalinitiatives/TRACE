@@ -14,6 +14,9 @@ sudo chmod -R 777 /home/vagrant/.drush/
 cd "$DRUPAL_HOME" || exit
 drush dl drush_extras
 
+# install mutt to pull in basic email capabilities
+sudo apt-get -y install  mutt
+
 # Log time when this script starts running
 echo "Set settings.php Script Ran" >> ../time.log
 
@@ -72,3 +75,12 @@ drush vset -y cas_attributes_overwrite '1'
 drush vset -y cas_attributes_sync_every_login '1'
 drush eval "variable_set('cas_attributes_relations', array('name' => '[cas:attribute:uid]', 'mail' => '[cas:attribute:mail]'))"
 drush vset -y realname_pattern '[user:cas:name]'
+
+# Notify the user the current TRACE repo branch the when the last refresh
+# happened. NOT FOR PRODUCTION
+cd /vagrant || exit
+branch_name="$(git symbolic-ref --short -q HEAD)"
+echo "<br/><div><h3>> Git branch is "$(echo $branch_name)"</h3><br/><p>>> Last vagrant <?php echo exec('uptime -p'); ?></p></div><br/><p>>>"$(git -C /vagrant rev-parse HEAD)"</p><br/>" >> /var/www/drupal/sites/all/themes/UTKdrupal/templates/page--front.tpl.php
+
+# Reset to original dirrectory just incase
+cd $DRUPAL_HOME || exit

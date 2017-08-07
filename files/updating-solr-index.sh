@@ -45,6 +45,7 @@ re-cur()
 
 # Query Fedora for newly created or recently modified PIDs
 # Write output to log in /var/log/updating-solr
+# shellcheck disable=SC2129
 echo "------------------------------------------------" >> /var/log/updating-solr
 echo "========= Updating Solr: ""$RUN_TIME"" =========" >> /var/log/updating-solr
 echo "Querying Fedora..." >> /var/log/updating-solr
@@ -89,6 +90,7 @@ do
 done < /tmp/PID_LIST
 
 # Remove the temporary PID list
+# shellcheck disable=SC2129
 echo "*** All finished: removing the temporary PID_LIST ***" >> /var/log/updating-solr
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> /var/log/updating-solr
 echo >> /var/log/updating-solr

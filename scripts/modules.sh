@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 
-echo "Installing all Islandora Foundation modules"
+# detect centos
+OS="ubuntu"
+APACHEGROUP="www-data"
+if [ -f "/etc/centos-release" ]; then
+  OS="centos"
+  APACHEGROUP="apache"
+fi
+# correct env variables for fits
+export FITS_HOME=/usr/local/fits
+export FITS_VERSION=1.1.1
 
+echo "Installing all Islandora Foundation modules"
+echo "OS = "$OS
+echo "  APACHEGROUP = "$APACHEGROUP
 # Permissions and ownership
 echo "Setting permissions and ownership for Drupal directories"
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/libraries
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/all/modules
-sudo chown -hR vagrant:www-data "$DRUPAL_HOME"/sites/default/files
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/all/libraries
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/all/modules
+sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/default/files
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/libraries
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/all/modules
 sudo chmod -R 755 "$DRUPAL_HOME"/sites/default/files
@@ -155,7 +167,8 @@ drush -y en trigger
 # Set variables for Islandora modules
 echo " Set variables for Islandora modules"
 drush eval "variable_set('islandora_fits_executable_path', '$FITS_HOME/fits-$FITS_VERSION/fits.sh')"
-drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
+#the line below sets the audio encoder and is not currently needed per Trac-618.  Suggestion from Paul Cummins.
+#drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
 drush eval "variable_set('islandora_book_viewers', array('name' => array('none' => 'none', 'islandora_internet_archive_bookreader' => 'islandora_internet_archive_bookreader'), 'default' => 'islandora_internet_archive_bookreader'))"
 drush eval "variable_set('islandora_book_page_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"
 drush eval "variable_set('islandora_large_image_viewers', array('name' => array('none' => 'none', 'islandora_openseadragon' => 'islandora_openseadragon'), 'default' => 'islandora_openseadragon'))"

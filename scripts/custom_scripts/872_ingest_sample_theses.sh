@@ -14,13 +14,21 @@ fi
 cd "$DRUPAL_HOME" || exit
 
 #islandora batch preprocess UserA
-drush --user=userA --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --target=/vagrant/files/userA
-
+# centos7 uses drush 8 so have to detect and change old target parameter
+if [ -f "/etc/centos-release" ]; then
+  drush --user=userA --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --scan_target=/vagrant/files/userA
+else
+  drush --user=userA --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --target=/vagrant/files/userA
+fi
 # batch ingest userA's content as userA
 drush --user=userA --uri=http://localhost islandora_batch_ingest
 
 #islandora batch preprocess UserB
-drush --user=userB --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --target=/vagrant/files/userB
-
+# centos7 uses drush 8 so have to detect and change old target parameter
+if [ -f "/etc/centos-release" ]; then
+  drush --user=userB --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --scan_target=/vagrant/files/userB
+else
+  drush --user=userB --uri=http://localhost ibsp --content_models=ir:thesisCModel --type=directory --parent=utk.ir:td --namespace=utk.ir.td --target=/vagrant/files/userB
+fi
 # batch ingest userB's content as userB
 drush --user=userB --uri=http://localhost islandora_batch_ingest
