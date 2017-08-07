@@ -11,6 +11,7 @@ dpkg-reconfigure locales
 #IP_ADDRESS=`php -i | grep -n '^SSH_CLIENT' | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
 
 # install xdebug
+# shellcheck disable=SC2024
 if [ -f "/etc/centos-release" ]; then
   sudo yum -y install php-devel 
   sudo pecl install Xdebug
