@@ -2,7 +2,6 @@ language: bash
 sudo: required
 os:
   - linux
-  - osx
 install:
   - ./build/install.sh
 script:
