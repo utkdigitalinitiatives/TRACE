@@ -90,7 +90,7 @@ cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # clone Ashok Modi's module to extend XML Form Builder to Work with Field Panels and Field Panes
 cd "$DRUPAL_HOME"/sites/all/modules || exit
-git clone https://github.com/cherryhill/islandora_form_fieldpanel
+git clone https://github.com/Islandora/islandora_form_fieldpanel
 
 # Clone Tuque, BagItPHP, and Cite-Proc
 cd "$DRUPAL_HOME"/sites/all || exit
