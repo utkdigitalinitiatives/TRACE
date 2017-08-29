@@ -17,6 +17,7 @@ $conf['locale_custom_strings_en'][''] = array(
   'Select a Content Model to Ingest'                             => 'Select file type to submit',
   'Add a datastream'                                             => 'Add a Supplemental File',
   'Datastreams'                                                  => 'Files',
-  'Would you like to include supplemental files with this Electronic Thesis or Dissertation?' => 'Check the box to upload supplement file(s).', 
+  'Would you like to include supplemental files with this Electronic Thesis or Dissertation?' => 'Check the box to upload supplement file(s).',
+  'Add'															 => 'Add another',
    /*Per Trac-543 REQUEST FIVE: change pdf_upload_form.inc*/
 );
