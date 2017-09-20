@@ -43,10 +43,34 @@ function add_menu_link_to_trace_navigation($pid, $menu_name, $link_title, $weigh
 
 }
 $home_body =  <<<HOME_BODY
-<br/>
-<p class="trace_home_page_article_title">TRACE is Tennessee Research and Creative Exchange &ndash;
-  the University of Tennessee's open repository</p>
-<p class="trace_home_page_article_blurb">Home page content is contained in page--front.tpl currently.</p>
+    <h4>Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee’s open repository.</h4>
+
+            <p>
+                <img class="alignright" alt="UT students walking on a sidewalk" src="https://www.lib.utk.edu/template/2016/images-utlibraries/trace-home.jpg">TRACE shines a light on UT scholarship, giving the public access to Volunteers’ research and creative work.
+            </p>
+            <p>
+                The UT Libraries encourage Volunteer faculty and graduate students to submit work to TRACE in order to:
+            </p>
+            <ul>
+                <li>
+                    Make your work visible in Google Scholar.
+                </li>
+                <li>
+                    Give the public access to your work.
+                </li>
+                <li>
+                    Increase citation counts through greater visibility and availability.
+                </li>
+                <li>
+                  Share not only articles but also presentations, data sets, white papers, and other files, with a permanent URL for every item.
+                </li>
+                <li>
+                    Follow the number of downloads of your work worldwide.
+                </li>
+                <li>
+                    Preserve your work long-term.
+                </li>
+            </ul>
 HOME_BODY;
 
 $help_body =  <<<HELP_BODY
@@ -219,9 +243,9 @@ $about_body =  <<<ABOUT_BODY
             Credits
         </li>
     </ul>
-    <h1>
+    <h3>
         About TRACE
-    </h1>
+    </h3>
     <p>
         Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee&#8217;s public access digital repository. Created and maintained by the University of Tennessee (UT) Libraries, TRACE is a venue and archive for Volunteers&#8217; research and creative works.
     </p>
@@ -231,9 +255,9 @@ $about_body =  <<<ABOUT_BODY
     <p>
         TRACE helps fulfill the Libraries&#8217; mission to provide &#8220;expertise and leadership in accessing, creating, disseminating, and preserving knowledge.&#8221;
     </p>
-    <h1>
+    <h3>
         Benefits of TRACE
-    </h1>
+    </h3>
     <p>
         UT Volunteers&#8217; research, creativity, and service make a difference in people&#8217;s lives. TRACE increases the reach of this scholarly work, broadening the audience and the impact by making Volunteer scholarship accessible to the public. TRACE supports the University&#8217;s mission to &#8220;move forward the frontiers of human knowledge and enrich and elevate the citizens of the state of Tennessee, the nation, and the world.&#8221;
     </p>
@@ -274,9 +298,9 @@ $about_body =  <<<ABOUT_BODY
     <p>
         UT Libraries agrees to retain and maintain content submitted to TRACE and distribute content according to collection decisions. The Libraries/TRACE will notify users of significant changes to content, e.g., format migration for preservation purposes. If UT Libraries ceases to support TRACE, the Libraries will return collections to existing collection coordinators and transfer to the University Archives collections of communities or units that have ceased to exist.
     </p>
-    <h1>
+    <h3>
       Content Guidelines
-    </h1>
+    </h3>
     <p>
         The collections in TRACE are focused on the research, scholarship, creative works of UT faculty and researchers, and in some cases students, as well as materials that document the history of the university and reflect its intellectual environment.
     </p>
@@ -327,9 +351,9 @@ $about_body =  <<<ABOUT_BODY
     <p>
         Graduate students submitting a thesis or dissertation to the TRACE Graduate Theses and Dissertation collection, which is administered by the Graduate School, are strongly encouraged to review the <a href="http://libguides.utk.edu/trace/graduate"> TRACE Submission Guide for Graduate Students</a>.
     </p>
-    <h1>
+    <h3>
         Withdrawal of Items
-    </h1>
+    </h3>
     <p>
         Items may be withdrawn from TRACE at the request of the author, the direction of the Provost or General Counsel, or by legal order. Withdrawn items will be removed from public access but metadata may still be visible and files will be retained in the repository. Withdrawal requests should be directed to <a href="mailto:trace@utk.edu">trace@utk.edu</a>.
     </p>
@@ -359,9 +383,9 @@ $about_body =  <<<ABOUT_BODY
     <p>
       Submissions may be reviewed by TRACE administrators. Submitters take full responsibility for determining their right to deposit the work. Submitters grant a non-exclusive deposit license to TRACE/The University of Tennessee to distribute the work.
     </p>
-    <h1>
+    <h3>
       UT Community Submissions
-    </h1>
+    </h3>
     <p>
       UT administrative units or affiliates may wish to share their work in TRACE. Units that can add materials must:
     </p>
@@ -496,16 +520,14 @@ $privacy_policy_body = <<<PRIVACY_BODY
 
 PRIVACY_BODY;
 
-$home_nid = create_named_page("home", "", $home_body);
-
-$submit_nid = create_named_page("submit", "Deposit Your Work", $submit_body);
-add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
+$home_nid = create_named_page("home", "Welcome to TRACE", $home_body);
+add_menu_link_to_trace_navigation($home_nid, "trace-navigation", "Home", 1);
 
 $about_nid = create_named_page("about", "About TRACE", "$about_body");
-add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About TRACE", 0);
+add_menu_link_to_trace_navigation($about_nid, "trace-navigation", "About TRACE", 2);
 
 $browse_nid = create_named_page("browse", "", "");
-add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse Collections", 2);
+add_menu_link_to_trace_navigation($browse_nid, "trace-navigation", "Browse Collections", 3);
 
 $help_nid = create_named_page("help", "Help", "$help_body");
 add_menu_link_to_trace_navigation($help_nid, "trace-navigation", "Help", 4);
@@ -515,3 +537,6 @@ $policy_nid = create_named_page("policy", "Policy", "$policy_body");
 
 $privacy_policy_body_nid = create_named_page("privacy_policy", "Privacy Policy", "$privacy_policy_body");
 // add_menu_link_to_trace_navigation($privacy_policy_body_nid, "trace-navigation", "Privacy Policy", 6);
+
+$submit_nid = create_named_page("submit", "Deposit Your Work", $submit_body);
+add_menu_link_to_trace_navigation($submit_nid, "user-menu", "Submit", 9);
