@@ -8,11 +8,16 @@ fi
 # Clone utk-fedora-fedoragsearch-solr-config
 echo "Cloning utk-fedora-fedoragsearch-solr-config"
 if [ ! -d "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config ]; then
-  git clone https://github.com/utkdigitalinitiatives/utk-fedora-fedoragsearch-solr-config
-  chown -hR $HOMEUSER:$HOMEUSER utk-fedora-fedoragsearch-solr-config
+  git -C "$HOME_DIR" clone https://github.com/utkdigitalinitiatives/utk-fedora-fedoragsearch-solr-config
+  chown -hR $HOMEUSER:$HOMEUSER "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config
+  git -C "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config checkout -b institutional_repository origin/institutional_repository
 else
-  git -C "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config pull
+  git -C "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config pull --all
+  git -C "$HOME_DIR"/utk-fedora-fedoragsearch-solr-config checkout -b institutional_repository origin/institutional_repository
 fi
+
+# change to $HOME_DIR
+cd "$HOME_DIR" || exit
 
 # Determine target OS and related settings
 # shellcheck disable=SC2046
