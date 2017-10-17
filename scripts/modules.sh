@@ -136,7 +136,7 @@ drush -y -u 1 en php_lib islandora objective_forms
 drush -y -u 1 en islandora_solr islandora_solr_metadata islandora_solr_views
 drush -y -u 1 en islandora_basic_collection islandora_pdf islandora_book
 drush -y -u 1 en islandora_basic_image islandora_large_image
-drush -y -u 1 en islandora_checksum islandora_checksum_checker
+drush -y -u 1 en islandora_checksum islandora_checksum_checker islandora_compound_object
 drush -y -u 1 en islandora_book_batch islandora_pathauto islandora_pdfjs
 drush -y -u 1 en islandora_openseadragon
 drush -y -u 1 en xml_forms xml_form_builder xml_schema_api xml_form_elements xml_form_api jquery_update

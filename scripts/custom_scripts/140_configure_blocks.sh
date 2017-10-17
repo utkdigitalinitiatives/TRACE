@@ -29,6 +29,11 @@ drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="m
 drush block-configure --weight=-4 --theme="UTKdrupal" --module="system" --delta="user-menu" --region="secondary_menu"
 drush block-configure --weight=-5 --theme="UTKdrupal" --module="menu" --delta="menu-manager-navigation" --region="secondary_menu"
 
+# add compound obj sections
+#drush block-configure --weight=-26 --theme="UTKdrupal" --module="islandora_compound_object" --delta="compound_navigation" --region="sidebar_first"
+drush sql-query "update block set region='sidebar_first' where module = 'islandora_compound_object' and delta = 'compound_navigation' and theme = 'UTKdrupal'"
+drush sql-query "update block set region='sidebar_first' where module = 'islandora_compound_object' and delta = 'compound_jail_display' and theme = 'UTKdrupal'"
+
 # use solr simple search in the search bar
 drush block-configure --weight=-6 --theme="UTKdrupal" --module="islandora_solr" --delta="simple" --region="search_bar"
 # do not display the block title because it looks messy
