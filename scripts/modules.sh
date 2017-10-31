@@ -191,3 +191,5 @@ drush eval "variable_set('islandora_scholar_preview_density', 72)"
 drush eval "variable_set('islandora_scholar_preview_height', 700)"
 drush eval "variable_set('islandora_scholar_preview_width', 500)"
 drush eval "variable_set('islandora_repository_pid', 'utk:ir')"
+# add jail option to compound
+drush eval "variable_set('islandora_compound_object_use_jail_view', 1)"

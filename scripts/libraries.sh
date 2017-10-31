@@ -4,6 +4,8 @@ echo "Installing all Islandora Foundation module's required libraries"
 
 cd "$DRUPAL_HOME"/sites/all/libraries || exit
 
+sudo git clone http://sebarmeli.github.com/JAIL
+
 sudo drush cache-clear drush
  drush -v pdfjs-plugin
  drush -v iabookreader-plugin
