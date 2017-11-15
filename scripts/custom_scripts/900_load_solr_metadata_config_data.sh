@@ -28,3 +28,19 @@ drush vset islandora_solr_facet_min_limit 1
 cd "$HOME_DIR" || exit
 
 echo "Finished loading solr metadata config"
+
+# Check for New Forms
+echo "Checking for New XML Forms"
+if [ -f "$SHARED_DIR/configs/form-tables/xml_forms.sql" ]; then
+    echo "Loading xml_forms.sql"
+    drush sql-cli < "$SHARED_DIR"/configs/form-tables/xml_forms.sql
+    drush cc all
+fi
+
+# Associate Forms where Associations do not already Exist
+echo "Checking for Form Builder Associations"
+if [ -f "$SHARED_DIR/configs/form-tables/xml_form_builder_form_associations.sql" ]; then
+    echo "Loading xml_form_builder_form_associations.sql"
+    drush sql-cli < "$SHARED_DIR"/configs/form-tables/xml_form_builder_form_associations.sql
+    drush cc all
+fi
