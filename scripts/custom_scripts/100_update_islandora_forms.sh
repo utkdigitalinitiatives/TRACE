@@ -16,9 +16,13 @@ else
   git pull origin master
 fi
 
-# Replace default form.
+# Replace default thesis form.
 echo "Replace Default Islandora Thesis CModel XML Form."
 sudo cp "$HOME_DIR"/utk_isl_xml_forms/xml_forms/UTK_ir_etds.xml "$DRUPAL_HOME"/sites/all/modules/islandora_scholar/xml/thesis_form.xml
+
+# Replace default binary form.
+echo "Replace Default Islandora Binary CModel XML Form."
+sudo cp "$HOME_DIR"/utk_isl_xml_forms/xml_forms/UTK_ir_datasets.xml "$DRUPAL_HOME"/sites/all/modules/islandora_binary_object/xml/islandora_binary_object_form_mods.xml
 
 # Add post-process transforms
 echo "Add post-process XSL transforms."
