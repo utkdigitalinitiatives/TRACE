@@ -83,7 +83,8 @@ git config core.filemode false
 
 cd "$DRUPAL_HOME"/sites/all/modules/trace_ext_workflow || exit
 git pull
-git checkout New_list_correction
+# git checkout New_list_correction
+git checkout d29a2a124ada646caafd2f31eedc9f69450d6131 .
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
