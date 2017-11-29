@@ -80,6 +80,11 @@ git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_ingest_collections || exit
 git config core.filemode false
 
+
+cd "$DRUPAL_HOME"/sites/all/modules/trace_ext_workflow || exit
+git pull
+git checkout New_list_correction
+
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
 # clone the Digital initiatives module to create nested collections
