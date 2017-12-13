@@ -27,6 +27,7 @@ sudo cp "$HOME_DIR"/utk_isl_xml_forms/xml_forms/UTK_ir_datasets.xml "$DRUPAL_HOM
 # Add post-process transforms
 echo "Add post-process XSL transforms."
 sudo cp "$HOME_DIR"/utk_isl_xml_forms/post_process_transforms/*.xsl "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms/builder/self_transforms
+sudo cp "$HOME_DIR"/utk_isl_xml_forms/post_process_transforms/trace-disciplines-list-comp.xml "$DRUPAL_HOME"/sites/all/modules/islandora_xml_forms/builder/self_transforms
 
 # Fix ownership on the copied post-process transforms
 echo "Correct ownership on the post-process XSL transforms."
