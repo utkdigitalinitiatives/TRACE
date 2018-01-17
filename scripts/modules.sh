@@ -56,6 +56,7 @@ git clone https://github.com/utkdigitalinitiatives/islandora_scholar
 git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
 git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
 git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
+git clone https://github.com/utkdigitalinitiatives/islandora_batch_digital_commons
 
 # set core.filemode on our forks
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
