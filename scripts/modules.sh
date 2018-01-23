@@ -57,6 +57,7 @@ git clone https://github.com/utkdigitalinitiatives/islandora_solr_metadata
 git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
 git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
 git clone https://github.com/utkdigitalinitiatives/islandora_batch_digital_commons
+git clone https://github.com/utkdigitalinitiatives/islandora_scholar_tombstone
 
 # set core.filemode on our forks
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
@@ -155,6 +156,7 @@ drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
 drush -y -u 1 en rules_admin trace_ext_workflow
 drush -y -u 1 en islandora_binary_object_zip_importer
 drush -y -u 1 en islandora_form_fieldpanel
+drush -y -u 1 en islandora_scholar_tombstone
 
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 
