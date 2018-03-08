@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `islandora_solr_metadata_cmodels` (
 INSERT INTO `islandora_solr_metadata_cmodels` (`configuration_id`, `cmodel`) VALUES
 (3, 'islandora:binaryObjectCModel'),
 (3, 'ir:citationCModel'),
+(3, 'islandora:compoundCModel'),
 (3, 'ir:thesisCModel');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
