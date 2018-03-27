@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# **** JIRA Trac-404 remove bookmarks module
 
 # ** add a userA and a userB to users in authuser role
 # adds all of the pieces of the authUser user: user, role, and permissions
@@ -17,8 +16,8 @@ drush -r "$DRUPAL_HOME" role-list | grep -o 'authUser-role' && echo "authUser-ro
 
 ## add authUser permissions
 declare -a AUTH_USER_PERMS=(
-  "view fedora repository objects" #islandora
-  "ingest fedora objects" #islandora
+  "view fedora repository objects"
+  "ingest fedora objects"
   "add fedora datastreams"
   "replace a datastream with new content, preserving version history"
   "edit fedora metadata"
