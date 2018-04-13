@@ -17,5 +17,6 @@ echo "163_revise_email_templates: Replacing the file: islandora-solr-metadata-di
 
 echo "per TRAC-815"
 
-sudo cp /vagrant/files/islandora-solr-metadata-display.tpl.php  "$DRUPAL_HOME"/sites/all/themes/UTKdrupal/templates/
+sudo cp /vagrant/files/islandora-solr-metadata-display.tpl.php "$DRUPAL_HOME"/sites/all/themes/UTKdrupal/templates/
 
+echo "163_revise_email_templates.sh complete"
