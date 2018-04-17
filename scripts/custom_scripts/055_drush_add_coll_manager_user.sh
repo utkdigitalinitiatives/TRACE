@@ -57,6 +57,3 @@ drush_thesis_manager_role_perm_check
 ## assign graduate_thesis_manager_role to graduate_thesis_manager_user user
 drush -r "$DRUPAL_HOME" user-add-role 'thesis_manager_role' thesis_manager
 
-## add the collection manager policy to the Graduate Thesis collection
-# this is adding a datastream from vboxes/policies
-#curl -vv -u "fedoraAdmin:$FEDORAPASS" -X POST "http://localhost:8080/fedora/objects/utk.ir:td/datastreams/POLICY?controlGroup=M&dsLocation=http://dlwork.lib.utk.edu/vboxes/policies/collectionmanager.xml"
