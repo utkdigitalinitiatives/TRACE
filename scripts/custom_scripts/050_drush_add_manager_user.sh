@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# **** JIRA Trac-404 remove bookmarks module
-
 # adds all of the pieces of the manager user: user, role, and permissions
 
 ## check for and create the user, if the user doesn't exist
