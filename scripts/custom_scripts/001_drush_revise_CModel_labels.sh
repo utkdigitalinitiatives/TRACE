@@ -11,13 +11,9 @@ fi
 #Islandora Internet Archive Book Content Model  islandora:bookCModel
 #Islandora Collection Content Model             islandora:collectionCModel
 #Islandora Page Content Model                   islandora:pageCModel
-#REMOVE---------------------------------------------------------------------- 
-#Islandora Audio Content Model                  islandora:sp-audioCModel
 #Islandora Basic Image Content Model            islandora:sp_basic_image
 #Islandora Large Image Content Model            islandora:sp_large_image_cmodel
 #Islandora Binary Object Content Model          islandora:sp_pdf
-#REMOVE---------------------------------------------------------------------- 
-#Islandora Video Content Model                  islandora:sp_videoCModel
 
 # info:fedora/ir:citationCModel
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/ir:citationCModel?label=chd_citation"
@@ -37,10 +33,6 @@ curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/object
 # info:fedora/islandora:pageCModel
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:pageCModel?label=chd_page"
 
-# info:fedora/islandora:sp-audioCModel
-#REMOVE---------------------------------------------------------------------- 
-#curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp-audioCModel?label=chd_audio"
-
 # info:fedora/islandora:sp_basic_image
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_basic_image?label=chd_basic_image"
 
@@ -49,9 +41,5 @@ curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/object
 
 # info:fedora/islandora:sp_pdf
 curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_pdf?label=PDF"
-
-#info:fedora/islandora:sp_videoCModel
-#REMOVE---------------------------------------------------------------------- 
-#curl -s -u "fedoraAdmin:$FEDORAPASS" -X PUT "http://localhost:8080/fedora/objects/islandora:sp_videoCModel?label=chd_video"
 
 echo "CModel Labels have been revised."
