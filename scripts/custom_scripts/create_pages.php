@@ -571,7 +571,9 @@ Search one year at a time.
 <p>
 Search one decade at a time.
 <ul>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_s%3A/201[0-9].*/?type=edismax&sort=timestamp+desc">2000-2009</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt%3A[2000-01-01T00:00:00Z%20TO%202009-12-31T23%3A59%3A59Z]%3Ftype=edismax&sort=timestamp+desc3A/201[0-9].*/?type=edismax&sort=timestamp+desc%3A/201[0-9].*/?type=edismax&sort=timestamp+desc">2000-2009a</a></li>
+
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_s%3A/201[0-9].*/?type=edismax&sort=timestamp+desc">2000-2009b</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_s%3A/199[0-9].*/?type=edismax&sort=timestamp+desc">1990-1999</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_s%3A/199[0-9].*/?type=edismax&sort=timestamp+desc">1990-1999</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_s%3A/198[0-9].*/?type=edismax&sort=timestamp+desc">1980-1989</a></li>
