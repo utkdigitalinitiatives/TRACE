@@ -146,7 +146,8 @@ drush -y -u 1 en zip_importer
 drush -y -u 1 en islandora_bibliography islandora_compound_object
 drush -y -u 1 en islandora_google_scholar islandora_scholar_embargo islandora_solr_config citation_exporter
 drush -y -u 1 en doi_importer endnotexml_importer pmid_importer ris_importer
-drush -y -u 1 en islandora_fits islandora_ocr islandora_oai islandora_simple_workflow
+#drush -y -u 1 en islandora_fits
+drush -y -u 1 en islandora_ocr islandora_oai islandora_simple_workflow
 drush -y -u 1 en islandora_xacml_api islandora_xacml_editor islandora_xmlsitemap colorbox
 drush -y -u 1 en islandora_internet_archive_bookreader islandora_bagit
 drush -y -u 1 en islandora_batch_report
@@ -169,7 +170,7 @@ drush -y en trigger
 
 # Set variables for Islandora modules
 echo " Set variables for Islandora modules"
-drush eval "variable_set('islandora_fits_executable_path', '$FITS_HOME/fits-$FITS_VERSION/fits.sh')"
+#drush eval "variable_set('islandora_fits_executable_path', '$FITS_HOME/fits-$FITS_VERSION/fits.sh')"
 #the line below sets the audio encoder and is not currently needed per Trac-618.  Suggestion from Paul Cummins.
 #drush eval "variable_set('islandora_lame_url', '/usr/bin/lame')"
 drush eval "variable_set('islandora_book_viewers', array('name' => array('none' => 'none', 'islandora_internet_archive_bookreader' => 'islandora_internet_archive_bookreader'), 'default' => 'islandora_internet_archive_bookreader'))"
