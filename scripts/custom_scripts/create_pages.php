@@ -524,7 +524,7 @@ $privacy_policy_body = <<<PRIVACY_BODY
 PRIVACY_BODY;
 
 $iby_body = <<<IBY_BODY
-<h4>World readable Search-by-date page</h4>
+<h4>World readable Search-by-publication-date page</h4>
 Search most recent publications.
 <ul>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks</a></li>
