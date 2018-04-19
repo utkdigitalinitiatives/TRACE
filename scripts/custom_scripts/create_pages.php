@@ -525,15 +525,13 @@ PRIVACY_BODY;
 
 $iby_body = <<<IBY_BODY
 <h4>World readable Search-by-date page</h4>
-Search most recent contributions.
+Search most recent publications.
 <ul>
-<li><a href="/islandora/search/timestamp:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks timestamp</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks dateIssued</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-183DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 6 months timestamp</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-183DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 6 months dateIssued</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-183DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 6 months</a></li>
 </ul>
 <p>
-Search one year at a time.
+Search by year of publication.
 <ul>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2018-01-01T00:00:00Z TO 2018-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2018</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2017-01-01T00:00:00Z TO 2017-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2017</a></li>
@@ -556,7 +554,7 @@ Search one year at a time.
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2000-01-01T00:00:00Z TO 2000-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2000</a></li>
 </ul>
 <p>
-Search by decade.
+Search by decade of publication.
 <ul>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2000-01-01T00:00:00Z%20TO%202009-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2000-2009</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1990-01-01T00:00:00Z%20TO%201999-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1990-1999</a></li>
