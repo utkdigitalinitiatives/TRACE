@@ -525,51 +525,38 @@ PRIVACY_BODY;
 
 $iby_body = <<<IBY_BODY
 <h4>World readable Search-by-date page</h4>
-Developer test searches
-<ul>
-<li><a href="/islandora/search/timestamp:[NOW-10MINUTES%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 10 minutes</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-20MINUTES%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 20 minutes</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-30MINUTES%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 30 minutes</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-60MINUTES%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 60 minutes</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-2HOURS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 hours</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-12HOURS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 12 hours</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-1DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 1 days</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-2DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 days</a></li>
-</ul>
-
 Search most recent contributions.
 <ul>
-<li><a href="/islandora/search/timestamp:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-28DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 4 weeks</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-62DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 months</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-92DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 3 months</a></li>
-<li><a href="/islandora/search/timestamp:[NOW-183DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 6 months</a></li>
+<li><a href="/islandora/search/timestamp:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks timestamp</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-14DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 2 weeks dateIssued</a></li>
+<li><a href="/islandora/search/timestamp:[NOW-183DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 6 months timestamp</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[NOW-183DAYS%20TO%20NOW]?type=edismax&sort=timestamp+desc">Last 6 months dateIssued</a></li>
 </ul>
 <p>
 Search one year at a time.
 <ul>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2018-01-01T00:00:00Z TO 2018-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2018</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2017-01-01T00:00:00Z TO 2017-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2017</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2016-01-01T00:00:00Z TO 2016-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2016</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2015-01-01T00:00:00Z TO 2015-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2015</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2014-01-01T00:00:00Z TO 2014-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2014</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2013-01-01T00:00:00Z TO 2013-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2013</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2012-01-01T00:00:00Z TO 2012-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2012</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2011-01-01T00:00:00Z TO 2011-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2011</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2010-01-01T00:00:00Z TO 2010-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2010</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2009-01-01T00:00:00Z TO 2009-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2009</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2008-01-01T00:00:00Z TO 2008-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2008</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2007-01-01T00:00:00Z TO 2007-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2007</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2006-01-01T00:00:00Z TO 2006-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2006</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2005-01-01T00:00:00Z TO 2005-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2005</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2004-01-01T00:00:00Z TO 2004-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2004</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2003-01-01T00:00:00Z TO 2003-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2003</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2002-01-01T00:00:00Z TO 2002-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2002</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2001-01-01T00:00:00Z TO 2001-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2001</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:%5B2000-01-01T00:00:00Z TO 2000-12-31T23:59:59Z%5D?type=edismax&sort=timestamp+desc">2000</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2018-01-01T00:00:00Z TO 2018-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2018</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2017-01-01T00:00:00Z TO 2017-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2017</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2016-01-01T00:00:00Z TO 2016-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2016</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2015-01-01T00:00:00Z TO 2015-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2015</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2014-01-01T00:00:00Z TO 2014-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2014</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2013-01-01T00:00:00Z TO 2013-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2013</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2012-01-01T00:00:00Z TO 2012-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2012</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2011-01-01T00:00:00Z TO 2011-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2011</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2010-01-01T00:00:00Z TO 2010-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2010</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2009-01-01T00:00:00Z TO 2009-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2009</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2008-01-01T00:00:00Z TO 2008-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2008</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2007-01-01T00:00:00Z TO 2007-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2007</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2006-01-01T00:00:00Z TO 2006-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2006</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2005-01-01T00:00:00Z TO 2005-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2005</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2004-01-01T00:00:00Z TO 2004-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2004</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2003-01-01T00:00:00Z TO 2003-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2003</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2002-01-01T00:00:00Z TO 2002-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2002</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2001-01-01T00:00:00Z TO 2001-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2001</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2000-01-01T00:00:00Z TO 2000-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2000</a></li>
 </ul>
 <p>
-Search one decade at a time.
+Search by decade.
 <ul>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[2000-01-01T00:00:00Z%20TO%202009-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">2000-2009</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1990-01-01T00:00:00Z%20TO%201999-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1990-1999</a></li>
@@ -578,7 +565,8 @@ Search one decade at a time.
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1960-01-01T00:00:00Z%20TO%201969-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1960-1969</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1950-01-01T00:00:00Z%20TO%201959-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1950-1959</a></li>
 <li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1940-01-01T00:00:00Z%20TO%201949-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1940-1949</a></li>
-<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1800-01-01T00:00:00Z%20TO%201899-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1800-1899</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1900-01-01T00:00:00Z%20TO%201939-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">1900-1939</a></li>
+<li><a href="/islandora/search/mods_originInfo_encoding_edtf_keyDate_yes_dateIssued_dt:[1700-01-01T00:00:00Z%20TO%201899-12-31T23:59:59Z]?type=edismax&sort=timestamp+desc">Before 1900</a></li>
 </ul>
 
 
