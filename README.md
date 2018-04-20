@@ -1,6 +1,8 @@
 # TRACE [![Build Status](https://travis-ci.org/utkdigitalinitiatives/TRACE.svg?branch=master)](https://travis-ci.org/utkdigitalinitiatives/TRACE)
 <description>Trace is a University of Tennessee digital archive that showcases and preserves published and unpublished works by faculty, departments, programs, research ...</description>
 
+TRAC-1029e to install code to satisfy JIRA Ticket TRAC-1029.
+
 What is the Institutional Repository Project?
 
 The Libraries is currently investigating open source IR systems with the intention to select and implement a new institutional repository platform to replace the hosted Bepress Digtial Commons instance of Trace.
