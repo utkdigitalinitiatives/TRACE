@@ -15,8 +15,11 @@ cd "$DRUPAL_HOME" || exit
 drush dl drush_extras
 
 # install mutt to pull in basic email capabilities
-sudo apt-get -y install  mutt
-
+if [ -f "/etc/centos-release" ]; then
+  sudo yum -y install mutt
+else
+  sudo apt-get -y install  mutt
+fi
 # Log time when this script starts running
 echo "Set settings.php Script Ran" >> ../time.log
 
