@@ -58,6 +58,7 @@ git clone https://github.com/utkdigitalinitiatives/islandora_xml_forms
 git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
 git clone https://github.com/utkdigitalinitiatives/islandora_batch_digital_commons
 git clone https://github.com/utkdigitalinitiatives/islandora_scholar_tombstone
+git clone https://github.com/utkdigitalinitiatives/islandora_xacml_editor
 
 # set core.filemode on our forks
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
