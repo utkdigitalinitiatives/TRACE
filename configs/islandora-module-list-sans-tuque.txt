@@ -23,7 +23,6 @@ islandora_solution_pack_large_image
 islandora_solution_pack_pdf
 islandora_solution_pack_compound
 islandora_usage_stats
-islandora_xacml_editor
 islandora_xmlsitemap
 objective_forms
 php_lib
