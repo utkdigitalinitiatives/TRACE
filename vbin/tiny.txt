@@ -1,0 +1,19 @@
+tiny.txt
+
+cp -r vbin /vagrant/
+
+cd /vagrant/vbin/
+
+must become root to do the rest
+
+sudo -i                   ; 
+cd /vagrant/vbin/         ;
+cp -r usr_bin  /bin       ;
+cd /bin/usr_bin           ;
+chown root.root *         ;
+chmod 755 *               ;
+mv * ../                  ;
+cd ..                     ;
+rmdir usr_bin             ;
+exit                      ;
+
