@@ -79,6 +79,9 @@ cd "$DRUPAL_HOME"/sites/all/modules || exit
 # clone the Digital initiatives module to ingest collections
 git clone https://github.com/utkdigitalinitiatives/islandora_ingest_collections.git
 
+# clone islandora usage stats callbacks needed for displaying view / download count
+git clone https://github.com/Islandora-Labs/islandora_usage_stats_callbacks.git
+
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_ingest_collections || exit
 git config core.filemode false
 
@@ -151,7 +154,7 @@ drush -y -u 1 en islandora_ocr islandora_oai islandora_simple_workflow
 drush -y -u 1 en islandora_xacml_api islandora_xacml_editor islandora_xmlsitemap colorbox
 drush -y -u 1 en islandora_internet_archive_bookreader islandora_bagit
 drush -y -u 1 en islandora_batch_report
-drush -y -u 1 en islandora_usage_stats islandora_populator
+drush -y -u 1 en islandora_usage_stats islandora_usage_stats_callbacks islandora_populator
 drush -y -u 1 en islandora_binary_object
 drush -y -u 1 en islandora_ingest_collections islandora_nested_collections
 drush -y -u 1 en rules_admin trace_ext_workflow
@@ -195,3 +198,7 @@ drush eval "variable_set('islandora_scholar_preview_width', 500)"
 drush eval "variable_set('islandora_repository_pid', 'utk:ir')"
 # add jail option to compound
 drush eval "variable_set('islandora_compound_object_use_jail_view', 1)"
+
+# Grant permissions for everyone to see the download count
+drush role-add-perm 'anonymous user' 'access usage stats callbacks api'
+drush role-add-perm 'authenticated user' 'access usage stats callbacks api'
