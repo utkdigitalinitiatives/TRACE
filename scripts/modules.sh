@@ -59,6 +59,16 @@ git clone https://github.com/utkdigitalinitiatives/islandora_binary_object
 git clone https://github.com/utkdigitalinitiatives/islandora_batch_digital_commons
 git clone https://github.com/utkdigitalinitiatives/islandora_scholar_tombstone
 
+#set up islandora_batch_ditital_commons
+sudo curl -L "http://files.basex.org/releases/8.6.7/BaseX867.zip" >> /tmp/BaseX867.zip
+sudo unzip /tmp/BaseX867.zip -d /usr/local/lib/
+sudo rm /tmp/BaseX867.zip
+
+sudo mkdir -p /usr/local/share/php5/php-aws
+sudo curl -L "http://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.zip" > /tmp/aws.zip
+sudo unzip /tmp/aws.zip -d /usr/local/share/php5/php-aws
+sudo rm /tmp/aws.zip
+
 # set core.filemode on our forks
 cd "$DRUPAL_HOME"/sites/all/modules/islandora_scholar || exit
 git config core.filemode false
