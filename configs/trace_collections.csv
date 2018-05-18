@@ -1,10 +1,16 @@
-"root","utk","ir","Trace Collections","The top-level collection of the UTK TRACE IR","mixed material","islandora:collectionCModel","mixed material","page",
-"utk:ir","utk.ir","td","Graduate Theses and Dissertations","A Test Object representing a collection of theses and dissertations from the Graduate School","text","ir:thesisCModel","mixed material","page",
-"utk:ir","utk.ir","fg","Faculty and Graduate Student Research and Creative Work","A collection of publications by Faculty and Graduate Student Research and Creative Work","mixed material","islandora:binaryObjectCModel,islandora:compoundCModel,islandora:sp_pdf","page",
-"utk:ir","utk.ir","supug","Supervised Undergraduate Student Research and Creative Work","A collection of publications by Supervised Undergraduate Student Research and Creative Work","mixed material","islandora:collectionCModel","page",
-"utk.ir:supug","utk.ir","bsp","Baker Scholars Program","A Test Object representing a collection of publications by the Baker Scholars Program","text","islandora:sp_pdf","mixed material","page",
-"utk.ir:supug","utk.ir","chp","Chancellor’s Honors Program","A Test Object representing a collection of publications by the Chancellor’s Honors Program","text","islandora:sp_pdf","mixed material","page",
-"utk.ir:supug","utk.ir","csp","College Scholars Program","A Test Object representing a collection of publications by the College Scholars Program","text","islandora:sp_pdf","mixed material","page",
-"utk.ir:supug","utk.ir","eureca","EUReCA: Exhibition of Undergraduate Research and Creative Achievement","A Test Object representing a collection of publications by the EUReCA: Exhibition of Undergraduate Research and Creative Achievement","text","islandora:collectionCModel","mixed material","page",
-"utk.ir:supug","utk.ir","hsp","Haslam Scholars Program","A Test Object representing a collection of publications by the Haslam Scholars Program","text","islandora:sp_pdf","mixed material","page",
-"utk:ir","utk.ir","data","Datasets","A Test Object representing a collection of Datasets","text","islandora:binaryObjectCModel","mixed material","page",
+"islandora:root","utk","ir","Univserity of Tennessee TRACE Root","islandora:collectionCModel"
+"utk:ir","utk.ir","ahura","UTIA AHUR - UT Institute of Agriculture: Administrative History and University Records","islandora:collectionCModel,islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","dem","Democracy and Tradition","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","nip","Newsletters & In-House Publications","islandora:binaryObjectCModel,ir:citationCModel"
+"utk.ir:nip","utk.ir","nip-ff","The 4-Hour Film Festival","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","np","Newfound Press","islandora:collectionCModel,islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","fg","Faculty and Graduate Student Research and Creative Work","islandora:collectionCModel,islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","supug","Supervised Undergraduate Student Research and Creative Work","islandora:collectionCModel,islandora:binaryObjectCModel,ir:citationCModel"
+"utk.ir:supug","utk.ir","supug-eureca","EUReCA: Exhibition of Undergraduate Research and Creative Achievement","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","icook","Icook","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","tdsoapd","Tennessee Department of State, Opinions from the Administrative Procedures Division","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","tcwccwcab","Tennessee Court of Workers' Compensation Claims and Workers' Compensation Appeals Board","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","ivsws","International Veterinary Social Work Summit","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","vpac","Veterinary Partners Appreciation Conference","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","bic","Black Issues Conference","islandora:binaryObjectCModel,ir:citationCModel"
+"utk:ir","utk.ir","td","Thesis and Dissertations","ir:thesisCModel"
