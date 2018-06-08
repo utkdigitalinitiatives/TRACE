@@ -10,7 +10,7 @@ fi
 # this one is for the "thesis_manager" user and the "thesis_manager_role"
 
 ## check for and create user, if the user doesn't exist
-drush -r "$DRUPAL_HOME" user-information thesis_manager 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create thesis_manager --mail="thesismanager-person@example.com" --password="thesis_manager" && echo "Created thesis_manager user" || echo "The thesis_manager user already exists"
+drush -r "$DRUPAL_HOME" user-information thesis_manager 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create thesis_manager --mail="vagrant@localhost.com" --password="thesis_manager" && echo "Created thesis_manager user" || echo "The thesis_manager user already exists"
 
 ## check for and create role, if the role doesn't exist
 # shellcheck disable=SC2015
