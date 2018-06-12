@@ -5,10 +5,10 @@
 # adds all of the pieces of the authUser user: user, role, and permissions
 
 ## check for and create the user, if the user doesn't exist
-drush -r "$DRUPAL_HOME" user-information authUser 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create authUser --mail="vagrant@localhost.com" --password="authUser" && echo "Created authUser user" || echo "The authUser account already exists"
+drush -r "$DRUPAL_HOME" user-information authUser 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create authUser --mail="vagrant+authUser@localhost.com" --password="authUser" && echo "Created authUser user" || echo "The authUser account already exists"
 
-drush -r "$DRUPAL_HOME" user-information userA 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create userA --mail="vagrant@localhost.com" --password="userA" && echo "Created userA user" || echo "The userA account already exists"
-drush -r "$DRUPAL_HOME" user-information userB 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create userB --mail="vagrant@localhost.com" --password="userB" && echo "Created userB user" || echo "The userB account already exists"
+drush -r "$DRUPAL_HOME" user-information userA 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create userA --mail="vagrant+userA@localhost.com" --password="userA" && echo "Created userA user" || echo "The userA account already exists"
+drush -r "$DRUPAL_HOME" user-information userB 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create userB --mail="vagrant+userB@localhost.com" --password="userB" && echo "Created userB user" || echo "The userB account already exists"
 
 ## check for and create role, if the role doesn't exist
 # shellcheck disable=SC2015
