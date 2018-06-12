@@ -57,6 +57,6 @@ else
 fi
 
 
-if ! (sed -i.bak --regexp-extended 's/(127\.0\.0\.1[\s\t]+localhost).*$/127.0.0.1       localhost localhost.com/;' /etc/hosts >> /tmp/sedpostfix.log 2>&1); then
+if ! (sed -i.bak --regexp-extended 's/(127\.0\.0\.1[[:blank:]]+localhost).*$/127.0.0.1       localhost localhost.com/;' /etc/hosts >> /tmp/sedpostfix.log 2>&1); then
     echo "${now} Unable to change localhost in /etc/hosts" >> /tmp/sedpostfix.log
 fi
