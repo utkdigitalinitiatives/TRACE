@@ -7,7 +7,7 @@ adduser vagrant mail
 now=$(date "+%Y-%m-%d %H:%M:%S %Z: ")
 echo "${now} running $0 " >> /tmp/sedpostfix.log
 
-if (egrep 'myhostname \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
+if (grep -E 'myhostname \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
 
   if ! (sed -i.bak --regexp-extended 's/(myhostname \= ).+$/\1localhost.com/;' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
       echo "${now} Unable to change myhostname in /etc/postfix/main.cf " >> /tmp/sedpostfix.log
@@ -16,7 +16,7 @@ else
   echo "myhostname = localhost.com" >> /etc/postfix/main.cf
 fi
 
-if (egrep 'mydestination \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
+if (grep -E 'mydestination \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
   if ! (sed -i.bak --regexp-extended 's/(mydestination \= ).+$/\1localhost.com, localhost, trace/;' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
      echo "${now} Unable to change mydestination in /etc/postfix/main.cf " >> /tmp/sedpostfix.log
   fi
@@ -24,7 +24,7 @@ else
   echo "mydestination = localhost.com,localhost,trace" >> /etc/postfix/main.cf
 fi
 
-if (egrep 'smtp_dns_support_level \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
+if (grep -E 'smtp_dns_support_level \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
   if ! (sed -i.bak --regexp-extended 's/(smtp_dns_support_level \= ).+$/\1disabled/;' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
      echo "${now} Unable to change smtp_dns_support_level in /etc/postfix/main.cf" >> /tmp/sedpostfix.log
   fi
@@ -32,7 +32,7 @@ else
   echo "smtp_dns_support_level = disabled" >> /etc/postfix/main.cf
 fi
 
-if (egrep 'lmtp_host_lookup \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
+if (grep -E 'lmtp_host_lookup \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
   if ! (sed -i.bak --regexp-extended 's/(lmtp_host_lookup \= ).+$/\1native/;' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
      echo "${now} Unable to change lmtp_host_lookup in /etc/postfix/main.cf" >> /tmp/sedpostfix.log
   fi
@@ -40,7 +40,7 @@ else
   echo "lmtp_host_lookup = native" >> /etc/postfix/main.cf
 fi
 
-if (egrep 'smtp_host_lookup \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
+if (grep -E 'smtp_host_lookup \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
   if ! (sed -i.bak --regexp-extended 's/(smtp_host_lookup \= ).+$/\1native/;' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
     echo "${now} Unable to change smtp_host_lookup in /etc/postfix/main.cf" >> /tmp/sedpostfix.log
   fi
@@ -48,7 +48,7 @@ else
   echo "smtp_host_lookup = native" >> /etc/postfix/main.cf
 fi
 
-if (egrep 'ignore_mx_lookup_error \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
+if (grep -E 'ignore_mx_lookup_error \= ' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
   if ! (sed -i.bak --regexp-extended 's/(ignore_mx_lookup_error \= ).+$/\1yes/;' /etc/postfix/main.cf >> /tmp/sedpostfix.log 2>&1); then
     echo "${now} Unable to change ignore_mx_lookup_error in /etc/postfix/main.cf" >> /tmp/sedpostfix.log
   fi
