@@ -5,7 +5,7 @@
 # adds all of the pieces of the privilegedUser user: user, role, and permissions
 
 ## check for and create user, if the user doesn't exist
-drush -r "$DRUPAL_HOME" user-information privUser 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create privUser --mail="privileged-person@example.com" --password="privUser" && echo "Created privUser user" || echo "The privUser already exists"
+drush -r "$DRUPAL_HOME" user-information privUser 2>&1 | grep '\[error\]' && drush -r "$DRUPAL_HOME" user-create privUser --mail="vagrant+privUser@localhost.com" --password="privUser" && echo "Created privUser user" || echo "The privUser already exists"
 
 ## check for and create role, if the role doesn't exist
 # shellcheck disable=SC2015
