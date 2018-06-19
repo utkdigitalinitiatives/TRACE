@@ -12,7 +12,16 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
     "REQUIRES" : [ "rules", "islandora" ],
     "ON" : { "islandora_datastream_modified" : [] },
     "IF" : [
-      { "text_matches" : { "text" : [ "datastream:id" ], "match" : "MODS" } }
+      { "text_matches" : { "text" : [ "datastream:id" ], "match" : "MODS" } },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:id" ],
+              "match" : "utk.ir.td",
+              "operation" : "starts"
+            }
+          }
+        ]
+      }
     ],
     "DO" : [
       { "mail_to_users_of_role" : {
@@ -149,6 +158,15 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
             }
           }
         ]
+      },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
+              "operation" : "starts"
+            }
+          }
+        ]
       }
     ],
     "DO" : [
@@ -185,6 +203,15 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
           { "text_matches" : {
               "text" : [ "object:id" ],
               "match" : "utk.ir.td",
+              "operation" : "starts"
+            }
+          }
+        ]
+      },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
               "operation" : "starts"
             }
           }
@@ -242,6 +269,7 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
       { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "bdysonsm" } },
       { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "comyn7" } },
       { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "mbagget1" } },
+      { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "rwaltz" } },
       { "AND" : [
           { "text_matches" : {
               "text" : [ "object:id" ],
@@ -251,7 +279,16 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
           }
         ]
       },
-      { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "rwaltz" } }
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
+              "operation" : "starts"
+            }
+          }
+        ]
+      }
+     
     ],
     "DO" : [
       { "mail_to_users_of_role" : {
@@ -297,22 +334,6 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
         }
       }
     ]
-  }
-}
-
------------------------------------------------------------------------------------------------------------------------------------
-
-{ "rules_test_for_admins" : {
-    "LABEL" : "Test for Admins",
-    "PLUGIN" : "reaction rule",
-    "OWNER" : "rules",
-    "REQUIRES" : [ "rules", "islandora" ],
-    "ON" : { "islandora_datastream_modified" : [] },
-    "IF" : [
-      { "text_matches" : { "text" : [ "datastream:id" ], "match" : "MODS" } },
-      { "text_matches" : { "text" : [ "site:current-user:roles:1" ], "match" : "administrator" } }
-    ],
-    "DO" : []
   }
 }
 
