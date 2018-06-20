@@ -23,6 +23,15 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
             }
           }
         ]
+      },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
+              "operation" : "starts"
+            }
+          }
+        ]
       }
     ],
     "DO" : [
