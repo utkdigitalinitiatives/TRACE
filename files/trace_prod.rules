@@ -1,0 +1,340 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+If ever the rules are lost or need to be reset.
+
+Login as Admin and update the following rules. Goto admininal top nav bar's drop down window for Configuration > Workflow > Rules. 
+Click on the button import rule. For each entry below, cut and paste the rule, between the dashed lines,  into the form. Click 'Overwrite' and click 'Import' button.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+{ "rules_updated_metadata_form_notification" : {
+    "LABEL" : "Email: Updated Metadata Form Notification",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "islandora" ],
+    "ON" : { "islandora_datastream_modified" : [] },
+    "IF" : [
+      { "text_matches" : { "text" : [ "datastream:id" ], "match" : "MODS" } },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:id" ],
+              "match" : "utk.ir.td",
+              "operation" : "starts"
+            }
+          }
+        ]
+      }
+    ],
+    "DO" : [
+      { "mail_to_users_of_role" : {
+          "roles" : { "value" : { "6" : "6" } },
+          "subject" : "[[site:name]] \u0022[object:label]\u0022 has been modified",
+          "message" : "[object:label] by [object:owner] has been modified as [object:id].\r\nModified: [datastream:id]\r\nDate created: [object:createdDate]\r\nModified on: [site:current-date]\r\n\r\nSubmission: [site:url]\/islandora\/object\/[object:id]\r\n\r\nThe form was used to modify the information associated with the submission. ",
+          "from" : "No_Reply@utk.edu"
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "islandora_batch_report_email_report" : {
+    "LABEL" : "Email: islandora_batch_report_email_report",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "islandora_batch_report" ],
+    "ON" : { "islandora_batch_report_prepare_daily_report" : [] },
+    "DO" : [
+      { "mail" : {
+          "to" : "[site:mail]",
+          "subject" : "Daily Islandora Batch Ingest Report - [report-date-timestamp:value:custom:m\/d\/Y]",
+          "message" : "On [report-date-timestamp:value:custom:M jS], [successful-object-total:value] objects were ingested:\r\n[content-model-successful-ingest-breakdown:value]\r\n[successful-set-total:value] sets were successfully processed.\r\n[failed-set-total:value] sets failed processing.\r\n\r\nThere are still:\r\n[ready-to-process-sets:value] sets that remain to be processed.\r\n[ready-to-process-objects:value] objects that remain to be processed.",
+          "language" : "en"
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "islandora_scholar_embargo_object_lift_expired_embargo" : {
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "islandora_scholar_embargo" ],
+    "ON" : { "islandora_scholar_object_embargo_expired" : [] },
+    "DO" : [ { "islandora_scholar_embargo_lift_embargo" : [] } ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "islandora_scholar_embargo_datastreams_lift_expired_embargo" : {
+    "LABEL" : "islandora_scholar_embargo_datastreams_lift_expired_embargo",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "islandora_scholar_embargo" ],
+    "ON" : { "islandora_scholar_datastreams_embargo_expired" : [] },
+    "DO" : [
+      { "islandora_scholar_embargo_lift_embargo" : { "object" : [ "object" ], "datastream" : [ "datastreams" ] } }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "rules_addauthuserrole" : {
+    "LABEL" : "addauthuserrole",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules" ],
+    "ON" : { "user_insert" : [] },
+    "DO" : [
+      { "user_add_role" : { "account" : [ "account" ], "roles" : { "value" : { "4" : "4" } } } }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "islandora_book_batch_notify_admin" : {
+    "LABEL" : "Email: E-mail admin",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "islandora", "rules", "islandora_book_batch" ],
+    "ON" : { "islandora_book_batch_ingested" : [] },
+    "IF" : [
+      { "islandora_object_has_relationship" : {
+          "subject" : [ "book-object" ],
+          "pred_uri" : "http:\/\/islandora.ca\/ontology\/relsext#",
+          "pred" : "email-admin-when-ingested",
+          "object" : "true",
+          "type" : 1
+        }
+      }
+    ],
+    "DO" : [
+      { "mail" : {
+          "to" : "[site:mail]",
+          "subject" : "[[site:name]] \u0022[book-object:label]\u0022 has been ingested",
+          "message" : "[book-object:label] has been ingested as [book-object:id].\r\n\r\nFor Debugging: E-mail admin Book ingestion",
+          "language" : [ "" ]
+        }
+      },
+      { "islandora_object_remove_relationship" : {
+          "subject" : [ "book-object" ],
+          "pred_uri" : "http:\/\/islandora.ca\/ontology\/relsext#",
+          "pred" : "email-admin-when-ingested",
+          "object" : "true",
+          "type" : 1
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "rules_datastream_modified" : {
+    "LABEL" : "Email: DataStream Modified",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "TAGS" : [ "datastream" ],
+    "REQUIRES" : [ "rules", "islandora" ],
+    "ON" : { "islandora_datastream_modified" : [] },
+    "IF" : [
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "DC" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "RELS-EXT" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "POLICY" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "TN" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "PREVIEW" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "FULL_TEXT" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "MESSAGES" } },
+      { "NOT text_matches" : { "text" : [ "datastream:id" ], "match" : "RELS-INT" } },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:id" ],
+              "match" : "utk.ir.td",
+              "operation" : "starts"
+            }
+          }
+        ]
+      },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
+              "operation" : "starts"
+            }
+          }
+        ]
+      }
+    ],
+    "DO" : [
+      { "mail" : {
+          "to" : "[object:owner]@vols.utk.edu",
+          "subject" : "TRACE Submission Update Received ",
+          "message" : "Your [datastream:label] was recently updated. Your community manager will be notified. ",
+          "from" : "NO_Reply@utk.edu",
+          "language" : [ "" ]
+        }
+      },
+      { "mail_to_users_of_role" : {
+          "roles" : { "value" : { "6" : "6" } },
+          "subject" : "[site:name] [object:id] has been updated",
+          "message" : "[object:id] | [object:label] by [object:owner] has been ingested as [object:id].\r\nDate created: [object:createdDate]\r\nSubmission: [site:url]\/islandora\/object\/[object:id]\r\n\r\nDebugging: \u0022DataStream Modified\u0022 Rule",
+          "from" : "No_Reply@utk.edu"
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "rules_new_datastream_was_added" : {
+    "LABEL" : "Email: New Datastream was added",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "islandora" ],
+    "ON" : { "islandora_datastream_ingested" : [] },
+    "IF" : [
+      { "text_matches" : { "text" : [ "datastream:id" ], "match" : "PDF" } },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:id" ],
+              "match" : "utk.ir.td",
+              "operation" : "starts"
+            }
+          }
+        ]
+      },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
+              "operation" : "starts"
+            }
+          }
+        ]
+      }
+    ],
+    "DO" : [
+      { "mail_to_users_of_role" : {
+          "roles" : { "value" : { "6" : "6" } },
+          "subject" : "[[site:name]] \u0022[object:label]\u0022 has a new datastream",
+          "message" : "[object:label] by [object:owner] has been ingested as [object:id].\r\nDate created: [object:createdDate]\r\nSubmission: [site:url]\/islandora\/object\/[object:id]\r\n\r\nDatastream [datastream:label]\r\nAdded : [datastream:id]\r\n\r\nDebugging: New Datastream was added Rule",
+          "from" : "NO_REPLY@utk.edu"
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "rules_trace_publishing_workflow_for_nontd" : {
+    "LABEL" : "Trace Publishing Workflow for Non TD Submissions",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "trace_ext_workflow", "islandora" ],
+    "ON" : { "islandora_object_ingested" : [] },
+    "IF" : [
+      { "NOT text_matches" : {
+          "text" : [ "object:id" ],
+          "match" : "utk.ir.td",
+          "operation" : "starts"
+        }
+      }
+    ],
+    "DO" : [
+      { "trace_ext_workflow_rules_object_policy_add" : {
+          "USING" : { "object" : [ "object" ] },
+          "PROVIDE" : { "datastream" : { "datastream" : "Loaded datastream instance" } }
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "rules_trace_publishing_workflow_email_notification" : {
+    "LABEL" : "Email: Trace Publishing Workflow Email Notification",
+    "PLUGIN" : "reaction rule",
+    "WEIGHT" : "10",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "islandora" ],
+    "ON" : { "islandora_object_ingested" : [] },
+    "IF" : [
+      { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "bdysonsm" } },
+      { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "comyn7" } },
+      { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "mbagget1" } },
+      { "NOT text_matches" : { "text" : [ "object:owner" ], "match" : "rwaltz" } },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:id" ],
+              "match" : "utk.ir.td",
+              "operation" : "starts"
+            }
+          }
+        ]
+      },
+      { "AND" : [
+          { "text_matches" : {
+              "text" : [ "object:state" ],
+              "match" : "I",
+              "operation" : "starts"
+            }
+          }
+        ]
+      }
+     
+    ],
+    "DO" : [
+      { "mail_to_users_of_role" : {
+          "roles" : { "value" : { "6" : "6" } },
+          "subject" : "[[site:name]] \u0022[object:label]\u0022 has been ingested",
+          "message" : "[object:label] by [object:owner] has been ingested as [object:id].\r\nDate created: [object:createdDate]\r\nSubmission: [site:url]\/islandora\/object\/[object:id]\r\n\r\nFor Debugging: Trace Publishing Workflow",
+          "from" : "No_Reply@utk.edu"
+        }
+      },
+      { "mail" : {
+          "to" : "[object:owner]@vols.utk.edu",
+          "subject" : "TRACE Submission",
+          "message" : "Hello [object:owner],\r\n[object:label] [object:createdDate]\r\nPlease go to https:\/\/trace.utk.edu\/user for updates. ",
+          "from" : "No_Reply@utk.edu",
+          "language" : [ "" ]
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+{ "rules_trace_publishing_workflow_for_td_submissions" : {
+    "LABEL" : "Trace Publishing Workflow For for TD Submissions",
+    "PLUGIN" : "reaction rule",
+    "WEIGHT" : "9",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "trace_ext_workflow", "islandora" ],
+    "ON" : { "islandora_object_ingested" : [] },
+    "IF" : [
+      { "text_matches" : {
+          "text" : [ "object:id" ],
+          "match" : "utk.ir.td",
+          "operation" : "starts"
+        }
+      }
+    ],
+    "DO" : [
+      { "trace_ext_workflow_rules_object_policy_add" : {
+          "USING" : { "object" : [ "object" ] },
+          "PROVIDE" : { "datastream" : { "datastream" : "Loaded datastream instance" } }
+        }
+      }
+    ]
+  }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
