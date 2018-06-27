@@ -44,7 +44,7 @@ drush -r "$DRUPAL_HOME" user-add-role 'authUser-role' authUser,userA,userB
 cd "$DRUPAL_HOME"/sites/all/modules || exit
 git clone https://github.com/pc37utn/utk_reflector
 #---------------------------------------
-# change to brang TRAC-849
+# change to branch TRAC-849
 #---------------------------------------
 cd utk_reflector
 git fetch
