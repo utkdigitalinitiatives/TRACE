@@ -71,7 +71,7 @@ $home_body =  <<<HOME_BODY
                     Preserve your work long-term.
                 </li>
                 <li>
-		                <a href="http://localhost:8000/iby">Find latest publications! Search by date across all Collections.</a>
+		                <a href="/iby">Find latest publications! Search by date across all Collections.</a>
 		            </li>
             </ul>
 HOME_BODY;
