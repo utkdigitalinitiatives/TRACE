@@ -1,5 +1,10 @@
 # TRACE [![Build Status](https://travis-ci.org/utkdigitalinitiatives/TRACE.svg?branch=master)](https://travis-ci.org/utkdigitalinitiatives/TRACE)
-<description>Trace is a University of Tennessee digital archive that showcases and preserves published and unpublished works by faculty, departments, programs, research ...</description>
+<description>
+October 19, 2018
+
+TRACE(halloween) is a branch created by chd from TRACE(master).
+
+Trace is a University of Tennessee digital archive that showcases and preserves published and unpublished works by faculty, departments, programs, research ...</description>
 
 TRAC-1029e to install code to satisfy JIRA Ticket TRAC-1029.
 

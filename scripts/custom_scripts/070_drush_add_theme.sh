@@ -7,6 +7,7 @@ if [ -f "/etc/centos-release" ]; then
   OS="centos"
   APACHEGROUP="apache"
 fi
+echo "start 070_drush_add_theme.sh *****************************************************************************"
 echo "drush enable theme"
 # Set permissions /sites/all/themes
 sudo chown -hR vagrant:"$APACHEGROUP" "$DRUPAL_HOME"/sites/all/themes
@@ -64,3 +65,4 @@ drush vset devel_rebuild_theme_registry 1
 
 # Fix Admin menu
 drush -y vset admin_menu_margin_top 1
+echo "end 070_drush_add_theme.sh *****************************************************************************"
