@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = $hostname
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "utkdigitalinitiatives/TRACE"
-  config.vm.box = "TRACE"
+  #config.vm.box = "TRACE"
   #config.vm.box = "c7vbb"
 
   # config.vm.box_url = "http://dlwork.lib.utk.edu/vboxes/u14plus.json"
