@@ -7,13 +7,13 @@ if [ ! -d "$HOME_DIR"/sample_data ]; then
   mkdir sample_data || exit
   chown -hR vagrant:vagrant sample_data
   cd sample_data || exit
-  curl -s -O http://dlwork.lib.utk.edu/trace_sample_data/trace_sample_data.tar.gz
+  curl -s -O http://dlwork.lib.utk.edu/vboxes/trace_sample_data.tar.gz
   tar -xvzf trace_sample_data.tar.gz
 else
   cd sample_data || exit
   echo "Updating Example Thesis Records"
   chown -hR vagrant:vagrant sample_data
-  curl -s -O http://dlwork.lib.utk.edu/trace_sample_data/trace_sample_data.tar.gz
+  curl -s -O http://dlwork.lib.utk.edu/vboxes/trace_sample_data.tar.gz
   tar -xvzf trace_sample_data.tar.gz
 fi
 
