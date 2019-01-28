@@ -171,7 +171,7 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
     ],
     "DO" : [
       { "mail" : {
-          "to" : "[object:owner]@vols.utk.edu",
+          "to" : "[object:owner]@tennessee.edu",
           "subject" : "TRACE Submission Update Received ",
           "message" : "Your [datastream:label] was recently updated. Your community manager will be notified. ",
           "from" : "NO_Reply@utk.edu",
@@ -299,7 +299,7 @@ Click on the button import rule. For each entry below, cut and paste the rule, b
         }
       },
       { "mail" : {
-          "to" : "[object:owner]@vols.utk.edu",
+          "to" : "[object:owner]@tennessee.edu",
           "subject" : "TRACE Submission",
           "message" : "Hello [object:owner],\r\n[object:label] [object:createdDate]\r\nPlease go to https:\/\/trace.utk.edu\/user for updates. ",
           "from" : "No_Reply@utk.edu",
