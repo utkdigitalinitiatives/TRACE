@@ -12,6 +12,6 @@ sudo drush cache-clear drush
  drush -v colorbox-plugin
  drush -v openseadragon-plugin
  drush -v -y en islandora_openseadragon
-
+ drush -v -y en redirect
 # After last drush call from root user, change cache permissions
 # sudo chown -R $USER "$HOME_DIR"/.drush
